@@ -376,6 +376,11 @@
   }
   .accent-swatch:active{ transform:scale(.88); }
   .accent-swatch.selected{ border-color:#fff; box-shadow:0 0 0 3px rgba(0,0,0,.18), var(--glass-shadow); }
+  .sync-dot{
+    position:absolute; top:6px; right:6px; width:8px; height:8px; border-radius:50%;
+    background:transparent; transition:background .2s ease;
+  }
+  .sync-dot.dirty{ background:var(--cat-krank); box-shadow:0 0 0 2px var(--surface); }
 
   textarea.note-area{
     width:100%; min-height:150px; border-radius:20px; border:1px solid var(--glass-border); background:var(--glass-bg);
@@ -629,9 +634,15 @@
       <span class="eyebrow">Stundennachweis</span>
       <h1 id="header-title">Heute</h1>
     </div>
-    <button class="icon-btn" id="hamburger-btn" title="Menü">
-      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-    </button>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <button class="icon-btn" id="sync-btn" title="Synchronisieren" style="position:relative;">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1l4 4-4 4"/><path d="M3 12.1a9 9 0 0 1 15-6.7l3-.3"/><path d="M7 21.9l-4-4 4-4"/><path d="M21 11.9a9 9 0 0 1-15 6.7l-3 .3"/></svg>
+        <span id="sync-dot" class="sync-dot"></span>
+      </button>
+      <button class="icon-btn" id="hamburger-btn" title="Menü">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
   </header>
 
   <main id="view-container"></main>
@@ -652,10 +663,8 @@
   <div class="menu-overlay" id="menu-sub-overlay">
     <div class="menu-drawer" id="menu-sub-drawer">
       <div class="menu-drawer-header">
-        <button class="close-x" id="menu-sub-back" title="Zurück">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
-        <div class="menu-drawer-title" id="menu-sub-title" style="text-align:right;">Details</div>
+        <div class="menu-drawer-title" id="menu-sub-title" style="text-align:left;">Details</div>
+        <button class="close-x" id="menu-sub-back" title="Schließen">✕</button>
       </div>
       <div class="menu-drawer-body" id="menu-sub-body"></div>
     </div>
@@ -827,64 +836,256 @@
     return (Math.round(n*10)/10).toString().replace(".",",");
   }
 
-  async function saveEntries(){
+  /* ================= Zentrale Datenhaltung über JSON-Datei ================= */
+  let fileHandle = null;       // FileSystemFileHandle (Chrome/Edge), wenn eine Datei verbunden ist
+  let syncMode = null;         // 'local-fs' | 'github' | null
+  const GITHUB_OWNER = "Sipe99";
+  const GITHUB_REPO = "asdfasdf";
+  const GITHUB_BRANCH = "main";
+  const GITHUB_FOLDER = "saves";
+  let githubToken = null;      // nur im Arbeitsspeicher – wird nie gespeichert
+  let lastSyncTime = null;     // ISO-Zeitstempel der letzten erfolgreichen Synchronisierung
+  let hasUnsavedChanges = false;
+  const FS_ACCESS_SUPPORTED = typeof window.showOpenFilePicker === "function";
+
+  function collectAllData(){
+    return {
+      entries, categories:CATS, sites:SITES, siteOrder:SITE_ORDER, trades:TRADES, selectedTrade,
+      dietTypes:DIET_TYPES, wageCategories:WAGE_CATEGORIES, selectedWage, dietSchedule:DIET_SCHEDULE,
+      defaultHours:DEFAULT_HOURS, appSettings:APP_SETTINGS, savedAt:new Date().toISOString()
+    };
+  }
+  function applyAllData(data){
+    if(!data || typeof data !== "object") return;
+    if(data.entries) entries = data.entries;
+    if(data.categories) CATS = data.categories;
+    if(data.sites) SITES = data.sites;
+    if(data.siteOrder) SITE_ORDER = data.siteOrder;
+    if(data.trades) TRADES = data.trades;
+    if(data.selectedTrade) selectedTrade = data.selectedTrade;
+    if(data.dietTypes) DIET_TYPES = data.dietTypes;
+    if(data.wageCategories) WAGE_CATEGORIES = data.wageCategories;
+    if(data.selectedWage) selectedWage = data.selectedWage;
+    if(data.dietSchedule) DIET_SCHEDULE = data.dietSchedule;
+    if(data.defaultHours) DEFAULT_HOURS = data.defaultHours;
+    if(data.appSettings) APP_SETTINGS = Object.assign({}, APP_SETTINGS, data.appSettings);
+    lastSyncTime = data.savedAt || new Date().toISOString();
+    hasUnsavedChanges = false;
+  }
+  async function writeDataToHandle(){
+    if(!fileHandle) return false;
     try{
-      await window.storage.set(STORAGE_KEY, JSON.stringify(entries), false);
-    }catch(e){ console.error("Speichern fehlgeschlagen", e); }
+      const writable = await fileHandle.createWritable();
+      const data = collectAllData();
+      await writable.write(JSON.stringify(data, null, 2));
+      await writable.close();
+      lastSyncTime = data.savedAt;
+      hasUnsavedChanges = false;
+      updateSyncStatusUI();
+      return true;
+    }catch(e){ console.error("Datei schreiben fehlgeschlagen", e); return false; }
   }
-  async function loadEntries(){
+  async function readDataFromHandle(){
+    if(!fileHandle) return false;
     try{
-      const res = await window.storage.get(STORAGE_KEY, false);
-      if(res && res.value){ entries = JSON.parse(res.value); return; }
-    }catch(e){ /* kein Eintrag vorhanden */ }
-    seedDemoData();
-    await saveEntries();
+      const file = await fileHandle.getFile();
+      const text = await file.text();
+      if(text && text.trim()){ applyAllData(JSON.parse(text)); }
+      updateSyncStatusUI();
+      return true;
+    }catch(e){ console.error("Datei lesen fehlgeschlagen", e); return false; }
   }
-  async function loadTheme(){
+  function updateSyncStatusUI(){
+    if(typeof refreshMenuComputes === "function") refreshMenuComputes();
+    const dot = document.getElementById("sync-dot");
+    if(dot) dot.classList.toggle("dirty", hasUnsavedChanges);
+  }
+  function formatSyncTime(){
+    if(!lastSyncTime) return "Noch nicht synchronisiert";
+    const d = new Date(lastSyncTime);
+    const src = syncMode==="github" ? " · GitHub" : syncMode==="local-fs" ? " · lokale Datei" : "";
+    return `Zuletzt synchronisiert: ${d.toLocaleDateString('de-DE')} ${d.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})}${src}`;
+  }
+  // Wird von jeder saveX()-Funktion aufgerufen: aktualisiert den Zustand und schreibt
+  // automatisch in die verbundene Datei, sofern eine gebunden ist (File System Access API).
+  async function persistData(){
+    hasUnsavedChanges = true;
+    if(fileHandle){ await writeDataToHandle(); }
+    updateSyncStatusUI();
+  }
+  function downloadDataFile(){
+    const data = collectAllData();
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type:"application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url; a.download = "stundennachweis-daten.json";
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url), 10000);
+    lastSyncTime = data.savedAt;
+    hasUnsavedChanges = false;
+    updateSyncStatusUI();
+    showToast("Datei wird heruntergeladen");
+  }
+  function uploadDataFile(){
+    const input = document.createElement("input");
+    input.type = "file"; input.accept = "application/json";
+    input.onchange = async ()=>{
+      const file = input.files[0];
+      if(!file) return;
+      try{
+        const text = await file.text();
+        applyAllData(JSON.parse(text));
+        render();
+        updateSyncStatusUI();
+        showToast("Daten geladen");
+      }catch(err){ showToast("Datei konnte nicht gelesen werden"); }
+    };
+    input.click();
+  }
+  async function syncNow(){
+    if(syncMode==="local-fs" && FS_ACCESS_SUPPORTED && fileHandle){
+      await readDataFromHandle();
+      await writeDataToHandle();
+      render();
+      showToast("Synchronisiert");
+      return;
+    }
+    if(syncMode==="github" && githubToken){
+      await githubSyncNow();
+      return;
+    }
+    openSyncChooser();
+  }
+
+  /* ---------- GitHub-Sync (Ordner „saves/" im Repo) ---------- */
+  function toBase64Utf8(str){ return btoa(unescape(encodeURIComponent(str))); }
+  async function githubListSaves(){
+    const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FOLDER}?ref=${GITHUB_BRANCH}`;
+    const headers = { Accept:"application/vnd.github+json" };
+    if(githubToken) headers.Authorization = `Bearer ${githubToken}`;
+    const res = await fetch(url, { headers });
+    if(res.status === 404) return []; // Ordner existiert noch nicht
+    if(!res.ok) throw new Error("GitHub-Liste fehlgeschlagen (" + res.status + ")");
+    const list = await res.json();
+    return Array.isArray(list) ? list.filter(f=>f.type==="file" && f.name.endsWith(".json")) : [];
+  }
+  async function githubLoadLatest(){
+    const files = await githubListSaves();
+    if(!files.length) return false;
+    files.sort((a,b)=> a.name < b.name ? -1 : 1);
+    const latest = files[files.length-1];
+    const res = await fetch(latest.download_url);
+    if(!res.ok) throw new Error("Datei laden fehlgeschlagen");
+    const text = await res.text();
+    applyAllData(JSON.parse(text));
+    return true;
+  }
+  async function githubSaveNew(){
+    if(!githubToken) throw new Error("Kein Token");
+    const data = collectAllData();
+    const ts = data.savedAt.replace(/[:.]/g,"-");
+    const path = `${GITHUB_FOLDER}/stundennachweis-${ts}.json`;
+    const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${path}`;
+    const body = {
+      message: `Stundennachweis-Sync ${ts}`,
+      content: toBase64Utf8(JSON.stringify(data, null, 2)),
+      branch: GITHUB_BRANCH
+    };
+    const res = await fetch(url, {
+      method:"PUT",
+      headers:{ Authorization:`Bearer ${githubToken}`, Accept:"application/vnd.github+json", "Content-Type":"application/json" },
+      body: JSON.stringify(body)
+    });
+    if(!res.ok){ const err = await res.text().catch(()=> ""); console.error(err); throw new Error("GitHub-Speichern fehlgeschlagen (" + res.status + ")"); }
+    lastSyncTime = data.savedAt;
+    hasUnsavedChanges = false;
+    updateSyncStatusUI();
+  }
+  async function githubSyncNow(){
     try{
-      const res = await window.storage.get(THEME_KEY, false);
-      if(res && res.value === "dark"){ document.body.classList.add("dark"); }
-    }catch(e){}
+      await githubLoadLatest();          // neuesten Stand aus dem Repo übernehmen
+      await githubSaveNew();             // aktuellen Stand als neue Datei sichern
+      syncMode = "github";
+      render();
+      showToast("Mit GitHub synchronisiert");
+    }catch(e){
+      console.error(e);
+      showToast("GitHub-Sync fehlgeschlagen – Token/Rechte prüfen");
+    }
   }
-  async function loadCategories(){
-    try{
-      const res = await window.storage.get(CATEGORIES_KEY, false);
-      if(res && res.value){ CATS = JSON.parse(res.value); return; }
-    }catch(e){ /* noch keine gespeicherten Kategorien */ }
-    await saveCategories();
+  function openSyncChooser(){
+    const html = `
+      <div style="font-size:12px; color:var(--text-soft); margin-bottom:14px; line-height:1.5;">
+        ${FS_ACCESS_SUPPORTED
+          ? "Verbinde eine JSON-Datei – die App liest und speichert danach automatisch in diese Datei, solange dieser Tab geöffnet bleibt."
+          : "Dein Browser unterstützt kein automatisches Speichern in eine lokale Datei (nur Chrome/Edge). Lade deine Daten stattdessen herunter bzw. hoch."}
+      </div>
+      ${FS_ACCESS_SUPPORTED ? `
+        <button class="secondary-btn" id="sync-open-existing" style="margin-top:0; margin-bottom:10px;">Vorhandene Datei öffnen</button>
+        <button class="secondary-btn" id="sync-create-new" style="margin-top:0; margin-bottom:10px;">Neue Datei erstellen</button>
+        <button class="secondary-btn" id="sync-download" style="margin-top:0; margin-bottom:16px;">Stattdessen herunterladen</button>
+      ` : `
+        <button class="secondary-btn" id="sync-download" style="margin-top:0; margin-bottom:10px;">Daten herunterladen</button>
+        <button class="secondary-btn" id="sync-upload" style="margin-top:0; margin-bottom:16px;">Daten hochladen</button>
+      `}
+
+      <label class="field-label">GitHub-Repository</label>
+      <div style="font-size:11.5px; color:var(--text-soft); margin-bottom:10px; line-height:1.5;">
+        ${GITHUB_OWNER}/${GITHUB_REPO} · Ordner „${GITHUB_FOLDER}/" · Branch ${GITHUB_BRANCH}. Jede Synchronisierung legt dort eine neue Datei an, geladen wird immer die zuletzt gespeicherte.
+      </div>
+      <input type="password" id="github-token-input" placeholder="GitHub Personal Access Token" style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-size:13px; margin-bottom:6px;" />
+      <div style="font-size:10.5px; color:var(--text-soft); margin-bottom:12px; line-height:1.5;">
+        Wird nur im Arbeitsspeicher gehalten, nie gespeichert – nach einem Neuladen der Seite erneut eingeben. Am besten ein „Fine-grained Token" nur für dieses Repo mit Berechtigung „Contents: Read and write" verwenden.
+      </div>
+      <button class="primary-btn" id="github-sync-btn" style="margin-top:0;">Mit GitHub synchronisieren</button>
+    `;
+    openMenuSub("Synchronisierung", html);
+    if(FS_ACCESS_SUPPORTED){
+      document.getElementById("sync-open-existing").onclick = async ()=>{
+        try{
+          const [handle] = await window.showOpenFilePicker({ types:[{ description:"JSON", accept:{ "application/json":[".json"] } }] });
+          fileHandle = handle;
+          syncMode = "local-fs";
+          await readDataFromHandle();
+          render();
+          closeMenuSub();
+          showToast("Datei verbunden – wird ab jetzt automatisch synchronisiert");
+        }catch(e){ /* Nutzer hat abgebrochen */ }
+      };
+      document.getElementById("sync-create-new").onclick = async ()=>{
+        try{
+          const handle = await window.showSaveFilePicker({ suggestedName:"stundennachweis-daten.json", types:[{ description:"JSON", accept:{ "application/json":[".json"] } }] });
+          fileHandle = handle;
+          syncMode = "local-fs";
+          await writeDataToHandle();
+          closeMenuSub();
+          showToast("Neue Datei erstellt – wird ab jetzt automatisch synchronisiert");
+        }catch(e){ /* Nutzer hat abgebrochen */ }
+      };
+      document.getElementById("sync-download").onclick = ()=>{ downloadDataFile(); closeMenuSub(); };
+    }else{
+      document.getElementById("sync-download").onclick = ()=>{ downloadDataFile(); closeMenuSub(); };
+      document.getElementById("sync-upload").onclick = ()=>{ uploadDataFile(); closeMenuSub(); };
+    }
+    document.getElementById("github-sync-btn").onclick = async ()=>{
+      const tokenInput = document.getElementById("github-token-input").value.trim();
+      if(!tokenInput){ showToast("Bitte ein GitHub-Token eingeben"); return; }
+      githubToken = tokenInput;
+      await githubSyncNow();
+      closeMenuSub();
+    };
   }
-  async function saveCategories(){
-    try{ await window.storage.set(CATEGORIES_KEY, JSON.stringify(CATS), false); }catch(e){ console.error("Kategorien speichern fehlgeschlagen", e); }
-  }
-  async function loadDefaultHours(){
-    try{
-      const res = await window.storage.get(DEFAULT_HOURS_KEY, false);
-      if(res && res.value){ DEFAULT_HOURS = JSON.parse(res.value); return; }
-    }catch(e){ /* noch keine gespeicherten Standardzeiten */ }
-    await saveDefaultHours();
-  }
-  async function saveDefaultHours(){
-    try{ await window.storage.set(DEFAULT_HOURS_KEY, JSON.stringify(DEFAULT_HOURS), false); }catch(e){ console.error("Standard-Arbeitszeiten speichern fehlgeschlagen", e); }
-  }
-  async function loadSites(){
-    try{
-      const res = await window.storage.get(SITES_KEY, false);
-      if(res && res.value){ SITES = JSON.parse(res.value); return; }
-    }catch(e){ /* noch keine gespeicherten Baustellen */ }
-    await saveSites();
-  }
-  async function saveSites(){
-    try{ await window.storage.set(SITES_KEY, JSON.stringify(SITES), false); }catch(e){ console.error("Baustellen speichern fehlgeschlagen", e); }
-  }
-  async function loadSiteOrder(){
-    try{
-      const res = await window.storage.get(SITE_ORDER_KEY, false);
-      if(res && res.value){ SITE_ORDER = JSON.parse(res.value); return; }
-    }catch(e){ /* noch keine gespeicherte Reihenfolge */ }
-  }
-  async function saveSiteOrder(){
-    try{ await window.storage.set(SITE_ORDER_KEY, JSON.stringify(SITE_ORDER), false); }catch(e){ console.error("Baustellen-Reihenfolge speichern fehlgeschlagen", e); }
-  }
+
+  async function saveEntries(){ await persistData(); }
+  async function loadEntries(){ /* Daten kommen zentral über die JSON-Datei (siehe syncNow) */ }
+  async function loadCategories(){ /* Daten kommen zentral über die JSON-Datei (siehe syncNow) */ }
+  async function saveCategories(){ await persistData(); }
+  async function loadDefaultHours(){ /* siehe syncNow */ }
+  async function saveDefaultHours(){ await persistData(); }
+  async function loadSites(){ /* siehe syncNow */ }
+  async function saveSites(){ await persistData(); }
+  async function loadSiteOrder(){ /* siehe syncNow */ }
+  async function saveSiteOrder(){ await persistData(); }
   function getOrderedSiteKeys(){
     const allKeys = Object.keys(SITES);
     const ordered = SITE_ORDER.filter(k=>allKeys.includes(k));
@@ -913,85 +1114,36 @@
     return amount;
   }
 
-  async function loadTrades(){
-    try{
-      const res = await window.storage.get(TRADES_KEY, false);
-      if(res && res.value){ TRADES = JSON.parse(res.value); return; }
-    }catch(e){ /* noch keine gespeicherten Gewerbe */ }
-    await saveTrades();
-  }
-  async function saveTrades(){
-    try{ await window.storage.set(TRADES_KEY, JSON.stringify(TRADES), false); }catch(e){ console.error("Gewerbe speichern fehlgeschlagen", e); }
-  }
-  async function loadSelectedTrade(){
-    try{
-      const res = await window.storage.get(SELECTED_TRADE_KEY, false);
-      if(res && res.value && TRADES[res.value]){ selectedTrade = res.value; return; }
-    }catch(e){ /* noch nicht gesetzt */ }
-    await saveSelectedTrade();
-  }
-  async function saveSelectedTrade(){
-    try{ await window.storage.set(SELECTED_TRADE_KEY, selectedTrade, false); }catch(e){ console.error("Gewerbe-Auswahl speichern fehlgeschlagen", e); }
-  }
+  async function loadTrades(){ /* siehe syncNow */ }
+  async function saveTrades(){ await persistData(); }
+  async function loadSelectedTrade(){ /* siehe syncNow */ }
+  async function saveSelectedTrade(){ await persistData(); }
   function updateHeaderTrade(){
     const hoursEl = document.getElementById("header-trade-hours");
     const labelEl = document.getElementById("header-trade-label");
     if(hoursEl) hoursEl.textContent = fmtH(TRADES[selectedTrade]?.hours || 39);
     if(labelEl) labelEl.textContent = TRADES[selectedTrade]?.label || "Baugewerbe";
   }
-  async function loadDietTypes(){
-    try{
-      const res = await window.storage.get(DIET_TYPES_KEY, false);
-      if(res && res.value){ DIET_TYPES = JSON.parse(res.value); return; }
-    }catch(e){ /* noch keine gespeicherten Diäten-Arten */ }
-    await saveDietTypes();
-  }
-  async function saveDietTypes(){
-    try{ await window.storage.set(DIET_TYPES_KEY, JSON.stringify(DIET_TYPES), false); }catch(e){ console.error("Diäten-Arten speichern fehlgeschlagen", e); }
-  }
-  async function loadWageCategories(){
-    try{
-      const res = await window.storage.get(WAGE_KEY, false);
-      if(res && res.value){ WAGE_CATEGORIES = JSON.parse(res.value); return; }
-    }catch(e){ /* noch keine gespeicherten Lohnkategorien */ }
-    await saveWageCategories();
-  }
-  async function saveWageCategories(){
-    try{ await window.storage.set(WAGE_KEY, JSON.stringify(WAGE_CATEGORIES), false); }catch(e){ console.error("Lohnkategorien speichern fehlgeschlagen", e); }
-  }
-  async function loadSelectedWage(){
-    try{
-      const res = await window.storage.get(SELECTED_WAGE_KEY, false);
-      if(res && res.value && WAGE_CATEGORIES[res.value]){ selectedWage = res.value; return; }
-    }catch(e){ /* noch nicht gesetzt */ }
-    await saveSelectedWage();
-  }
-  async function saveSelectedWage(){
-    try{ await window.storage.set(SELECTED_WAGE_KEY, selectedWage, false); }catch(e){ console.error("Lohnkategorie-Auswahl speichern fehlgeschlagen", e); }
-  }
+  async function loadDietTypes(){ /* siehe syncNow */ }
+  async function saveDietTypes(){ await persistData(); }
+  async function loadWageCategories(){ /* siehe syncNow */ }
+  async function saveWageCategories(){ await persistData(); }
+  async function loadSelectedWage(){ /* siehe syncNow */ }
+  async function saveSelectedWage(){ await persistData(); }
   function updateHeaderWage(){
     const rateEl = document.getElementById("header-wage-rate");
     const labelEl = document.getElementById("header-wage-label");
     if(rateEl) rateEl.textContent = (WAGE_CATEGORIES[selectedWage]?.rate ?? 19.99).toFixed(2).replace('.',',');
     if(labelEl) labelEl.textContent = WAGE_CATEGORIES[selectedWage]?.label || "Facharbeiter";
   }
-  async function loadDietSchedule(){
-    try{
-      const res = await window.storage.get(DIET_SCHEDULE_KEY, false);
-      if(res && res.value){ DIET_SCHEDULE = JSON.parse(res.value); return; }
-    }catch(e){ /* noch nicht gesetzt */ }
-    await saveDietSchedule();
-  }
-  async function saveDietSchedule(){
-    try{ await window.storage.set(DIET_SCHEDULE_KEY, JSON.stringify(DIET_SCHEDULE), false); }catch(e){ console.error("Diäten-Zeitplan speichern fehlgeschlagen", e); }
-  }
+  async function loadDietSchedule(){ /* siehe syncNow */ }
+  async function saveDietSchedule(){ await persistData(); }
   function dietAppliesOnDay(type, weekdayIdx){
     const sched = DIET_SCHEDULE[type];
     return !!(sched && sched.enabled && sched.days[weekdayIdx]);
   }
   async function toggleTheme(){
     document.body.classList.toggle("dark");
-    try{ await window.storage.set(THEME_KEY, document.body.classList.contains("dark") ? "dark":"light", false); }catch(e){}
   }
 
   function seedDemoData(){
@@ -2883,6 +3035,7 @@
   }
 
   document.getElementById("hamburger-btn").onclick = openMenu;
+  document.getElementById("sync-btn").onclick = syncNow;
   document.getElementById("menu-close").onclick = closeMenu;
   document.getElementById("menu-overlay").addEventListener("click", (e)=>{ if(e.target.id==="menu-overlay") closeMenu(); });
   document.getElementById("menu-sub-back").onclick = closeMenuSub;
@@ -2891,7 +3044,7 @@
   function enableSwipeToClose(drawerEl, closeFn){
     let startX = null, dx = 0, dragging = false;
     drawerEl.addEventListener("pointerdown", (e)=>{
-      if(e.target.closest("input, textarea, select, .menu-cat-items, .menu-drawer-body")) return;
+      if(e.target.closest("input, textarea, select, button, a, .menu-cat-items, .menu-drawer-body")) return;
       startX = e.clientX; dx = 0; dragging = true;
       drawerEl.style.transition = "none";
       try{ drawerEl.setPointerCapture(e.pointerId); }catch(err){}
@@ -2914,50 +3067,7 @@
   enableSwipeToClose(document.getElementById("menu-drawer"), closeMenu);
   enableSwipeToClose(document.getElementById("menu-sub-drawer"), closeMenuSub);
 
-  const BULK_PATCH_KEY = "zeiterfassung:patch-mo-do-7-12-13-18";
-  async function applyRequestedBulkEntries(){
-    try{
-      const check = await window.storage.get(BULK_PATCH_KEY, false);
-      if(check && check.value === "done") return;
-    }catch(e){ /* noch nicht gesetzt, also anwenden */ }
-    const week = weekRange(new Date());
-    for(let i=0;i<4;i++){ // Montag bis Donnerstag
-      const dt = dstr(week[i]);
-      const existing = entries[dt];
-      entries[dt] = {
-        blocks: [{start:"07:00", end:"12:00"},{start:"13:00", end:"18:00"}],
-        category: existing ? existing.category : "",
-        note: existing ? existing.note : ""
-      };
-    }
-    await saveEntries();
-    try{ await window.storage.set(BULK_PATCH_KEY, "done", false); }catch(e){}
-  }
-
-  const CLEAR_ALL_PATCH_KEY = "zeiterfassung:patch-clear-all-1";
-  const DIET_RATES_PATCH_KEY = "zeiterfassung:patch-diet-rates-1";
-  async function applyDietRatesPatch(){
-    try{
-      const check = await window.storage.get(DIET_RATES_PATCH_KEY, false);
-      if(check && check.value === "done") return;
-    }catch(e){ /* noch nicht angewendet */ }
-    if(!TRADES.bau) TRADES.bau = { label:"Baugewerbe", hours:39 };
-    TRADES.bau.diets = { naechtigung:30, tagesdiaet:[{minHours:5, amount:13.20},{minHours:9, amount:22}] };
-    await saveTrades();
-    try{ await window.storage.set(DIET_RATES_PATCH_KEY, "done", false); }catch(e){}
-  }
-  async function applyClearAllPatch(){
-    try{
-      const check = await window.storage.get(CLEAR_ALL_PATCH_KEY, false);
-      if(check && check.value === "done") return;
-    }catch(e){ /* noch nicht angewendet */ }
-    entries = {};
-    await saveEntries();
-    try{ await window.storage.set(CLEAR_ALL_PATCH_KEY, "done", false); }catch(e){}
-  }
-
   /* ================= Hamburger-Menü / Einstellungen ================= */
-  const APP_SETTINGS_KEY = "zeiterfassung:app-settings";
   let APP_SETTINGS = {
     themeMode: "Hell", fontSize: "Standard", defaultTab: "Start",
     animationsEnabled: true, voiceEnabled: true, voiceLang: "Deutsch (AT)",
@@ -2966,16 +3076,8 @@
     icloudSync: false, remindEntry: false, remindBreak: false, remindStart: false, remindEnd: false,
     workModel: "Vollzeit"
   };
-  async function loadAppSettings(){
-    try{
-      const res = await window.storage.get(APP_SETTINGS_KEY, false);
-      if(res && res.value){ APP_SETTINGS = Object.assign({}, APP_SETTINGS, JSON.parse(res.value)); return; }
-    }catch(e){ /* noch keine gespeicherten Einstellungen */ }
-    await saveAppSettings();
-  }
-  async function saveAppSettings(){
-    try{ await window.storage.set(APP_SETTINGS_KEY, JSON.stringify(APP_SETTINGS), false); }catch(e){ console.error("Einstellungen speichern fehlgeschlagen", e); }
-  }
+  async function loadAppSettings(){ /* siehe syncNow */ }
+  async function saveAppSettings(){ await persistData(); }
   function shadeColor(hex, percent){
     hex = hex.replace('#','');
     const num = parseInt(hex,16);
@@ -3132,10 +3234,10 @@
         { id:"e-ende", label:"Erinnerung für Arbeitsende", type:"toggle", key:"remindEnd" },
     ]},
     { id:"daten", icon:"daten", title:"Daten", items:[
-        { id:"da-lokal", label:"Lokale Speicherung", type:"info", staticText:"Aktiv" },
-        { id:"da-icloud", label:"iCloud-Synchronisation", type:"toggle", key:"icloudSync" },
-        { id:"da-backup", label:"Backup erstellen", type:"action", action:"createBackup" },
-        { id:"da-restore", label:"Backup wiederherstellen", type:"action", action:"restoreBackup" },
+        { id:"da-status", label:"Status", type:"info", compute:"syncStatus" },
+        { id:"da-sync", label:"Jetzt synchronisieren", type:"action", action:"syncNowAction" },
+        { id:"da-backup", label:"Daten herunterladen", type:"action", action:"createBackup" },
+        { id:"da-restore", label:"Daten hochladen", type:"action", action:"restoreBackup" },
         { id:"da-pdf", label:"Export als PDF", type:"action", action:"exportPdf" },
         { id:"da-excel", label:"Export als Excel", type:"action", action:"exportExcel" },
         { id:"da-csv", label:"Export als CSV", type:"action", action:"exportCsv" },
@@ -3278,6 +3380,7 @@
   }
 
   const MENU_COMPUTES = {
+    syncStatus: ()=> formatSyncTime() + (hasUnsavedChanges ? " · ungespeicherte Änderungen" : ""),
     defaultSiteLabel: ()=> APP_SETTINGS.defaultSite ? siteLabel(APP_SETTINGS.defaultSite) : "Keine ausgewählt",
     sollMonat: ()=>{
       const weeklyHours = TRADES[selectedTrade]?.hours || 39;
@@ -3411,42 +3514,9 @@
         setTimeout(()=>{ try{ rec.stop(); }catch(e){} }, 4000);
       }catch(err){ showToast("Mikrofon-Test fehlgeschlagen"); }
     },
-    createBackup: async ()=>{
-      try{
-        const keys = ["zeiterfassung:entries","zeiterfassung:categories","zeiterfassung:sites","zeiterfassung:site-order","zeiterfassung:trades",
-          "zeiterfassung:selected-trade","zeiterfassung:diet-types","zeiterfassung:wage-categories","zeiterfassung:selected-wage",
-          "zeiterfassung:diet-schedule","zeiterfassung:default-hours","zeiterfassung:app-settings"];
-        const dump = {};
-        for(const k of keys){
-          try{ const res = await window.storage.get(k, false); if(res) dump[k] = res.value; }catch(e){}
-        }
-        const blob = new Blob([JSON.stringify(dump, null, 2)], { type:"application/json" });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url; a.download = "stundennachweis-backup.json";
-        document.body.appendChild(a); a.click(); a.remove();
-        setTimeout(()=>URL.revokeObjectURL(url), 10000);
-        showToast("Backup wird heruntergeladen");
-      }catch(err){ showToast("Backup fehlgeschlagen"); }
-    },
-    restoreBackup: ()=>{
-      const input = document.createElement("input");
-      input.type = "file"; input.accept = "application/json";
-      input.onchange = async ()=>{
-        const file = input.files[0];
-        if(!file) return;
-        try{
-          const text = await file.text();
-          const dump = JSON.parse(text);
-          for(const k of Object.keys(dump)){
-            try{ await window.storage.set(k, dump[k], false); }catch(e){}
-          }
-          showToast("Backup wiederhergestellt – lädt neu…");
-          setTimeout(()=>location.reload(), 1200);
-        }catch(err){ showToast("Backup konnte nicht gelesen werden"); }
-      };
-      input.click();
-    },
+    syncNowAction: ()=> syncNow(),
+    createBackup: ()=> downloadDataFile(),
+    restoreBackup: ()=> uploadDataFile(),
     exportPdf: ()=>{ closeMenu(); exportMonthPdf(monatCursor); },
     exportExcel: ()=>{
       const now = monatCursor || new Date();
@@ -3576,25 +3646,11 @@
   }
 
   (async function init(){
-    await loadAppSettings();
     applyAppSettings();
     restoreActiveReminders();
     const tabMap = { "Start":"dashboard", "Kalender":"kalender", "Woche":"woche", "Monat":"monat", "Suche":"suche" };
     activeTab = tabMap[APP_SETTINGS.defaultTab] || "dashboard";
-    await loadCategories();
-    await loadSites();
-    await loadSiteOrder();
-    await loadTrades();
-    await applyDietRatesPatch();
-    await loadSelectedTrade();
-    await loadDietTypes();
-    await loadWageCategories();
-    await loadSelectedWage();
-    await loadDietSchedule();
-    await loadDefaultHours();
-    await loadEntries();
-    await applyClearAllPatch();
-    await applyRequestedBulkEntries();
+    updateSyncStatusUI();
     render();
   })();
 })();
