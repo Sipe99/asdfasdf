@@ -770,10 +770,17 @@
 </head>
 <body style="--baustellenorange: #E8622C; --baustellenorange-dark: #bf3903;" class="font-standard">
 <div class="device">
-  
+  <div id="splash-screen" class="splash-screen">
+    <div class="splash-mark">
+      <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>
+    </div>
+    <div class="splash-title">Stundennachweis</div>
+    <div class="splash-status" id="splash-status">Bereit</div>
+    <div class="splash-spinner"></div>
+  </div>
   <header class="appbar">
     <div class="brand">
-      <span class="eyebrow">Stundennachweis <span id="app-version-badge" class="version-badge">· v0.1</span></span>
+      <span class="eyebrow">Stundennachweis <span id="app-version-badge" class="version-badge"></span></span>
       <h1 id="header-title">Startseite</h1>
     </div>
     <div style="display:flex; align-items:center; gap:8px;">
@@ -993,7 +1000,7 @@
     </div>
     </main>
 
-  <div class="menu-overlay open" id="menu-overlay">
+  <div class="menu-overlay" id="menu-overlay">
     <div class="menu-drawer" id="menu-drawer">
       <div class="menu-drawer-header">
         <div>
@@ -1141,7 +1148,7 @@
     </div>
   </div>
 
-  <div class="menu-overlay open" id="menu-sub-overlay">
+  <div class="menu-overlay" id="menu-sub-overlay">
     <div class="menu-drawer" id="menu-sub-drawer">
       <div class="menu-drawer-header">
         <div class="menu-drawer-title" id="menu-sub-title" style="text-align:left;">Update hochladen</div>
@@ -5540,7 +5547,14 @@
         btn.disabled = true;
         statusLine.textContent = "Aktuelle Version wird geprüft…";
         try{
+          const openOverlays = Array.from(document.querySelectorAll(".sheet-overlay.open, #menu-overlay.open, #menu-sub-overlay.open"));
+          openOverlays.forEach(el=>el.classList.remove("open"));
+          const splashEl = document.getElementById("splash-screen");
+          const splashWasHidden = splashEl && splashEl.classList.contains("hidden");
+          if(splashWasHidden) splashEl.classList.remove("hidden");
           const content = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+          openOverlays.forEach(el=>el.classList.add("open")); // sofort wiederherstellen, damit die Ansicht für dich offen bleibt
+          if(splashWasHidden) splashEl.classList.add("hidden");
           let sha = null;
           const getRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${encodeURI(path)}?ref=${encodeURIComponent(branch)}`, {
             headers:{ Authorization:`Bearer ${token}`, Accept:"application/vnd.github+json" }
@@ -5560,6 +5574,7 @@
 
           APP_SETTINGS.deployLastAt = new Date().toISOString();
           await saveAppSettings();
+          updateHeaderUpdateBadge();
           const pagesUrl = `https://${owner}.github.io/${repo}/`;
           statusLine.innerHTML = `✓ Update hochgeladen. In ca. 1 Minute live unter <a href="${pagesUrl}" target="_blank" rel="noopener" style="color:var(--baustellenorange);">${pagesUrl}</a>`;
           showToast("Update hochgeladen");
@@ -5737,12 +5752,27 @@
     openMenuSub(p.title, p.html);
   }
 
+  function formatTimeAgo(iso){
+    if(!iso) return "";
+    const then = new Date(iso);
+    const diffMin = Math.floor((Date.now() - then.getTime())/60000);
+    if(diffMin < 1) return "gerade eben aktualisiert";
+    if(diffMin < 60) return diffMin + " Min. her";
+    const diffH = Math.floor(diffMin/60);
+    const remMin = diffMin % 60;
+    if(diffH < 24) return diffH + " Std. " + remMin + " Min. her";
+    return then.toLocaleDateString('de-DE') + " " + then.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
+  }
+  function updateHeaderUpdateBadge(){
+    const badge = document.getElementById("app-version-badge");
+    if(!badge) return;
+    badge.textContent = APP_SETTINGS.deployLastAt ? ("· " + formatTimeAgo(APP_SETTINGS.deployLastAt)) : "";
+  }
+
   (async function init(){
     const splash = document.getElementById("splash-screen");
     const splashStatus = document.getElementById("splash-status");
     function setSplashStatus(text){ if(splashStatus) splashStatus.textContent = text; }
-    const versionBadge = document.getElementById("app-version-badge");
-    if(versionBadge) versionBadge.textContent = "· v" + APP_VERSION;
 
     applyAppSettings();
     restoreActiveReminders();
@@ -5783,10 +5813,11 @@
     refreshMissingPlzCodes().catch(e=>console.error(e));
     setSplashStatus("Bereit");
     updateSyncStatusUI();
+    updateHeaderUpdateBadge();
+    setInterval(updateHeaderUpdateBadge, 60000);
     render();
     if(splash){
       splash.classList.add("hidden");
-      setTimeout(()=>{ if(splash.parentNode) splash.parentNode.removeChild(splash); }, 500);
     }
   })();
 })();
