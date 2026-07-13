@@ -1522,6 +1522,23 @@
       updateSyncStatusUI();
     }, 1500);
   }
+  // Wie persistData(), aber wartet wirklich, bis die Cloud-Speicherung abgeschlossen ist –
+  // für wichtige Momente (z.B. nach einem Deploy), bei denen die 1,5-Sekunden-Bündelung
+  // dazu führen würde, dass ein sofortiges Neuladen noch den alten Stand sieht.
+  async function persistDataImmediate(){
+    hasUnsavedChanges = true;
+    if(persistDebounceTimer){ clearTimeout(persistDebounceTimer); persistDebounceTimer = null; }
+    if(syncMode==="local-fs" && fileHandle){
+      await writeDataToHandle();
+    }else if(syncMode==="dropbox" && dropboxToken){
+      try{ await dropboxSaveNew(); }catch(e){ console.error(e); }
+    }else if(syncMode==="google" && googleToken){
+      try{ await googleSaveNew(); }catch(e){ console.error(e); }
+    }else if(syncMode==="onedrive" && onedriveToken){
+      try{ await onedriveSaveNew(); }catch(e){ console.error(e); }
+    }
+    updateSyncStatusUI();
+  }
   function downloadDataFile(){
     const data = collectAllData();
     const blob = new Blob([JSON.stringify(data, null, 2)], { type:"application/json" });
@@ -5573,7 +5590,7 @@
           if(!putRes.ok){ const errText = await putRes.text().catch(()=>""); console.error(errText); throw new Error("Hochladen fehlgeschlagen (" + putRes.status + ")"); }
 
           APP_SETTINGS.deployLastAt = new Date().toISOString();
-          await saveAppSettings();
+          await persistDataImmediate();
           updateHeaderUpdateBadge();
           const pagesUrl = `https://${owner}.github.io/${repo}/`;
           statusLine.innerHTML = `✓ Update hochgeladen. In ca. 1 Minute live unter <a href="${pagesUrl}" target="_blank" rel="noopener" style="color:var(--baustellenorange);">${pagesUrl}</a>`;
