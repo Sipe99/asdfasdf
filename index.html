@@ -778,12 +778,12 @@
     </div>
     <div style="display:flex; align-items:center; gap:8px;">
       <div id="header-sync-status" style="text-align:right; line-height:1.2; cursor:pointer;">
-        <div id="header-sync-source" style="font-size:10.5px; font-weight:700; color:var(--text);">Nicht verbunden</div>
+        <div id="header-sync-source" style="font-size:10.5px; font-weight:700; color:var(--text);">Nicht verbunden •</div>
         <div id="header-sync-time" style="font-size:9px; color:var(--text-soft);">Noch nie synchronisiert</div>
       </div>
       <button class="icon-btn" id="sync-btn" title="Synchronisieren" style="position:relative;">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1l4 4-4 4"></path><path d="M3 12.1a9 9 0 0 1 15-6.7l3-.3"></path><path d="M7 21.9l-4-4 4-4"></path><path d="M21 11.9a9 9 0 0 1-15 6.7l-3 .3"></path></svg>
-        <span id="sync-dot" class="sync-dot"></span>
+        <span id="sync-dot" class="sync-dot dirty"></span>
       </button>
       <button class="icon-btn" id="hamburger-btn" title="Menü">
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
@@ -1063,7 +1063,7 @@
           <span class="menu-cat-title">App-Update</span>
           <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
         </button>
-        <div class="menu-cat-items"><button class="menu-item " data-action="showDeployTutorial"><span class="menu-item-label">Anleitung – Token erstellen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="openDeployPanel"><span class="menu-item-label">Update hochladen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Letztes Update</span><span class="menu-item-value" data-compute="deployStatus">Noch kein Update hochgeladen</span></div></div>
+        <div class="menu-cat-items"><button class="menu-item " data-action="openDeployPanel"><span class="menu-item-label">Update hochladen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Letztes Update</span><span class="menu-item-value" data-compute="deployStatus">Noch kein Update hochgeladen</span></div></div>
       </div>
     
       <div class="menu-cat " data-cat="erinnerungen">
@@ -1081,7 +1081,7 @@
           <span class="menu-cat-title">Daten</span>
           <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
         </button>
-        <div class="menu-cat-items"><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Status</span><span class="menu-item-value" data-compute="syncStatus">Noch nicht synchronisiert</span></div><button class="menu-item " data-action="syncNowAction"><span class="menu-item-label">Jetzt synchronisieren</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="logoutSync"><span class="menu-item-label">Abmelden (Cloud-Login vergessen)</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="createBackup"><span class="menu-item-label">Daten herunterladen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="restoreBackup"><span class="menu-item-label">Daten hochladen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="exportPdf"><span class="menu-item-label">Export als PDF</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="exportPhotoPdf"><span class="menu-item-label">Foto-Dokumentation als PDF</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="exportExcel"><span class="menu-item-label">Export als Excel</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="exportCsv"><span class="menu-item-label">Export als CSV</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item danger" data-action="deleteAllMenu"><span class="menu-item-label">Alle Daten löschen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button></div>
+        <div class="menu-cat-items"><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Status</span><span class="menu-item-value" data-compute="syncStatus">Noch nicht synchronisiert · ungespeicherte Änderungen</span></div><button class="menu-item " data-action="syncNowAction"><span class="menu-item-label">Jetzt synchronisieren</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="logoutSync"><span class="menu-item-label">Abmelden (Cloud-Login vergessen)</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="createBackup"><span class="menu-item-label">Daten herunterladen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="restoreBackup"><span class="menu-item-label">Daten hochladen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="exportPdf"><span class="menu-item-label">Export als PDF</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="exportPhotoPdf"><span class="menu-item-label">Foto-Dokumentation als PDF</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="exportExcel"><span class="menu-item-label">Export als Excel</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="exportCsv"><span class="menu-item-label">Export als CSV</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item danger" data-action="deleteAllMenu"><span class="menu-item-label">Alle Daten löschen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button></div>
       </div>
     
       <div class="menu-cat " data-cat="unterstuetzung">
@@ -1151,16 +1151,30 @@
         <div style="font-size:12px; color:var(--text-soft); margin-bottom:14px; line-height:1.5;">
           Lädt genau die Version, die du gerade in diesem Browser-Tab siehst, direkt in dein GitHub-Repo hoch. GitHub Pages baut die Seite danach automatisch neu (meist unter einer Minute).
         </div>
-        <div style="font-family:'IBM Plex Mono', monospace; font-size:12px; font-weight:600; color:var(--text); background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:10px; padding:10px 12px; margin-bottom:14px;">
+        <div style="font-family:'IBM Plex Mono', monospace; font-size:12px; font-weight:600; color:var(--text); background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:10px; padding:10px 12px; margin-bottom:20px;">
           Sipe99/asdfasdf · main · index.html
         </div>
-        <label class="field-label">GitHub Personal Access Token</label>
-        <input type="password" id="deploy-token-input" placeholder="github_pat_…" value="" style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-size:16px; margin-bottom:6px;">
-        <div style="font-size:10.5px; color:var(--text-soft); margin-bottom:14px; line-height:1.5;">
-          Wird für diese Sitzung gemerkt (bis die Seite komplett geschlossen wird) – danach erneut eingeben.
+
+        <label class="field-label">1 · Token besorgen</label>
+        <a href="https://github.com/settings/personal-access-tokens/new?name=Stundennachweis%20Deploy&amp;description=Ver%C3%B6ffentlichen%20der%20Stundennachweis-App%20auf%20GitHub%20Pages&amp;expires_in=90&amp;contents=write" target="_blank" rel="noopener" class="primary-btn" style="display:block; text-align:center; text-decoration:none; margin-top:0; margin-bottom:10px;">
+          Token-Seite öffnen (vorausgefüllt)
+        </a>
+        <div style="font-size:11px; color:var(--text-soft); margin-bottom:16px; line-height:1.6;">
+          Öffnet GitHub bereits mit Name, Beschreibung, 90 Tagen Ablauf und "Contents: Read and write" vorausgefüllt. Dort nur noch: <b style="color:var(--text);">„Only select repositories"</b> → <b style="color:var(--text);">Sipe99/asdfasdf</b> anhaken, dann <b style="color:var(--text);">„Generate token"</b> klicken und den Wert (<b style="color:var(--text);">github_pat_...</b>) kopieren.
         </div>
+
+        <label class="field-label">2 · Token einfügen</label>
+        <input type="password" id="deploy-token-input" placeholder="github_pat_…" value="" style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-size:16px; margin-bottom:6px;">
+        <div style="font-size:10.5px; color:var(--cat-krank); margin-bottom:20px; line-height:1.6;">
+          ⚠️ Wird dauerhaft mitsynchronisiert (z.B. über Dropbox) – landet als Klartext in deiner Cloud, damit du es nie wieder eingeben musst. Nutze dafür unbedingt ein Fine-grained Token nur für dieses eine Repo.
+        </div>
+
+        <label class="field-label">3 · Hochladen</label>
         <button class="primary-btn" id="deploy-now-btn" style="margin-top:0;" disabled="">Update hochladen</button>
-        <div id="deploy-status-line" style="font-size:11.5px; color:var(--text-soft); margin-top:12px; line-height:1.6;">Aktuelle Version wird geprüft…</div>
+        <div id="deploy-status-line" style="font-size:11.5px; color:var(--text-soft); margin-top:12px; margin-bottom:16px; line-height:1.6;">Aktuelle Version wird geprüft…</div>
+        <div style="font-size:10.5px; color:var(--text-soft); padding:10px 12px; background:var(--glass-bg); border-radius:12px; border:1px dashed var(--glass-border); line-height:1.6;">
+          Offizielle GitHub-Doku: <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens" target="_blank" rel="noopener" style="color:var(--baustellenorange);">docs.github.com – Personal Access Tokens</a>
+        </div>
       </div></div>
     </div>
   </div>
@@ -1241,7 +1255,6 @@
   const DEPLOY_REPO = "asdfasdf";
   const DEPLOY_BRANCH = "main";
   const DEPLOY_PATH = "index.html";
-  const DEPLOY_TOKEN_SESSION_KEY = "app_deploy_token";
   let CATS = {
     montage:   { label:"Montage",     color:"#3E5C76" },
     anfahrt:   { label:"Anfahrt",     color:"#A9A29B" },
@@ -5092,7 +5105,6 @@
         { id:"ki-status", label:"Status", type:"info", compute:"aiWorkerStatus" },
     ]},
     { id:"deploy", icon:"upload", title:"App-Update", items:[
-        { id:"dep-tutorial", label:"Anleitung – Token erstellen", type:"action", action:"showDeployTutorial" },
         { id:"dep-open", label:"Update hochladen", type:"action", action:"openDeployPanel" },
         { id:"dep-status", label:"Letztes Update", type:"info", compute:"deployStatus" },
     ]},
@@ -5476,57 +5488,49 @@
       }
       refreshMenuComputes();
     },
-    showDeployTutorial: ()=>{
-      const owner = DEPLOY_OWNER;
-      const repo = DEPLOY_REPO;
+    openDeployPanel: ()=>{
+      const savedToken = APP_SETTINGS.deployToken || "";
       const prefillUrl = "https://github.com/settings/personal-access-tokens/new?"
         + "name=" + encodeURIComponent("Stundennachweis Deploy")
         + "&description=" + encodeURIComponent("Veröffentlichen der Stundennachweis-App auf GitHub Pages")
         + "&expires_in=90"
         + "&contents=write";
       const html = `
-        <div style="font-size:12.5px; color:var(--text-soft); margin-bottom:16px; line-height:1.6;">
-          Damit "Update hochladen" funktioniert, brauchst du einmalig ein GitHub-Zugangstoken. Das ist kein Geheimnis, das dauerhaft irgendwo hinterlegt wird – du gibst es jedes Mal frisch ein, wenn du ein Update hochlädst.
-        </div>
-        <a href="${prefillUrl}" target="_blank" rel="noopener" class="primary-btn" style="display:block; text-align:center; text-decoration:none; margin-top:0; margin-bottom:14px;">
-          Token-Seite öffnen (vorausgefüllt)
-        </a>
-        <div style="font-size:11px; color:var(--text-soft); margin-bottom:16px; line-height:1.6;">
-          Der Link meldet dich bei GitHub an (falls noch nicht eingeloggt) und öffnet die Token-Erstellung bereits mit Name, Beschreibung, 90 Tagen Ablauf und der Berechtigung „Contents: Read and write" vorausgefüllt.
-        </div>
-        <label class="field-label">Danach nur noch:</label>
-        <ol style="font-size:12px; color:var(--text-soft); margin:0 0 16px 0; padding-left:18px; line-height:1.8;">
-          <li>Bei <b style="color:var(--text);">„Repository access"</b>: <b style="color:var(--text);">„Only select repositories"</b> auswählen, dann <b style="color:var(--text);">${escapeHtml(owner)}/${escapeHtml(repo)}</b> anhaken.</li>
-          <li>Unten <b style="color:var(--text);">„Generate token"</b> klicken.</li>
-          <li>Den angezeigten Wert (beginnt mit <b style="color:var(--text);">github_pat_...</b>) kopieren – wird nur einmal angezeigt – und hier im "Update hochladen"-Feld einfügen.</li>
-        </ol>
-        <div style="font-size:11px; color:var(--text-soft); padding:10px 12px; background:var(--glass-bg); border-radius:12px; border:1px dashed var(--glass-border); line-height:1.6;">
-          Offizielle GitHub-Doku: <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens" target="_blank" rel="noopener" style="color:var(--baustellenorange);">docs.github.com – Personal Access Tokens</a>
-        </div>
-      `;
-      openMenuSub("Anleitung: Token erstellen", html);
-    },
-    openDeployPanel: ()=>{
-      let savedToken = "";
-      try{ savedToken = sessionStorage.getItem(DEPLOY_TOKEN_SESSION_KEY) || ""; }catch(e){}
-      const html = `
         <div style="font-size:12px; color:var(--text-soft); margin-bottom:14px; line-height:1.5;">
           Lädt genau die Version, die du gerade in diesem Browser-Tab siehst, direkt in dein GitHub-Repo hoch. GitHub Pages baut die Seite danach automatisch neu (meist unter einer Minute).
         </div>
-        <div style="font-family:'IBM Plex Mono', monospace; font-size:12px; font-weight:600; color:var(--text); background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:10px; padding:10px 12px; margin-bottom:14px;">
+        <div style="font-family:'IBM Plex Mono', monospace; font-size:12px; font-weight:600; color:var(--text); background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:10px; padding:10px 12px; margin-bottom:20px;">
           ${escapeHtml(DEPLOY_OWNER)}/${escapeHtml(DEPLOY_REPO)} · ${escapeHtml(DEPLOY_BRANCH)} · ${escapeHtml(DEPLOY_PATH)}
         </div>
-        <label class="field-label">GitHub Personal Access Token</label>
-        <input type="password" id="deploy-token-input" placeholder="github_pat_…" value="${escapeHtml(savedToken)}" style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-size:16px; margin-bottom:6px;" />
-        <div style="font-size:10.5px; color:var(--text-soft); margin-bottom:14px; line-height:1.5;">
-          Wird für diese Sitzung gemerkt (bis die Seite komplett geschlossen wird) – danach erneut eingeben.
+
+        <label class="field-label">1 · Token besorgen</label>
+        <a href="${prefillUrl}" target="_blank" rel="noopener" class="primary-btn" style="display:block; text-align:center; text-decoration:none; margin-top:0; margin-bottom:10px;">
+          Token-Seite öffnen (vorausgefüllt)
+        </a>
+        <div style="font-size:11px; color:var(--text-soft); margin-bottom:16px; line-height:1.6;">
+          Öffnet GitHub bereits mit Name, Beschreibung, 90 Tagen Ablauf und "Contents: Read and write" vorausgefüllt. Dort nur noch: <b style="color:var(--text);">„Only select repositories"</b> → <b style="color:var(--text);">${escapeHtml(DEPLOY_OWNER)}/${escapeHtml(DEPLOY_REPO)}</b> anhaken, dann <b style="color:var(--text);">„Generate token"</b> klicken und den Wert (<b style="color:var(--text);">github_pat_...</b>) kopieren.
         </div>
+
+        <label class="field-label">2 · Token einfügen</label>
+        <input type="password" id="deploy-token-input" placeholder="github_pat_…" value="${escapeHtml(savedToken)}" style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-size:16px; margin-bottom:6px;" />
+        <div style="font-size:10.5px; color:var(--cat-krank); margin-bottom:20px; line-height:1.6;">
+          ⚠️ Wird dauerhaft mitsynchronisiert (z.B. über Dropbox) – landet als Klartext in deiner Cloud, damit du es nie wieder eingeben musst. Nutze dafür unbedingt ein Fine-grained Token nur für dieses eine Repo.
+        </div>
+
+        <label class="field-label">3 · Hochladen</label>
         <button class="primary-btn" id="deploy-now-btn" style="margin-top:0;">Update hochladen</button>
-        <div id="deploy-status-line" style="font-size:11.5px; color:var(--text-soft); margin-top:12px; line-height:1.6;"></div>
+        <div id="deploy-status-line" style="font-size:11.5px; color:var(--text-soft); margin-top:12px; margin-bottom:16px; line-height:1.6;"></div>
+        <div style="font-size:10.5px; color:var(--text-soft); padding:10px 12px; background:var(--glass-bg); border-radius:12px; border:1px dashed var(--glass-border); line-height:1.6;">
+          Offizielle GitHub-Doku: <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens" target="_blank" rel="noopener" style="color:var(--baustellenorange);">docs.github.com – Personal Access Tokens</a>
+        </div>
       `;
       openMenuSub("Update hochladen", html);
       const tokenInput = document.getElementById("deploy-token-input");
-      tokenInput.oninput = ()=>{ try{ sessionStorage.setItem(DEPLOY_TOKEN_SESSION_KEY, tokenInput.value.trim()); }catch(e){} };
+      const debouncedSaveToken = debounce(async ()=>{
+        APP_SETTINGS.deployToken = tokenInput.value.trim();
+        await saveAppSettings();
+      }, 600);
+      tokenInput.oninput = debouncedSaveToken;
       document.getElementById("deploy-now-btn").onclick = async ()=>{
         const token = tokenInput.value.trim();
         const statusLine = document.getElementById("deploy-status-line");
