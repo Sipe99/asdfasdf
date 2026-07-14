@@ -124,10 +124,6 @@
     font-size:10px; letter-spacing:.12em; text-transform:uppercase;
     color:var(--baustellenorange); font-weight:600; margin-bottom:2px;
   }
-  .version-badge{
-    color:var(--text-soft); font-weight:600; letter-spacing:0; text-transform:none;
-    opacity:.8;
-  }
   .brand h1{
     font-family:'Bebas Neue', sans-serif;
     font-size:26px; letter-spacing:.02em; margin:0; font-weight:400;
@@ -315,11 +311,9 @@
   .mini-day.other-month{ opacity:.32; }
   .mini-day.today{ border-color:var(--baustellenorange); border-width:1.5px; color:var(--baustellenorange); }
   .mini-day.vacation-veil, .cal-cell.vacation-veil{ position:relative; overflow:hidden; }
-  .mini-day.vacation-veil::after, .cal-cell.vacation-veil::after{
+  .mini-day.vacation-veil::before, .cal-cell.vacation-veil::before{
     content:''; position:absolute; inset:0; border-radius:inherit;
-    background:linear-gradient(135deg, rgba(94,150,214,.42), rgba(62,124,191,.22));
-    -webkit-backdrop-filter:blur(2.5px) saturate(140%);
-    backdrop-filter:blur(2.5px) saturate(140%);
+    background:linear-gradient(135deg, rgba(94,150,214,.34), rgba(62,124,191,.16));
     border:1px solid rgba(94,150,214,.4);
     box-shadow:inset 0 1px 1px rgba(255,255,255,.35);
     pointer-events:none;
@@ -809,7 +803,7 @@
   </div>
   <header class="appbar">
     <div class="brand">
-      <span class="eyebrow">Stundennachweis <span id="app-version-badge" class="version-badge"></span></span>
+      <span class="eyebrow">Stundennachweis</span>
       <h1 id="header-title">Startseite</h1>
     </div>
     <div style="display:flex; align-items:center; gap:8px;">
@@ -1067,7 +1061,7 @@
           <span class="menu-cat-title">Statistiken</span>
           <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
         </button>
-        <div class="menu-cat-items"><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Monatsstunden</span><span class="menu-item-value" data-compute="statMonth">0 Std.</span></div><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Jahresstunden</span><span class="menu-item-value" data-compute="statYear">0 Std.</span></div><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Überstunden (Monat)</span><span class="menu-item-value" data-compute="statOvertime">-172,7 Std.</span></div><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Urlaub (Tage, Jahr)</span><span class="menu-item-value" data-compute="statVacation">0 Tage</span></div><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Krankenstand (Tage, Jahr)</span><span class="menu-item-value" data-compute="statSick">0 Tage</span></div><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Ø Arbeitszeit/Tag</span><span class="menu-item-value" data-compute="statAvg">0,0 Std.</span></div><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Diagramme</span><span class="menu-item-note">siehe Monatsansicht</span></div></div>
+        <div class="menu-cat-items"><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Monatsstunden</span><span class="menu-item-value" data-compute="statMonth">0 Std.</span></div><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Jahresstunden</span><span class="menu-item-value" data-compute="statYear">0 Std.</span></div><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Überstunden (Monat)</span><span class="menu-item-value" data-compute="statOvertime">-172,7 Std.</span></div><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Urlaub (Tage, Jahr)</span><span class="menu-item-value" data-compute="statVacation">0 Tage</span></div><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Krankenstand (Tage, Jahr)</span><span class="menu-item-value" data-compute="statSick">0 Tage</span></div><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Ø Arbeitszeit/Tag</span><span class="menu-item-value" data-compute="statAvg">0,0 Std.</span></div><button class="menu-item " data-action="openYearOverviewPanel"><span class="menu-item-label">Jahresübersicht &amp; Diagramme</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button></div>
       </div>
     
       <div class="menu-cat " data-cat="darstellung">
@@ -1515,6 +1509,7 @@ function json(obj, status) {
   let activeTab = "dashboard";
   let calCursor = new Date();
   let monatCursor = new Date();
+  let yearCursor = new Date().getFullYear();
   let editingDate = null;
 
   const pad = n => String(n).padStart(2,"0");
@@ -2479,6 +2474,80 @@ function json(obj, status) {
     }
     return weeks;
   }
+  function renderYearOverviewBody(){
+    const MONTH_NAMES = ["Jän","Feb","Mär","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"];
+    const weeklyHours = TRADES[selectedTrade]?.hours || 39;
+    const wageRate = WAGE_CATEGORIES[selectedWage]?.rate || 19.99;
+    const monthTotals = [];
+    let yearTotal = 0, yearOvertime = 0, vacationDays = 0, sickDays = 0, dietTotal = 0;
+    const tagesdiaetTiers = (TRADES[selectedTrade]?.diets?.tagesdiaet) || [];
+    const naechtigungRate = (TRADES[selectedTrade]?.diets?.naechtigung) || 0;
+
+    for(let m=0; m<12; m++){
+      const daysInM = new Date(yearCursor, m+1, 0).getDate();
+      const list = monthEntries(yearCursor, m);
+      let mHours = 0;
+      list.forEach(([dt,e])=>{
+        const h = dayHours(e);
+        mHours += h;
+        if(isVacationLabel(e.category)) vacationDays++;
+        if(CATS.krank && normCat(e.category)===normCat(CATS.krank.label)) sickDays++;
+        const wd = (new Date(dt+"T00:00:00").getDay()+6)%7;
+        if(dietAppliesOnDay("tagesdiaet", wd)) dietTotal += computeTagesdiaet(h, tagesdiaetTiers);
+        if(dietAppliesOnDay("naechtigung", wd)) dietTotal += naechtigungRate;
+      });
+      const mSoll = weeklyHours * (daysInM/7);
+      monthTotals.push({ hours:mHours, soll:mSoll });
+      yearTotal += mHours;
+      yearOvertime += Math.max(0, mHours - mSoll);
+    }
+    const maxHours = Math.max(1, ...monthTotals.map(m=>Math.max(m.hours, m.soll)));
+    const earnings = yearTotal * wageRate + dietTotal;
+    const currentMonth = new Date().getFullYear()===yearCursor ? new Date().getMonth() : -1;
+
+    const chartHtml = monthTotals.map((m,i)=>`
+      <div style="display:flex; align-items:center; gap:8px; margin-bottom:7px;">
+        <div style="width:28px; font-size:10.5px; font-weight:700; color:${i===currentMonth?'var(--baustellenorange)':'var(--text-soft)'}; flex-shrink:0;">${MONTH_NAMES[i]}</div>
+        <div style="position:relative; flex:1; height:9px; background:color-mix(in srgb, var(--bg) 60%, transparent); border-radius:6px; overflow:visible;">
+          <div style="height:100%; border-radius:6px; width:${Math.min(100,(m.hours/maxHours)*100)}%; background:${m.hours>m.soll?'var(--cat-krank)':'var(--baustellenorange)'};"></div>
+          <div style="position:absolute; top:-2px; bottom:-2px; width:2px; background:var(--text-soft); left:${Math.min(100,(m.soll/maxHours)*100)}%;"></div>
+        </div>
+        <div style="width:52px; text-align:right; font-family:'IBM Plex Mono'; font-size:10.5px; color:var(--text); flex-shrink:0;">${fmtH(m.hours)}</div>
+      </div>
+    `).join("");
+
+    const sheetBodyEl = document.getElementById("menu-sub-body");
+    sheetBodyEl.innerHTML = `
+      <div class="row-between" style="margin-bottom:18px;">
+        <button class="icon-btn" id="year-prev" style="width:36px; height:36px;">${svgIcon("chevronLeft",16)}</button>
+        <h2 style="font-family:'Bebas Neue', sans-serif; font-size:30px; margin:0; color:var(--text);">${yearCursor}</h2>
+        <button class="icon-btn" id="year-next" style="width:36px; height:36px;">${svgIcon("chevronRight",16)}</button>
+      </div>
+
+      <label class="field-label">Stunden pro Monat</label>
+      <div style="font-size:10.5px; color:var(--text-soft); margin-bottom:12px; line-height:1.5;">
+        Graue Markierung = Sollstunden. Rot = über Soll (Überstunden), Orange = im Rahmen.
+      </div>
+      <div style="margin-bottom:20px;">${chartHtml}</div>
+
+      <label class="field-label">Jahresüberblick</label>
+      <div class="card" style="margin-top:8px;">
+        <div class="card-body">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+            <div class="stat-mini"><div class="n">${fmtH(yearTotal)}</div><div class="l">Stunden gesamt</div></div>
+            <div class="stat-mini"><div class="n">${fmtH(yearOvertime)}</div><div class="l">Überstunden</div></div>
+            <div class="stat-mini"><div class="n">${vacationDays}</div><div class="l">Urlaubstage genommen</div></div>
+            <div class="stat-mini"><div class="n">${sickDays}</div><div class="l">Krankenstandstage</div></div>
+            <div class="stat-mini"><div class="n">${dietTotal.toFixed(2).replace('.',',')} €</div><div class="l">Diäten gesamt</div></div>
+            <div class="stat-mini"><div class="n">${earnings.toFixed(2).replace('.',',')} €</div><div class="l">Verdienst gesamt</div></div>
+          </div>
+        </div>
+      </div>
+    `;
+    document.getElementById("year-prev").onclick = ()=>{ yearCursor--; renderYearOverviewBody(); };
+    document.getElementById("year-next").onclick = ()=>{ yearCursor++; renderYearOverviewBody(); };
+  }
+
   function monthEntries(year, month){
     return Object.entries(entries).filter(([k])=>{
       const [y,m] = k.split("-").map(Number);
@@ -5357,7 +5426,7 @@ function json(obj, status) {
         { id:"st-urlaub", label:"Urlaub (Tage, Jahr)", type:"info", compute:"statVacation" },
         { id:"st-krank", label:"Krankenstand (Tage, Jahr)", type:"info", compute:"statSick" },
         { id:"st-avg", label:"Ø Arbeitszeit/Tag", type:"info", compute:"statAvg" },
-        { id:"st-diagramme", label:"Diagramme", type:"note", note:"siehe Monatsansicht" },
+        { id:"st-diagramme", label:"Jahresübersicht & Diagramme", type:"action", action:"openYearOverviewPanel" },
     ]},
     { id:"darstellung", icon:"darstellung", title:"Darstellung", items:[
         { id:"d-theme", label:"Hell / Dunkel / System", type:"choice", key:"themeMode", options:["Hell","Dunkel","System"] },
@@ -5722,6 +5791,10 @@ function json(obj, status) {
       renderKvList("");
       searchInput.oninput = ()=> renderKvList(searchInput.value);
     },
+    openYearOverviewPanel: ()=>{
+      openMenuSub("Jahresübersicht", "");
+      renderYearOverviewBody();
+    },
     openAiPanel: ()=>{
       const workerCode = document.getElementById("ki-worker-code-source") ? document.getElementById("ki-worker-code-source").textContent : "";
       const savedRepo = APP_SETTINGS.aiWorkerRepoUrl || "";
@@ -5895,7 +5968,6 @@ function json(obj, status) {
 
           APP_SETTINGS.deployLastAt = new Date().toISOString();
           await persistDataImmediate();
-          updateHeaderUpdateBadge();
           const pagesUrl = `https://${owner}.github.io/${repo}/`;
           statusLine.innerHTML = `✓ Update hochgeladen. In ca. 1 Minute live unter <a href="${pagesUrl}" target="_blank" rel="noopener" style="color:var(--baustellenorange);">${pagesUrl}</a>`;
           showToast("Update hochgeladen");
@@ -6073,23 +6145,6 @@ function json(obj, status) {
     openMenuSub(p.title, p.html);
   }
 
-  function formatTimeAgo(iso){
-    if(!iso) return "";
-    const then = new Date(iso);
-    const diffMin = Math.floor((Date.now() - then.getTime())/60000);
-    if(diffMin < 1) return "gerade eben aktualisiert";
-    if(diffMin < 60) return diffMin + " Min. her";
-    const diffH = Math.floor(diffMin/60);
-    const remMin = diffMin % 60;
-    if(diffH < 24) return diffH + " Std. " + remMin + " Min. her";
-    return then.toLocaleDateString('de-DE') + " " + then.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
-  }
-  function updateHeaderUpdateBadge(){
-    const badge = document.getElementById("app-version-badge");
-    if(!badge) return;
-    badge.textContent = APP_SETTINGS.deployLastAt ? ("· " + formatTimeAgo(APP_SETTINGS.deployLastAt)) : "";
-  }
-
   (async function init(){
     const splash = document.getElementById("splash-screen");
     const splashStatus = document.getElementById("splash-status");
@@ -6134,8 +6189,6 @@ function json(obj, status) {
     refreshMissingPlzCodes().catch(e=>console.error(e));
     setSplashStatus("Bereit");
     updateSyncStatusUI();
-    updateHeaderUpdateBadge();
-    setInterval(updateHeaderUpdateBadge, 60000);
     render();
     if(splash){
       splash.classList.add("hidden");
