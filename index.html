@@ -141,6 +141,15 @@
     cursor:pointer; color:var(--text); flex-shrink:0;
     transition:transform .18s cubic-bezier(.22,1,.36,1), box-shadow .18s ease;
   }
+  .header-logout-pill{
+    height:38px; padding:0 12px; border-radius:14px; flex-shrink:0;
+    border:1px solid var(--glass-border); background:var(--glass-bg);
+    -webkit-backdrop-filter:var(--glass-blur); backdrop-filter:var(--glass-blur);
+    box-shadow:var(--glass-shadow); cursor:pointer; color:var(--cat-krank);
+    display:flex; align-items:center; gap:5px; font-size:11px; font-weight:700;
+    transition:transform .18s cubic-bezier(.22,1,.36,1);
+  }
+  .header-logout-pill:active{ transform:scale(.93); }
   .icon-btn:active{ transform:scale(.9); box-shadow:0 2px 8px rgba(43,47,54,.12); }
   .header-tools{
     display:flex; align-items:center; gap:8px; padding:0 18px 12px 18px; flex-shrink:0;
@@ -305,6 +314,16 @@
   .mini-day:active{ transform:scale(.9); }
   .mini-day.other-month{ opacity:.32; }
   .mini-day.today{ border-color:var(--baustellenorange); border-width:1.5px; color:var(--baustellenorange); }
+  .mini-day.vacation-veil, .cal-cell.vacation-veil{ position:relative; overflow:hidden; }
+  .mini-day.vacation-veil::after, .cal-cell.vacation-veil::after{
+    content:''; position:absolute; inset:0; border-radius:inherit;
+    background:linear-gradient(135deg, rgba(94,150,214,.42), rgba(62,124,191,.22));
+    -webkit-backdrop-filter:blur(2.5px) saturate(140%);
+    backdrop-filter:blur(2.5px) saturate(140%);
+    border:1px solid rgba(94,150,214,.4);
+    box-shadow:inset 0 1px 1px rgba(255,255,255,.35);
+    pointer-events:none;
+  }
   .mini-day .mdot{ position:absolute; bottom:2px; width:5px; height:5px; border-radius:50%; }
   .mini-week-total{ font-family:'IBM Plex Mono', monospace; font-weight:700; font-size:12px; text-align:right; color:var(--text-soft); padding-right:2px; }
   .mini-week-total.current{ color:var(--baustellenorange); }
@@ -575,6 +594,16 @@
   .file-row{
     display:flex; align-items:center; gap:10px; padding:9px 0; border-bottom:1px solid var(--glass-border);
   }
+  .kv-link-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:13px 14px; margin-bottom:8px; border-radius:14px;
+    background:var(--glass-bg); border:1px solid var(--glass-border);
+    -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+    color:var(--text); text-decoration:none; font-size:13px; font-weight:600;
+    transition:transform .15s cubic-bezier(.22,1,.36,1);
+  }
+  .kv-link-row:active{ transform:scale(.97); }
+  .kv-link-row svg{ color:var(--baustellenorange); flex-shrink:0; }
   .file-row:last-child{ border-bottom:none; }
   .file-icon{ color:var(--baustellenorange); flex-shrink:0; }
   .file-info{ display:flex; flex-direction:column; flex:1; min-width:0; }
@@ -785,12 +814,16 @@
     </div>
     <div style="display:flex; align-items:center; gap:8px;">
       <div id="header-sync-status" style="text-align:right; line-height:1.2; cursor:pointer;">
-        <div id="header-sync-source" style="font-size:10.5px; font-weight:700; color:var(--text);">Nicht verbunden •</div>
+        <div id="header-sync-source" style="font-size:10.5px; font-weight:700; color:var(--text);">Nicht verbunden</div>
         <div id="header-sync-time" style="font-size:9px; color:var(--text-soft);">Noch nie synchronisiert</div>
       </div>
+      <button id="header-logout-btn" title="Abmelden" class="header-logout-pill" style="display:none;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><path d="M16 17l5-5-5-5"></path><path d="M21 12H9"></path></svg>
+        <span>Logout</span>
+      </button>
       <button class="icon-btn" id="sync-btn" title="Synchronisieren" style="position:relative;">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1l4 4-4 4"></path><path d="M3 12.1a9 9 0 0 1 15-6.7l3-.3"></path><path d="M7 21.9l-4-4 4-4"></path><path d="M21 11.9a9 9 0 0 1-15 6.7l-3 .3"></path></svg>
-        <span id="sync-dot" class="sync-dot dirty"></span>
+        <span id="sync-dot" class="sync-dot"></span>
       </button>
       <button class="icon-btn" id="hamburger-btn" title="Menü">
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
@@ -802,7 +835,7 @@
       <div class="card hero">
         <div class="perforation"></div>
         <div class="card-body">
-          <div class="hero-label">Heute · Montag, 13. Juli</div>
+          <div class="hero-label">Heute · Dienstag, 14. Juli</div>
           <div class="hero-number">0<span class="unit">Std.</span></div>
           <div class="hero-grid">
             <div class="stat-mini"><div class="n">0</div><div class="l">Std. diese Woche</div></div>
@@ -839,25 +872,25 @@
       
         <div class="mini-cal-week ">
           <div class="kw-badge">KW 27</div>
-          <div class="mini-day other-month " data-open-day="2026-06-29" title="29.06.2026">
+          <div class="mini-day other-month  " data-open-day="2026-06-29" title="29.06.2026">
               29
               
-            </div><div class="mini-day other-month " data-open-day="2026-06-30" title="30.06.2026">
+            </div><div class="mini-day other-month  " data-open-day="2026-06-30" title="30.06.2026">
               30
               
-            </div><div class="mini-day  " data-open-day="2026-07-01" title="01.07.2026">
+            </div><div class="mini-day   " data-open-day="2026-07-01" title="01.07.2026">
               1
               
-            </div><div class="mini-day  " data-open-day="2026-07-02" title="02.07.2026">
+            </div><div class="mini-day   " data-open-day="2026-07-02" title="02.07.2026">
               2
               
-            </div><div class="mini-day  " data-open-day="2026-07-03" title="03.07.2026">
+            </div><div class="mini-day   " data-open-day="2026-07-03" title="03.07.2026">
               3
               
-            </div><div class="mini-day  " data-open-day="2026-07-04" title="04.07.2026">
+            </div><div class="mini-day   " data-open-day="2026-07-04" title="04.07.2026">
               4
               
-            </div><div class="mini-day  " data-open-day="2026-07-05" title="05.07.2026">
+            </div><div class="mini-day   " data-open-day="2026-07-05" title="05.07.2026">
               5
               
             </div>
@@ -866,25 +899,25 @@
       
         <div class="mini-cal-week ">
           <div class="kw-badge">KW 28</div>
-          <div class="mini-day  " data-open-day="2026-07-06" title="06.07.2026">
+          <div class="mini-day   " data-open-day="2026-07-06" title="06.07.2026">
               6
               
-            </div><div class="mini-day  " data-open-day="2026-07-07" title="07.07.2026">
+            </div><div class="mini-day   " data-open-day="2026-07-07" title="07.07.2026">
               7
               
-            </div><div class="mini-day  " data-open-day="2026-07-08" title="08.07.2026">
+            </div><div class="mini-day   " data-open-day="2026-07-08" title="08.07.2026">
               8
               
-            </div><div class="mini-day  " data-open-day="2026-07-09" title="09.07.2026">
+            </div><div class="mini-day   " data-open-day="2026-07-09" title="09.07.2026">
               9
               
-            </div><div class="mini-day  " data-open-day="2026-07-10" title="10.07.2026">
+            </div><div class="mini-day   " data-open-day="2026-07-10" title="10.07.2026">
               10
               
-            </div><div class="mini-day  " data-open-day="2026-07-11" title="11.07.2026">
+            </div><div class="mini-day   " data-open-day="2026-07-11" title="11.07.2026">
               11
               
-            </div><div class="mini-day  " data-open-day="2026-07-12" title="12.07.2026">
+            </div><div class="mini-day   " data-open-day="2026-07-12" title="12.07.2026">
               12
               
             </div>
@@ -893,25 +926,25 @@
       
         <div class="mini-cal-week current-week">
           <div class="kw-badge">KW 29</div>
-          <div class="mini-day  today" data-open-day="2026-07-13" title="13.07.2026">
+          <div class="mini-day   " data-open-day="2026-07-13" title="13.07.2026">
               13
               
-            </div><div class="mini-day  " data-open-day="2026-07-14" title="14.07.2026">
+            </div><div class="mini-day  today " data-open-day="2026-07-14" title="14.07.2026">
               14
               
-            </div><div class="mini-day  " data-open-day="2026-07-15" title="15.07.2026">
+            </div><div class="mini-day   " data-open-day="2026-07-15" title="15.07.2026">
               15
               
-            </div><div class="mini-day  " data-open-day="2026-07-16" title="16.07.2026">
+            </div><div class="mini-day   " data-open-day="2026-07-16" title="16.07.2026">
               16
               
-            </div><div class="mini-day  " data-open-day="2026-07-17" title="17.07.2026">
+            </div><div class="mini-day   " data-open-day="2026-07-17" title="17.07.2026">
               17
               
-            </div><div class="mini-day  " data-open-day="2026-07-18" title="18.07.2026">
+            </div><div class="mini-day   " data-open-day="2026-07-18" title="18.07.2026">
               18
               
-            </div><div class="mini-day  " data-open-day="2026-07-19" title="19.07.2026">
+            </div><div class="mini-day   " data-open-day="2026-07-19" title="19.07.2026">
               19
               
             </div>
@@ -920,25 +953,25 @@
       
         <div class="mini-cal-week ">
           <div class="kw-badge">KW 30</div>
-          <div class="mini-day  " data-open-day="2026-07-20" title="20.07.2026">
+          <div class="mini-day   " data-open-day="2026-07-20" title="20.07.2026">
               20
               
-            </div><div class="mini-day  " data-open-day="2026-07-21" title="21.07.2026">
+            </div><div class="mini-day   " data-open-day="2026-07-21" title="21.07.2026">
               21
               
-            </div><div class="mini-day  " data-open-day="2026-07-22" title="22.07.2026">
+            </div><div class="mini-day   " data-open-day="2026-07-22" title="22.07.2026">
               22
               
-            </div><div class="mini-day  " data-open-day="2026-07-23" title="23.07.2026">
+            </div><div class="mini-day   " data-open-day="2026-07-23" title="23.07.2026">
               23
               
-            </div><div class="mini-day  " data-open-day="2026-07-24" title="24.07.2026">
+            </div><div class="mini-day   " data-open-day="2026-07-24" title="24.07.2026">
               24
               
-            </div><div class="mini-day  " data-open-day="2026-07-25" title="25.07.2026">
+            </div><div class="mini-day   " data-open-day="2026-07-25" title="25.07.2026">
               25
               
-            </div><div class="mini-day  " data-open-day="2026-07-26" title="26.07.2026">
+            </div><div class="mini-day   " data-open-day="2026-07-26" title="26.07.2026">
               26
               
             </div>
@@ -947,25 +980,25 @@
       
         <div class="mini-cal-week ">
           <div class="kw-badge">KW 31</div>
-          <div class="mini-day  " data-open-day="2026-07-27" title="27.07.2026">
+          <div class="mini-day   " data-open-day="2026-07-27" title="27.07.2026">
               27
               
-            </div><div class="mini-day  " data-open-day="2026-07-28" title="28.07.2026">
+            </div><div class="mini-day   " data-open-day="2026-07-28" title="28.07.2026">
               28
               
-            </div><div class="mini-day  " data-open-day="2026-07-29" title="29.07.2026">
+            </div><div class="mini-day   " data-open-day="2026-07-29" title="29.07.2026">
               29
               
-            </div><div class="mini-day  " data-open-day="2026-07-30" title="30.07.2026">
+            </div><div class="mini-day   " data-open-day="2026-07-30" title="30.07.2026">
               30
               
-            </div><div class="mini-day  " data-open-day="2026-07-31" title="31.07.2026">
+            </div><div class="mini-day   " data-open-day="2026-07-31" title="31.07.2026">
               31
               
-            </div><div class="mini-day other-month " data-open-day="2026-08-01" title="01.08.2026">
+            </div><div class="mini-day other-month  " data-open-day="2026-08-01" title="01.08.2026">
               1
               
-            </div><div class="mini-day other-month " data-open-day="2026-08-02" title="02.08.2026">
+            </div><div class="mini-day other-month  " data-open-day="2026-08-02" title="02.08.2026">
               2
               
             </div>
@@ -1025,7 +1058,7 @@
           <span class="menu-cat-title">Arbeit &amp; Kollektivvertrag</span>
           <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
         </button>
-        <div class="menu-cat-items"><button class="menu-item " data-action="tradeManager"><span class="menu-item-label">Gewerbe / Kollektivvertrag wählen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Normalarbeitszeit</span><span class="menu-item-value" data-compute="kvNormal">39 Std./Woche</span></div><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Sollstunden pro Monat</span><span class="menu-item-value" data-compute="sollMonat">172,7 Std.</span></div><button class="menu-item " data-action="wageManager"><span class="menu-item-label">Stundenlohn</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="dietManager"><span class="menu-item-label">Taggeld / Diäten</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Kilometergeld <span style="color:var(--text-soft); font-weight:400;">(€/km)</span></span><input type="number" data-input-key="kmRate" value="" step="0.01"></div><div class="menu-item" style="cursor:default; flex-wrap:wrap;"><span class="menu-item-label">Arbeitszeitmodell</span><div class="menu-choice-row" data-choice-key="workModel"><button class="menu-choice-pill selected" data-choice-value="Vollzeit">Vollzeit</button><button class="menu-choice-pill " data-choice-value="Teilzeit">Teilzeit</button></div></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Urlaubstage <span style="color:var(--text-soft); font-weight:400;">(Tage/Jahr)</span></span><input type="number" data-input-key="kvVacationDays" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Feiertagsregelung</span><input type="text" data-input-key="kvHolidayRule" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Überstundenregelung</span><input type="text" data-input-key="kvOvertimeRule" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Überstundenzuschlag <span style="color:var(--text-soft); font-weight:400;">(%)</span></span><input type="number" data-input-key="surchargeOvertime" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Nachtzuschlag <span style="color:var(--text-soft); font-weight:400;">(%)</span></span><input type="number" data-input-key="surchargeNight" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Sonntagszuschlag <span style="color:var(--text-soft); font-weight:400;">(%)</span></span><input type="number" data-input-key="surchargeSunday" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Feiertagszuschlag <span style="color:var(--text-soft); font-weight:400;">(%)</span></span><input type="number" data-input-key="surchargeHoliday" value=""></div></div>
+        <div class="menu-cat-items"><button class="menu-item " data-action="tradeManager"><span class="menu-item-label">Gewerbe / Kollektivvertrag wählen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="openKvLinksPanel"><span class="menu-item-label">Aktuelle Kollektivverträge (WKO)</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Normalarbeitszeit</span><span class="menu-item-value" data-compute="kvNormal">39 Std./Woche</span></div><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Sollstunden pro Monat</span><span class="menu-item-value" data-compute="sollMonat">172,7 Std.</span></div><button class="menu-item " data-action="wageManager"><span class="menu-item-label">Stundenlohn</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="dietManager"><span class="menu-item-label">Taggeld / Diäten</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Kilometergeld <span style="color:var(--text-soft); font-weight:400;">(€/km)</span></span><input type="number" data-input-key="kmRate" value="" step="0.01"></div><div class="menu-item" style="cursor:default; flex-wrap:wrap;"><span class="menu-item-label">Arbeitszeitmodell</span><div class="menu-choice-row" data-choice-key="workModel"><button class="menu-choice-pill selected" data-choice-value="Vollzeit">Vollzeit</button><button class="menu-choice-pill " data-choice-value="Teilzeit">Teilzeit</button></div></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Urlaubstage <span style="color:var(--text-soft); font-weight:400;">(Tage/Jahr)</span></span><input type="number" data-input-key="kvVacationDays" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Urlaubsstunden pro Tag <span style="color:var(--text-soft); font-weight:400;">(Std./Tag)</span></span><input type="number" data-input-key="vacationHoursPerDay" value="8"></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Urlaubsentgelt (% vom Lohn) <span style="color:var(--text-soft); font-weight:400;">(%)</span></span><input type="number" data-input-key="vacationPayPercent" value="100"></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Feiertagsregelung</span><input type="text" data-input-key="kvHolidayRule" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Überstundenregelung</span><input type="text" data-input-key="kvOvertimeRule" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Überstundenzuschlag <span style="color:var(--text-soft); font-weight:400;">(%)</span></span><input type="number" data-input-key="surchargeOvertime" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Nachtzuschlag <span style="color:var(--text-soft); font-weight:400;">(%)</span></span><input type="number" data-input-key="surchargeNight" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Sonntagszuschlag <span style="color:var(--text-soft); font-weight:400;">(%)</span></span><input type="number" data-input-key="surchargeSunday" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Feiertagszuschlag <span style="color:var(--text-soft); font-weight:400;">(%)</span></span><input type="number" data-input-key="surchargeHoliday" value=""></div></div>
       </div>
     
       <div class="menu-cat " data-cat="statistiken">
@@ -1061,7 +1094,7 @@
           <span class="menu-cat-title">KI-Kopplung</span>
           <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
         </button>
-        <div class="menu-cat-items"><button class="menu-item " data-action="showAiTutorial"><span class="menu-item-label">Anleitung – wie richte ich das ein?</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Worker-Adresse</span><input type="text" data-input-key="aiWorkerUrl" value=""></div><button class="menu-item " data-action="testAiWorker"><span class="menu-item-label">Verbindung testen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Status</span><span class="menu-item-value" data-compute="aiWorkerStatus">Noch nicht eingerichtet</span></div></div>
+        <div class="menu-cat-items"><button class="menu-item " data-action="openAiPanel"><span class="menu-item-label">Einrichten / testen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Status</span><span class="menu-item-value" data-compute="aiWorkerStatus">Noch nicht eingerichtet</span></div></div>
       </div>
     
       <div class="menu-cat open" data-cat="deploy">
@@ -1088,7 +1121,7 @@
           <span class="menu-cat-title">Daten</span>
           <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
         </button>
-        <div class="menu-cat-items"><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Status</span><span class="menu-item-value" data-compute="syncStatus">Noch nicht synchronisiert · ungespeicherte Änderungen</span></div><button class="menu-item " data-action="syncNowAction"><span class="menu-item-label">Jetzt synchronisieren</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="logoutSync"><span class="menu-item-label">Abmelden (Cloud-Login vergessen)</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="createBackup"><span class="menu-item-label">Daten herunterladen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="restoreBackup"><span class="menu-item-label">Daten hochladen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="exportPdf"><span class="menu-item-label">Export als PDF</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="exportPhotoPdf"><span class="menu-item-label">Foto-Dokumentation als PDF</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="exportExcel"><span class="menu-item-label">Export als Excel</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="exportCsv"><span class="menu-item-label">Export als CSV</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item danger" data-action="deleteAllMenu"><span class="menu-item-label">Alle Daten löschen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button></div>
+        <div class="menu-cat-items"><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Status</span><span class="menu-item-value" data-compute="syncStatus">Noch nicht synchronisiert</span></div><button class="menu-item " data-action="syncNowAction"><span class="menu-item-label">Jetzt synchronisieren</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="logoutSync"><span class="menu-item-label">Abmelden (Cloud-Login vergessen)</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="createBackup"><span class="menu-item-label">Daten herunterladen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="restoreBackup"><span class="menu-item-label">Daten hochladen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="exportPdf"><span class="menu-item-label">Export als PDF</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="exportPhotoPdf"><span class="menu-item-label">Foto-Dokumentation als PDF</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="exportExcel"><span class="menu-item-label">Export als Excel</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="exportCsv"><span class="menu-item-label">Export als CSV</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item danger" data-action="deleteAllMenu"><span class="menu-item-label">Alle Daten löschen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button></div>
       </div>
     
       <div class="menu-cat " data-cat="unterstuetzung">
@@ -1172,8 +1205,8 @@
 
         <label class="field-label">2 · Token einfügen</label>
         <input type="password" id="deploy-token-input" placeholder="github_pat_…" value="" style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-size:16px; margin-bottom:6px;">
-        <div style="font-size:10.5px; color:var(--cat-krank); margin-bottom:20px; line-height:1.6;">
-          ⚠️ Wird dauerhaft mitsynchronisiert (z.B. über Dropbox) – landet als Klartext in deiner Cloud, damit du es nie wieder eingeben musst. Nutze dafür unbedingt ein Fine-grained Token nur für dieses eine Repo.
+        <div style="font-size:10.5px; color:var(--text-soft); margin-bottom:20px; line-height:1.6;">
+          Wird in diesem Browser auf diesem Gerät gemerkt (unabhängig von Dropbox/Cloud) – du musst es hier nur einmal eingeben. Nutze dafür trotzdem am besten ein Fine-grained Token nur für dieses eine Repo.
         </div>
 
         <label class="field-label">3 · Hochladen</label>
@@ -1240,6 +1273,21 @@
     </div>
   </div>
 
+  <div class="warning-overlay" id="vacation-range-overlay">
+    <div class="warning-box">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3E7CBF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path>
+      </svg>
+      <div class="warning-text">Bis wann hast du Urlaub?</div>
+      <input type="date" id="vacation-range-end" style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-family:'IBM Plex Mono'; font-weight:600; margin-top:12px;">
+      <div style="font-size:11px; color:var(--text-soft); margin-top:8px; line-height:1.5;">Samstag und Sonntag werden automatisch übersprungen.</div>
+      <div style="display:flex; gap:10px; margin-top:16px;">
+        <button class="secondary-btn" id="vacation-range-cancel" style="margin-top:0;">Abbrechen</button>
+        <button class="primary-btn" id="vacation-range-ok" style="margin-top:0;">Übernehmen</button>
+      </div>
+    </div>
+  </div>
+
   <div class="warning-overlay" id="confirm-overlay">
     <div class="warning-box">
       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#B84A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1262,6 +1310,137 @@
   const DEPLOY_REPO = "asdfasdf";
   const DEPLOY_BRANCH = "main";
   const DEPLOY_PATH = "index.html";
+  const DEPLOY_TOKEN_LOCAL_KEY = "stundennachweis_deploy_token";
+  const AI_WORKER_CODE = `/**
+ * Stundennachweis – KI-Sprachausfüllung – Cloudflare Worker
+ * ----------------------------------------------------------
+ * Nimmt vom Frontend erkannten Sprachtext entgegen, ruft OpenAI auf
+ * (API-Key bleibt serverseitig geheim) und gibt strukturierte JSON-Daten
+ * zurück, mit denen die App das Eintrags-Formular automatisch befüllt.
+ *
+ * Deployment:
+ *   1. npm install -g wrangler   (falls noch nicht vorhanden)
+ *   2. wrangler login
+ *   3. In diesem Ordner: wrangler deploy
+ *   4. Secret setzen:  wrangler secret put OPENAI_API_KEY
+ *   5. In ALLOWED_ORIGIN unten deine echte GitHub-Pages-Adresse eintragen
+ *      (z. B. "https://sipe99.github.io"), dann erneut deployen.
+ *   6. Die von wrangler ausgegebene Worker-URL (*.workers.dev) in der App
+ *      unter AI_WORKER_URL_FIXED eintragen.
+ */
+
+const ALLOWED_ORIGIN = "*"; // Produktiv einschränken, z.B. "https://sipe99.github.io"
+
+function corsHeaders() {
+  return {
+    "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+  };
+}
+
+const SYSTEM_PROMPT_TEMPLATE = (today) => \`Du extrahierst strukturierte Arbeitszeit-Daten aus gesprochenem deutschem Text für eine Stundennachweis-App (Zeiterfassung für Handwerker/Monteure).
+Heutiges Datum: \${today}.
+
+Antworte AUSSCHLIESSLICH mit validem JSON in exakt diesem Format, ohne jeglichen zusätzlichen Text, ohne Markdown-Codeblock:
+{
+  "date": "YYYY-MM-DD",
+  "blocks": [{"start":"HH:MM","end":"HH:MM"}],
+  "category": "string oder leer",
+  "site": "string oder leer",
+  "note": "string oder leer"
+}
+
+Regeln:
+- Wenn kein Datum genannt wird, nutze das heutige Datum.
+- Zeiten immer im 24h-Format mit führenden Nullen (z.B. "07:00", nicht "7:00").
+- "von sieben bis zwölf" bedeutet 07:00–12:00. Erkenne auch Formulierungen wie "sieben Uhr", "halb acht" (07:30), "Viertel nach neun" (09:15).
+- Wenn mehrere Zeitblöcke genannt werden (z.B. Vormittag und Nachmittag getrennt durch eine Pause), gib mehrere Einträge im blocks-Array zurück.
+- Wenn keine Zeiten erkennbar sind, gib ein leeres blocks-Array zurück.
+- "category" ist die Art der Tätigkeit, falls erkennbar (z.B. "Montage", "Reparatur", "Bürotag", "Urlaub", "Krankenstand") – sonst leer lassen.
+- "site" ist der Ort/die Baustelle, falls genannt (z.B. "Stockerau", "Klagenfurt") – sonst leer lassen.
+- "note" ist eine kurze Zusammenfassung der eigentlichen Tätigkeit in normalem Deutsch, ohne die Zeiten/den Ort zu wiederholen.\`;
+
+export default {
+  async fetch(request, env) {
+    if (request.method === "OPTIONS") {
+      return new Response(null, { headers: corsHeaders() });
+    }
+    if (request.method !== "POST") {
+      return new Response("Method not allowed", { status: 405, headers: corsHeaders() });
+    }
+
+    let body;
+    try {
+      body = await request.json();
+    } catch (e) {
+      return json({ error: "Ungültiger Request-Body" }, 400);
+    }
+
+    const text = (body && body.text || "").trim();
+    if (!text) {
+      return json({ error: "Kein Text übermittelt" }, 400);
+    }
+    if (text.length > 4000) {
+      return json({ error: "Text zu lang" }, 400);
+    }
+
+    if (!env.OPENAI_API_KEY) {
+      return json({ error: "Server nicht konfiguriert (fehlender API-Key)" }, 500);
+    }
+
+    const today = new Date().toISOString().slice(0, 10);
+
+    try {
+      const openaiRes = await fetch("https://api.openai.com/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Authorization": \`Bearer \${env.OPENAI_API_KEY}\`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          model: "gpt-4o-mini",
+          messages: [
+            { role: "system", content: SYSTEM_PROMPT_TEMPLATE(today) },
+            { role: "user", content: text },
+          ],
+          response_format: { type: "json_object" },
+          temperature: 0.2,
+        }),
+      });
+
+      if (!openaiRes.ok) {
+        const errText = await openaiRes.text();
+        return json({ error: "OpenAI-Fehler", details: errText }, 502);
+      }
+
+      const data = await openaiRes.json();
+      const content = data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content;
+      if (!content) {
+        return json({ error: "Keine Antwort von OpenAI erhalten" }, 502);
+      }
+
+      let parsed;
+      try {
+        parsed = JSON.parse(content);
+      } catch (e) {
+        return json({ error: "Antwort von OpenAI war kein gültiges JSON" }, 502);
+      }
+
+      return json(parsed, 200);
+    } catch (err) {
+      return json({ error: "Serverfehler", details: String(err) }, 500);
+    }
+  },
+};
+
+function json(obj, status) {
+  return new Response(JSON.stringify(obj), {
+    status,
+    headers: { ...corsHeaders(), "Content-Type": "application/json" },
+  });
+}
+`;
   let CATS = {
     montage:   { label:"Montage",     color:"#3E5C76" },
     anfahrt:   { label:"Anfahrt",     color:"#A9A29B" },
@@ -1496,6 +1675,8 @@
     const timeEl = document.getElementById("header-sync-time");
     if(srcEl) srcEl.textContent = syncSourceLabel() + (hasUnsavedChanges ? " •" : "");
     if(timeEl) timeEl.textContent = formatSyncTimeShort();
+    const logoutBtn = document.getElementById("header-logout-btn");
+    if(logoutBtn) logoutBtn.style.display = syncMode ? "flex" : "none";
   }
   function formatSyncTime(){
     if(!lastSyncTime) return "Noch nicht synchronisiert";
@@ -1681,6 +1862,7 @@
       await dropboxSaveNew();
       syncMode = "dropbox";
       saveSyncCredentials();
+      updateSyncStatusUI();
       render();
       showToast("Mit Dropbox synchronisiert");
     }catch(e){
@@ -1850,6 +2032,7 @@
       await googleSaveNew();
       syncMode = "google";
       saveSyncCredentials();
+      updateSyncStatusUI();
       render();
       showToast("Mit Google Drive synchronisiert");
     }catch(e){
@@ -1928,6 +2111,7 @@
       await onedriveSaveNew();
       syncMode = "onedrive";
       saveSyncCredentials();
+      updateSyncStatusUI();
       render();
       showToast("Mit OneDrive synchronisiert");
     }catch(e){
@@ -2091,6 +2275,7 @@
           fileHandle = handle;
           syncMode = "local-fs";
           await readDataFromHandle();
+          updateSyncStatusUI();
           render();
           closeMenuSub();
           showToast("Datei verbunden – wird ab jetzt automatisch synchronisiert");
@@ -2102,6 +2287,7 @@
           fileHandle = handle;
           syncMode = "local-fs";
           await writeDataToHandle();
+          updateSyncStatusUI();
           closeMenuSub();
           showToast("Neue Datei erstellt – wird ab jetzt automatisch synchronisiert");
         }catch(e){ /* Nutzer hat abgebrochen */ }
@@ -2434,7 +2620,8 @@
             const e = entries[dt];
             const other = d.getMonth()!==curMonth;
             const isToday = dt===todayStr();
-            return `<div class="mini-day ${other?'other-month':''} ${isToday?'today':''}" data-open-day="${dt}" title="${dt.split('-').reverse().join('.')}">
+            const isVacation = e && isVacationLabel(e.category);
+            return `<div class="mini-day ${other?'other-month':''} ${isToday?'today':''} ${isVacation?'vacation-veil':''}" data-open-day="${dt}" title="${dt.split('-').reverse().join('.')}">
               ${d.getDate()}
               ${e?`<span class="mdot" style="background:${catColor(e.category)}"></span>`:''}
             </div>`;
@@ -2813,8 +3000,9 @@
       const dt = `${y}-${pad(m+1)}-${pad(day)}`;
       const e = entries[dt];
       const isToday = dt===todayStr();
+      const isVacation = e && isVacationLabel(e.category);
       cells += `
-        <div class="cal-cell ${isToday?'today':''}" data-open-day="${dt}">
+        <div class="cal-cell ${isToday?'today':''} ${isVacation?'vacation-veil':''}" data-open-day="${dt}">
           <div class="d">${day}</div>
           ${e ? `<div class="dot" style="background:${catColor(e.category)}"></div><div class="hrs">${fmtH(dayHours(e))}</div>` : ''}
         </div>`;
@@ -3661,6 +3849,13 @@
         const input = document.getElementById("category-input");
         if(input) input.value = draftCategoryText;
         updateCatGridSelection();
+        if(!isSame && isVacationLabel(chip.dataset.label)){
+          showVacationRangePopup(editingDate, async (endDate)=>{
+            await fillVacationRange(editingDate, endDate);
+            closeSheet();
+            render();
+          });
+        }
       };
     });
   }
@@ -4648,6 +4843,56 @@
     okBtn.onclick = async ()=>{ close(); await onConfirm(); };
     cancelBtn.onclick = close;
   }
+  function isVacationLabel(text){
+    return CATS.urlaub && normCat(text)===normCat(CATS.urlaub.label);
+  }
+  function showVacationRangePopup(startDate, onConfirm){
+    const overlay = document.getElementById("vacation-range-overlay");
+    const endInput = document.getElementById("vacation-range-end");
+    endInput.min = startDate;
+    endInput.value = startDate;
+    overlay.classList.add("open");
+    const okBtn = document.getElementById("vacation-range-ok");
+    const cancelBtn = document.getElementById("vacation-range-cancel");
+    const close = ()=>overlay.classList.remove("open");
+    okBtn.onclick = async ()=>{
+      const endDate = endInput.value || startDate;
+      close();
+      await onConfirm(endDate);
+    };
+    cancelBtn.onclick = close;
+  }
+  async function fillVacationRange(startDate, endDate){
+    const start = new Date(startDate+"T00:00:00");
+    const end = new Date(endDate+"T00:00:00");
+    if(end < start){ showToast("Enddatum liegt vor dem Startdatum"); return; }
+    const hoursPerDay = Number(APP_SETTINGS.vacationHoursPerDay) || 8;
+    const startTime = "08:00";
+    const endIdx = Math.min(TIME_OPTS.length-1, TIME_OPTS.indexOf(startTime) + Math.round(hoursPerDay*2));
+    const blockEnd = TIME_OPTS[endIdx] || "16:00";
+    let count = 0;
+    const cur = new Date(start);
+    while(cur <= end){
+      const dow = cur.getDay(); // 0=So, 6=Sa
+      if(dow !== 0 && dow !== 6){
+        const dt = dstr(cur);
+        const existing = entries[dt];
+        entries[dt] = {
+          blocks: [{ start: startTime, end: blockEnd }],
+          category: CATS.urlaub.label,
+          site: existing ? existing.site : "",
+          note: existing ? existing.note : "",
+          photos: existing ? existing.photos : [],
+          files: existing ? existing.files : [],
+          route: existing ? existing.route : []
+        };
+        count++;
+      }
+      cur.setDate(cur.getDate()+1);
+    }
+    await saveEntries();
+    showToast(`${count} Urlaubstag(e) eingetragen`);
+  }
   async function deleteAllEntries(){
     entries = {};
     await saveEntries();
@@ -4933,6 +5178,13 @@
   document.getElementById("hamburger-btn").onclick = openMenu;
   document.getElementById("sync-btn").onclick = syncNow;
   document.getElementById("header-sync-status").onclick = openSyncChooser;
+  document.getElementById("header-logout-btn").onclick = ()=>{
+    if(!syncMode){ return; }
+    showConfirmPopup("Wirklich abmelden? Der gespeicherte Login wird vergessen, deine Daten in der Cloud bleiben aber erhalten.", ()=>{
+      clearSyncCredentials();
+      showToast("Abgemeldet");
+    });
+  };
   document.getElementById("menu-close").onclick = closeMenu;
   document.getElementById("menu-overlay").addEventListener("click", (e)=>{ if(e.target.id==="menu-overlay") closeMenu(); });
   document.getElementById("menu-sub-back").onclick = closeMenuSub;
@@ -4971,7 +5223,8 @@
     compactView: false, bigSiteButtons: false, autoPunctuation: false,
     showCalendarView: true, showWeekView: true, showMonthView: true,
     icloudSync: false, remindEntry: false, remindBreak: false, remindStart: false, remindEnd: false,
-    workModel: "Vollzeit", homeLabel: "Zuhause", aiWorkerUrl: ""
+    workModel: "Vollzeit", homeLabel: "Zuhause", aiWorkerUrl: "",
+    vacationHoursPerDay: 8, vacationPayPercent: 100, aiWorkerRepoUrl: ""
   };
   async function loadAppSettings(){ /* siehe syncNow */ }
   async function saveAppSettings(){ await persistData(); }
@@ -5080,6 +5333,7 @@
     ]},
     { id:"arbeit", icon:"arbeit", title:"Arbeit & Kollektivvertrag", items:[
         { id:"a-kv-wahl", label:"Gewerbe / Kollektivvertrag wählen", type:"action", action:"tradeManager" },
+        { id:"a-kv-links", label:"Aktuelle Kollektivverträge (WKO)", type:"action", action:"openKvLinksPanel" },
         { id:"a-normal", label:"Normalarbeitszeit", type:"info", compute:"kvNormal" },
         { id:"a-sollmonat", label:"Sollstunden pro Monat", type:"info", compute:"sollMonat" },
         { id:"a-lohn", label:"Stundenlohn", type:"action", action:"wageManager" },
@@ -5087,6 +5341,8 @@
         { id:"a-km", label:"Kilometergeld", type:"number", key:"kmRate", step:"0.01", suffix:" €/km" },
         { id:"a-modell", label:"Arbeitszeitmodell", type:"choice", key:"workModel", options:["Vollzeit","Teilzeit"] },
         { id:"a-urlaub", label:"Urlaubstage", type:"number", key:"kvVacationDays", suffix:" Tage/Jahr" },
+        { id:"a-urlaubstd", label:"Urlaubsstunden pro Tag", type:"number", key:"vacationHoursPerDay", suffix:" Std./Tag" },
+        { id:"a-urlaubsatz", label:"Urlaubsentgelt (% vom Lohn)", type:"number", key:"vacationPayPercent", suffix:" %" },
         { id:"a-feiertagregel", label:"Feiertagsregelung", type:"text", key:"kvHolidayRule" },
         { id:"a-ueberstdregel", label:"Überstundenregelung", type:"text", key:"kvOvertimeRule" },
         { id:"a-ueberstd", label:"Überstundenzuschlag", type:"number", key:"surchargeOvertime", suffix:" %" },
@@ -5123,9 +5379,7 @@
         { id:"s-test", label:"Mikrofon testen", type:"action", action:"testMicrophone" },
     ]},
     { id:"ki", icon:"ki", title:"KI-Kopplung", items:[
-        { id:"ki-tutorial", label:"Anleitung – wie richte ich das ein?", type:"action", action:"showAiTutorial" },
-        { id:"ki-url", label:"Worker-Adresse", type:"text", key:"aiWorkerUrl" },
-        { id:"ki-test", label:"Verbindung testen", type:"action", action:"testAiWorker" },
+        { id:"ki-open", label:"Einrichten / testen", type:"action", action:"openAiPanel" },
         { id:"ki-status", label:"Status", type:"info", compute:"aiWorkerStatus" },
     ]},
     { id:"deploy", icon:"upload", title:"App-Update", items:[
@@ -5434,86 +5688,131 @@
       }catch(err){ showToast("Mikrofon-Test fehlgeschlagen"); }
     },
     syncNowAction: ()=> syncNow(),
-    showAiTutorial: ()=>{
+    openKvLinksPanel: ()=>{
+      const KV_LINKS = [
+        { label:"Baugewerbe / Bauindustrie", url:"https://www.wko.at/gewerbe-handwerk/bau/kollektivvertrag-baugewerbe-bauindustrie" },
+        { label:"Metallgewerbe / Metalltechnik", url:"https://www.wko.at/gewerbe-handwerk/metalltechniker/kollektivvertraege" },
+        { label:"Elektro-, Gebäude-, Alarm- u. Kommunikationstechnik", url:"https://www.wko.at/gewerbe-handwerk/elektro-gebaeude-alarm-kommunikation/kollektivvertrag-arbeiter" },
+        { label:"Tischler / Holzgestalter", url:"https://www.wko.at/gewerbe-handwerk/tischler-holzgestalter/kollektivvertrag" },
+        { label:"Dachdecker, Glaser, Spengler", url:"https://www.wko.at/oe/gewerbe-handwerk/dachdecker-glaser-spengler/kollektivvertraege-dachdecker-glaser-spengler" },
+        { label:"Maler, Lackierer, Tapezierer", url:"https://www.wko.at/gewerbe-handwerk/maler-tapezierer/kollektivvertraege-maler-tapezierer" },
+        { label:"Gewerbe, Handwerk allgemein (Angestellte)", url:"https://www.wko.at/kollektivvertrag/kollektivvertrag-gewerbe-handwerk-und-dienstleistung-2026" },
+        { label:"Alle Kollektivverträge durchsuchen (WKO)", url:"https://www.wko.at/service/kollektivvertrag" },
+      ];
       const html = `
-        <div style="font-size:12.5px; color:var(--text-soft); margin-bottom:16px; line-height:1.6;">
-          Diese Funktion braucht ein kleines, kostenloses "Backend" bei Cloudflare, damit dein OpenAI-Zugangsschlüssel niemals in der App selbst sichtbar ist. Klingt technisch, geht aber komplett über die Maus – keine Kommandozeile nötig. Rechne mit ca. 10–15 Minuten beim ersten Mal.
+        <div style="font-size:12px; color:var(--text-soft); margin-bottom:14px; line-height:1.5;">
+          Führt direkt zur offiziellen WKO-Übersichtsseite deiner Branche – dort steht immer die aktuell gültige Fassung mit Lohn-/Gehaltstabelle, automatisch von der WKO aktuell gehalten.
         </div>
-
-        <label class="field-label">Teil 1 – Cloudflare-Konto</label>
-        <ol style="font-size:12px; color:var(--text-soft); margin:0 0 16px 0; padding-left:18px; line-height:1.8;">
-          <li>Gehe auf <b style="color:var(--text);">dash.cloudflare.com/sign-up</b> und erstelle ein kostenloses Konto (E-Mail bestätigen nicht vergessen).</li>
-          <li>Im Menü links auf <b style="color:var(--text);">„Workers & Pages"</b> klicken.</li>
-          <li><b style="color:var(--text);">„Create"</b> (oder „Create application") → <b style="color:var(--text);">„Create Worker"</b> auswählen.</li>
-          <li>Einen Namen vergeben, z. B. <b style="color:var(--text);">stundennachweis-ki</b>, dann <b style="color:var(--text);">„Deploy"</b> klicken (legt erstmal eine leere Test-Seite an – normal so).</li>
-        </ol>
-
-        <label class="field-label">Teil 2 – Den eigentlichen Code einfügen</label>
-        <ol style="font-size:12px; color:var(--text-soft); margin:0 0 16px 0; padding-left:18px; line-height:1.8;">
-          <li>Auf der Seite deines neuen Workers oben auf <b style="color:var(--text);">„Edit code"</b> klicken.</li>
-          <li>Den gesamten vorhandenen Beispiel-Code markieren und löschen.</li>
-          <li>Den kompletten Inhalt der Datei <b style="color:var(--text);">worker.js</b> (die du von mir bekommen hast) hier einfügen.</li>
-          <li>Oben rechts auf <b style="color:var(--text);">„Deploy"</b> klicken.</li>
-        </ol>
-
-        <label class="field-label">Teil 3 – OpenAI-Zugangsschlüssel besorgen</label>
-        <ol style="font-size:12px; color:var(--text-soft); margin:0 0 16px 0; padding-left:18px; line-height:1.8;">
-          <li>Gehe auf <b style="color:var(--text);">platform.openai.com</b>, melde dich an bzw. erstelle ein Konto.</li>
-          <li>Links auf <b style="color:var(--text);">„API keys"</b> → <b style="color:var(--text);">„Create new secret key"</b>.</li>
-          <li>Den angezeigten Schlüssel (beginnt mit <b style="color:var(--text);">sk-...</b>) kopieren – wird nur einmal angezeigt!</li>
-          <li>Hinterlege dort eine kleine Zahlungsmethode (die Nutzung kostet nur Bruchteile eines Cents pro Anfrage).</li>
-        </ol>
-
-        <label class="field-label">Teil 4 – Schlüssel sicher beim Worker hinterlegen</label>
-        <ol style="font-size:12px; color:var(--text-soft); margin:0 0 16px 0; padding-left:18px; line-height:1.8;">
-          <li>Zurück bei Cloudflare, auf deinen Worker klicken → Tab <b style="color:var(--text);">„Settings"</b> → <b style="color:var(--text);">„Variables and Secrets"</b>.</li>
-          <li><b style="color:var(--text);">„Add"</b> klicken. Name: <b style="color:var(--text);">OPENAI_API_KEY</b>. Wert: dein kopierter <b style="color:var(--text);">sk-...</b>-Schlüssel.</li>
-          <li><b style="color:var(--text);">UNBEDINGT</b> den Typ auf <b style="color:var(--text);">„Secret"</b> (verschlüsselt) stellen, nicht „Text" – sonst ist er später sichtbar.</li>
-          <li>Speichern, dann nochmal <b style="color:var(--text);">„Deploy"</b> klicken.</li>
-        </ol>
-
-        <label class="field-label">Teil 5 – Adresse hier eintragen</label>
-        <ol style="font-size:12px; color:var(--text-soft); margin:0 0 16px 0; padding-left:18px; line-height:1.8;">
-          <li>Ganz oben auf der Worker-Seite steht deine Adresse, z. B. <b style="color:var(--text);">stundennachweis-ki.deinname.workers.dev</b>.</li>
-          <li>Diese komplette Adresse (mit <b style="color:var(--text);">https://</b> davor) kopieren.</li>
-          <li>Hier zurückgehen, bei <b style="color:var(--text);">„Worker-Adresse"</b> einfügen, dann auf <b style="color:var(--text);">„Verbindung testen"</b> tippen.</li>
-        </ol>
-
-        <div style="font-size:11px; color:var(--text-soft); padding:10px 12px; background:var(--glass-bg); border-radius:12px; border:1px dashed var(--glass-border); line-height:1.6;">
-          💡 Bleibt der Test rot: Am häufigsten fehlt der Punkt "Secret" statt "Text" bei Schritt 4, oder es wurde nach dem Einfügen des Codes nicht erneut "Deploy" geklickt.
-        </div>
+        <input type="text" id="kv-search-input" placeholder="Branche suchen…" style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-size:16px; margin-bottom:14px;" />
+        <div id="kv-links-list"></div>
       `;
-      openMenuSub("Anleitung: KI-Kopplung", html);
+      openMenuSub("Kollektivverträge", html);
+      const searchInput = document.getElementById("kv-search-input");
+      const list = document.getElementById("kv-links-list");
+      function renderKvList(filter){
+        const f = (filter||"").trim().toLowerCase();
+        const filtered = KV_LINKS.filter(kv => !f || kv.label.toLowerCase().includes(f));
+        list.innerHTML = filtered.length ? filtered.map(kv=>`
+          <a href="${kv.url}" target="_blank" rel="noopener" class="kv-link-row">
+            <span>${escapeHtml(kv.label)}</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        `).join("") : `<div style="color:var(--text-soft); font-size:12.5px; padding:8px 0;">Keine Treffer.</div>`;
+      }
+      renderKvList("");
+      searchInput.oninput = ()=> renderKvList(searchInput.value);
     },
-    testAiWorker: async ()=>{
-      const url = (APP_SETTINGS.aiWorkerUrl || "").trim();
-      if(!url){ showToast("Bitte zuerst eine Worker-Adresse eintragen"); return; }
-      showToast("Teste Verbindung…");
-      try{
-        const res = await fetch(url, {
-          method:"POST",
-          headers:{ "Content-Type":"application/json" },
-          body: JSON.stringify({ text:"Testverbindung, heute von sieben bis zwölf Uhr gearbeitet" })
-        });
-        const data = await res.json().catch(()=>null);
-        if(res.ok && data && !data.error){
-          APP_SETTINGS.aiWorkerLastTestOk = true;
-          await saveAppSettings();
-          showToast("✓ Verbindung erfolgreich – die KI-Kopplung funktioniert");
-        }else{
+    openAiPanel: ()=>{
+      const workerCode = document.getElementById("ki-worker-code-source") ? document.getElementById("ki-worker-code-source").textContent : "";
+      const savedRepo = APP_SETTINGS.aiWorkerRepoUrl || "";
+      const html = `
+        <div style="font-size:12.5px; color:var(--text-soft); margin-bottom:18px; line-height:1.6;">
+          Diese Funktion braucht ein kleines, kostenloses Cloudflare-Backend, damit dein OpenAI-Schlüssel nie in der App sichtbar ist. Geht komplett über die Maus, keine Kommandozeile.
+        </div>
+
+        <label class="field-label">1 · Code kopieren</label>
+        <button class="secondary-btn" id="ki-copy-code-btn" style="margin-top:0; margin-bottom:6px;">Worker-Code in Zwischenablage kopieren</button>
+        <div style="font-size:10.5px; color:var(--text-soft); margin-bottom:16px; line-height:1.5;">
+          Füge ihn danach in ein neues, öffentliches GitHub-Repo ein (z.B. <b style="color:var(--text);">github.com/new</b> → Namen vergeben, z.B. „stundennachweis-ki" → Datei <b style="color:var(--text);">worker.js</b> erstellen → Code einfügen).
+        </div>
+
+        <label class="field-label">2 · Bei Cloudflare bereitstellen</label>
+        <input type="text" id="ki-repo-input" placeholder="https://github.com/dein-name/stundennachweis-ki" value="${escapeHtml(savedRepo)}" style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-size:16px; margin-bottom:10px;" />
+        <button class="primary-btn" id="ki-deploy-btn" style="margin-top:0; margin-bottom:16px;">Ein-Klick-Bereitstellung öffnen</button>
+
+        <label class="field-label">3 · OpenAI-Schlüssel</label>
+        <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener" class="secondary-btn" style="display:block; text-align:center; text-decoration:none; margin-top:0; margin-bottom:8px;">
+          OpenAI-Schlüssel erstellen
+        </a>
+        <div style="font-size:10.5px; color:var(--text-soft); margin-bottom:16px; line-height:1.6;">
+          Dort „Create new secret key" (beginnt mit <b style="color:var(--text);">sk-...</b>) – dann bei Cloudflare auf deinem Worker unter <b style="color:var(--text);">Settings → Variables and Secrets → Add</b>: Name <b style="color:var(--text);">OPENAI_API_KEY</b>, Wert einfügen, Typ unbedingt auf <b style="color:var(--text);">„Secret"</b> stellen.
+        </div>
+
+        <label class="field-label">4 · Worker-Adresse</label>
+        <input type="text" id="ki-url-input" placeholder="https://….workers.dev" value="${escapeHtml(APP_SETTINGS.aiWorkerUrl||'')}" style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-size:16px; margin-bottom:10px;" />
+        <button class="secondary-btn" id="ki-test-btn" style="margin-top:0;">Verbindung testen</button>
+        <div id="ki-test-status" style="font-size:11.5px; color:var(--text-soft); margin-top:10px; line-height:1.6;"></div>
+
+        <div id="ki-worker-code-source" style="display:none;">${escapeHtml(AI_WORKER_CODE)}</div>
+      `;
+      openMenuSub("KI-Kopplung", html);
+
+      document.getElementById("ki-copy-code-btn").onclick = async ()=>{
+        try{ await navigator.clipboard.writeText(AI_WORKER_CODE); showToast("Code kopiert"); }
+        catch(e){ showToast("Kopieren nicht möglich – bitte manuell markieren"); }
+      };
+      const repoInput = document.getElementById("ki-repo-input");
+      const debouncedSaveRepo = debounce(async ()=>{
+        APP_SETTINGS.aiWorkerRepoUrl = repoInput.value.trim();
+        await saveAppSettings();
+      }, 600);
+      repoInput.oninput = debouncedSaveRepo;
+      document.getElementById("ki-deploy-btn").onclick = ()=>{
+        const repo = repoInput.value.trim();
+        if(!repo){ showToast("Bitte zuerst dein GitHub-Repo eintragen"); return; }
+        window.open("https://deploy.workers.cloudflare.com/?url=" + encodeURIComponent(repo), "_blank", "noopener");
+      };
+
+      const urlInput = document.getElementById("ki-url-input");
+      const debouncedSaveUrl = debounce(async ()=>{
+        APP_SETTINGS.aiWorkerUrl = urlInput.value.trim();
+        await saveAppSettings();
+        refreshMenuComputes();
+      }, 600);
+      urlInput.oninput = debouncedSaveUrl;
+      document.getElementById("ki-test-btn").onclick = async ()=>{
+        const url = urlInput.value.trim();
+        const statusLine = document.getElementById("ki-test-status");
+        if(!url){ showToast("Bitte zuerst eine Worker-Adresse eintragen"); return; }
+        statusLine.textContent = "Teste Verbindung…";
+        try{
+          const res = await fetch(url, {
+            method:"POST",
+            headers:{ "Content-Type":"application/json" },
+            body: JSON.stringify({ text:"Testverbindung, heute von sieben bis zwölf Uhr gearbeitet" })
+          });
+          const data = await res.json().catch(()=>null);
+          if(res.ok && data && !data.error){
+            APP_SETTINGS.aiWorkerLastTestOk = true;
+            await saveAppSettings();
+            statusLine.textContent = "✓ Verbindung erfolgreich";
+            showToast("Verbunden");
+          }else{
+            APP_SETTINGS.aiWorkerLastTestOk = false;
+            await saveAppSettings();
+            statusLine.textContent = "Fehlgeschlagen: " + (data && data.error ? data.error : ("Fehler " + res.status));
+          }
+        }catch(e){
           APP_SETTINGS.aiWorkerLastTestOk = false;
           await saveAppSettings();
-          showToast("Verbindung fehlgeschlagen: " + (data && data.error ? data.error : ("Fehler " + res.status)));
+          statusLine.textContent = "Verbindung fehlgeschlagen – Adresse prüfen";
         }
-      }catch(e){
-        APP_SETTINGS.aiWorkerLastTestOk = false;
-        await saveAppSettings();
-        showToast("Verbindung fehlgeschlagen – Adresse prüfen oder Anleitung erneut durchgehen");
-      }
-      refreshMenuComputes();
+        refreshMenuComputes();
+      };
     },
     openDeployPanel: ()=>{
-      const savedToken = APP_SETTINGS.deployToken || "";
+      let savedToken = "";
+      try{ savedToken = localStorage.getItem(DEPLOY_TOKEN_LOCAL_KEY) || ""; }catch(e){}
       const prefillUrl = "https://github.com/settings/personal-access-tokens/new?"
         + "name=" + encodeURIComponent("Stundennachweis Deploy")
         + "&description=" + encodeURIComponent("Veröffentlichen der Stundennachweis-App auf GitHub Pages")
@@ -5537,8 +5836,8 @@
 
         <label class="field-label">2 · Token einfügen</label>
         <input type="password" id="deploy-token-input" placeholder="github_pat_…" value="${escapeHtml(savedToken)}" style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-size:16px; margin-bottom:6px;" />
-        <div style="font-size:10.5px; color:var(--cat-krank); margin-bottom:20px; line-height:1.6;">
-          ⚠️ Wird dauerhaft mitsynchronisiert (z.B. über Dropbox) – landet als Klartext in deiner Cloud, damit du es nie wieder eingeben musst. Nutze dafür unbedingt ein Fine-grained Token nur für dieses eine Repo.
+        <div style="font-size:10.5px; color:var(--text-soft); margin-bottom:20px; line-height:1.6;">
+          Wird in diesem Browser auf diesem Gerät gemerkt (unabhängig von Dropbox/Cloud) – du musst es hier nur einmal eingeben. Nutze dafür trotzdem am besten ein Fine-grained Token nur für dieses eine Repo.
         </div>
 
         <label class="field-label">3 · Hochladen</label>
@@ -5550,11 +5849,9 @@
       `;
       openMenuSub("Update hochladen", html);
       const tokenInput = document.getElementById("deploy-token-input");
-      const debouncedSaveToken = debounce(async ()=>{
-        APP_SETTINGS.deployToken = tokenInput.value.trim();
-        await saveAppSettings();
-      }, 600);
-      tokenInput.oninput = debouncedSaveToken;
+      tokenInput.oninput = ()=>{
+        try{ localStorage.setItem(DEPLOY_TOKEN_LOCAL_KEY, tokenInput.value.trim()); }catch(e){}
+      };
       document.getElementById("deploy-now-btn").onclick = async ()=>{
         const token = tokenInput.value.trim();
         const statusLine = document.getElementById("deploy-status-line");
@@ -5577,7 +5874,10 @@
             headers:{ Authorization:`Bearer ${token}`, Accept:"application/vnd.github+json" }
           });
           if(getRes.status === 200){ const data = await getRes.json(); sha = data.sha; }
-          else if(getRes.status !== 404){ throw new Error("Prüfen fehlgeschlagen (" + getRes.status + ")"); }
+          else if(getRes.status !== 404){
+            const errData = await getRes.json().catch(()=>({}));
+            throw new Error("Prüfen fehlgeschlagen (" + getRes.status + "): " + (errData.message || "unbekannter Fehler"));
+          }
 
           statusLine.textContent = "Wird hochgeladen…";
           const body = { message:`Update via App – ${new Date().toISOString()}`, content: toBase64Utf8(content), branch };
@@ -5587,7 +5887,11 @@
             headers:{ Authorization:`Bearer ${token}`, Accept:"application/vnd.github+json", "Content-Type":"application/json" },
             body: JSON.stringify(body)
           });
-          if(!putRes.ok){ const errText = await putRes.text().catch(()=>""); console.error(errText); throw new Error("Hochladen fehlgeschlagen (" + putRes.status + ")"); }
+          if(!putRes.ok){
+            const errData = await putRes.json().catch(()=>({}));
+            console.error(errData);
+            throw new Error("Hochladen fehlgeschlagen (" + putRes.status + "): " + (errData.message || "unbekannter Fehler"));
+          }
 
           APP_SETTINGS.deployLastAt = new Date().toISOString();
           await persistDataImmediate();
