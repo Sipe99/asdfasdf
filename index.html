@@ -1205,12 +1205,15 @@
         </div>
 
         <label class="field-label">1 · Token besorgen</label>
-        <a href="https://github.com/settings/personal-access-tokens/new?name=Stundennachweis%20Deploy&amp;description=Ver%C3%B6ffentlichen%20der%20Stundennachweis-App%20auf%20GitHub%20Pages&amp;expires_in=90&amp;contents=write" target="_blank" rel="noopener" class="primary-btn" style="display:block; text-align:center; text-decoration:none; margin-top:0; margin-bottom:10px;">
-          Token-Seite öffnen (vorausgefüllt)
-        </a>
-        <div style="font-size:11px; color:var(--text-soft); margin-bottom:16px; line-height:1.6;">
-          Öffnet GitHub bereits mit Name, Beschreibung, 90 Tagen Ablauf und "Contents: Read and write" vorausgefüllt. Dort nur noch: <b style="color:var(--text);">„Only select repositories"</b> → <b style="color:var(--text);">Sipe99/asdfasdf</b> anhaken, dann <b style="color:var(--text);">„Generate token"</b> klicken und den Wert (<b style="color:var(--text);">github_pat_...</b>) kopieren.
-        </div>
+        
+          <a href="https://github.com/settings/personal-access-tokens/16947491" target="_blank" rel="noopener" class="primary-btn" style="display:block; text-align:center; text-decoration:none; margin-top:0; margin-bottom:8px;">
+            Bestehendes Token erneuern
+          </a>
+          <div style="font-size:11px; color:var(--text-soft); margin-bottom:10px; line-height:1.6;">
+            Öffnet deine gemerkte Token-Seite – dort auf <b style="color:var(--text);">„Regenerate token"</b> klicken, den neuen Wert kopieren und unten einfügen. Schneller als ein komplett neues Token zu erstellen.
+          </div>
+          <button type="button" id="deploy-token-url-forget-btn" style="background:none; border:none; color:var(--text-soft); font-size:10.5px; text-decoration:underline; cursor:pointer; padding:0; margin-bottom:16px;">Andere Token-Seite verwenden</button>
+        
 
         <label class="field-label">2 · Token einfügen</label>
         <input type="password" id="deploy-token-input" placeholder="github_pat_…" value="" style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-size:16px; margin-bottom:8px;">
@@ -5495,7 +5498,7 @@ function json(obj, status) {
     showCalendarView: true, showWeekView: true, showMonthView: true,
     icloudSync: false, remindEntry: false, remindBreak: false, remindStart: false, remindEnd: false,
     workModel: "Vollzeit", homeLabel: "Zuhause", aiWorkerUrl: "",
-    vacationHoursPerDay: 8, vacationPayPercent: 100, aiWorkerRepoUrl: ""
+    vacationHoursPerDay: 8, vacationPayPercent: 100, aiWorkerRepoUrl: "", deployTokenUrl: "https://github.com/settings/personal-access-tokens/16947491"
   };
   async function loadAppSettings(){ /* siehe syncNow */ }
   async function saveAppSettings(){ await persistData(); }
@@ -6102,12 +6105,27 @@ function json(obj, status) {
         </div>
 
         <label class="field-label">1 · Token besorgen</label>
-        <a href="${prefillUrl}" target="_blank" rel="noopener" class="primary-btn" style="display:block; text-align:center; text-decoration:none; margin-top:0; margin-bottom:10px;">
-          Token-Seite öffnen (vorausgefüllt)
-        </a>
-        <div style="font-size:11px; color:var(--text-soft); margin-bottom:16px; line-height:1.6;">
-          Öffnet GitHub bereits mit Name, Beschreibung, 90 Tagen Ablauf und "Contents: Read and write" vorausgefüllt. Dort nur noch: <b style="color:var(--text);">„Only select repositories"</b> → <b style="color:var(--text);">${escapeHtml(DEPLOY_OWNER)}/${escapeHtml(DEPLOY_REPO)}</b> anhaken, dann <b style="color:var(--text);">„Generate token"</b> klicken und den Wert (<b style="color:var(--text);">github_pat_...</b>) kopieren.
-        </div>
+        ${APP_SETTINGS.deployTokenUrl ? `
+          <a href="${escapeHtml(APP_SETTINGS.deployTokenUrl)}" target="_blank" rel="noopener" class="primary-btn" style="display:block; text-align:center; text-decoration:none; margin-top:0; margin-bottom:8px;">
+            Bestehendes Token erneuern
+          </a>
+          <div style="font-size:11px; color:var(--text-soft); margin-bottom:10px; line-height:1.6;">
+            Öffnet deine gemerkte Token-Seite – dort auf <b style="color:var(--text);">„Regenerate token"</b> klicken, den neuen Wert kopieren und unten einfügen. Schneller als ein komplett neues Token zu erstellen.
+          </div>
+          <button type="button" id="deploy-token-url-forget-btn" style="background:none; border:none; color:var(--text-soft); font-size:10.5px; text-decoration:underline; cursor:pointer; padding:0; margin-bottom:16px;">Andere Token-Seite verwenden</button>
+        ` : `
+          <a href="${prefillUrl}" target="_blank" rel="noopener" class="primary-btn" style="display:block; text-align:center; text-decoration:none; margin-top:0; margin-bottom:10px;">
+            Token-Seite öffnen (vorausgefüllt)
+          </a>
+          <div style="font-size:11px; color:var(--text-soft); margin-bottom:12px; line-height:1.6;">
+            Öffnet GitHub bereits mit Name, Beschreibung, 90 Tagen Ablauf und "Contents: Read and write" vorausgefüllt. Dort nur noch: <b style="color:var(--text);">„Only select repositories"</b> → <b style="color:var(--text);">${escapeHtml(DEPLOY_OWNER)}/${escapeHtml(DEPLOY_REPO)}</b> anhaken, dann <b style="color:var(--text);">„Generate token"</b> klicken.
+          </div>
+          <label class="field-label" style="margin-top:0;">Link zu diesem Token merken (für nächstes Mal)</label>
+          <div style="font-size:10px; color:var(--text-soft); margin-bottom:6px; line-height:1.5;">
+            Nach dem Erstellen: Adresse aus der Adresszeile kopieren (endet auf eine Zahl, z. B. „…/personal-access-tokens/16947491") und hier einfügen. Dann reicht künftig „Regenerate token" statt neu erstellen.
+          </div>
+          <input type="text" id="deploy-token-url-input" placeholder="https://github.com/settings/personal-access-tokens/…" style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-size:16px; margin-bottom:16px;" />
+        `}
 
         <label class="field-label">2 · Token einfügen</label>
         <input type="password" id="deploy-token-input" placeholder="github_pat_…" value="${escapeHtml(savedToken)}" style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-size:16px; margin-bottom:8px;" />
@@ -6140,6 +6158,24 @@ function json(obj, status) {
         </div>
       `;
       openMenuSub("Update hochladen", html);
+      if(!APP_SETTINGS.deployTokenUrl){
+        const urlInput = document.getElementById("deploy-token-url-input");
+        if(urlInput){
+          urlInput.oninput = debounce(async ()=>{
+            APP_SETTINGS.deployTokenUrl = urlInput.value.trim();
+            await saveAppSettings();
+          }, 600);
+        }
+      }else{
+        const forgetBtn = document.getElementById("deploy-token-url-forget-btn");
+        if(forgetBtn){
+          forgetBtn.onclick = async ()=>{
+            APP_SETTINGS.deployTokenUrl = "";
+            await saveAppSettings();
+            MENU_ACTIONS.openDeployPanel();
+          };
+        }
+      }
       const tokenInput = document.getElementById("deploy-token-input");
       const tokenStatus = document.getElementById("deploy-token-status");
       const tokenClearBtn = document.getElementById("deploy-token-clear-btn");
