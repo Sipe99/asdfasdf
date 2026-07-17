@@ -856,6 +856,13 @@
         </div>
       </div>
 
+      
+      <div style="text-align:center; padding:11px 16px; margin-bottom:16px; background:var(--glass-bg); border:1px dashed var(--glass-border); border-radius:14px; -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);">
+        <div style="font-size:12px; font-weight:700; color:var(--text-soft);">Stundennachweis – Demo-Ansicht</div>
+        <div style="font-size:10.5px; color:var(--text-soft); margin-top:2px;">Das ist die lokale Vorschau, keine veröffentlichte Version</div>
+      </div>
+      
+
       <button class="ai-fill-btn" id="dash-ai-fill-btn" type="button">
         <span class="ai-fill-icon">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z"></path><path d="M19 11a7 7 0 0 1-14 0M12 18v3"></path></svg>
@@ -1112,7 +1119,7 @@
           <span class="menu-cat-title">App-Update</span>
           <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
         </button>
-        <div class="menu-cat-items"><button class="menu-item " data-action="openDeployPanel"><span class="menu-item-label">Update hochladen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Letztes Update</span><span class="menu-item-value" data-compute="deployStatus">Noch kein Update hochgeladen</span></div></div>
+        <div class="menu-cat-items"><button class="menu-item " data-action="openDeployPanel"><span class="menu-item-label">Update hochladen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="openLiveSite"><span class="menu-item-label">Live-Seite öffnen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Letztes Update</span><span class="menu-item-value" data-compute="deployStatus">Noch kein Update hochgeladen</span></div></div>
       </div>
     
       <div class="menu-cat " data-cat="erinnerungen">
@@ -1200,9 +1207,13 @@
         <div style="font-size:12px; color:var(--text-soft); margin-bottom:14px; line-height:1.5;">
           Lädt genau die Version, die du gerade in diesem Browser-Tab siehst, direkt in dein GitHub-Repo hoch. GitHub Pages baut die Seite danach automatisch neu (meist unter einer Minute).
         </div>
-        <div style="font-family:'IBM Plex Mono', monospace; font-size:12px; font-weight:600; color:var(--text); background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:10px; padding:10px 12px; margin-bottom:20px;">
+        <div style="font-family:'IBM Plex Mono', monospace; font-size:12px; font-weight:600; color:var(--text); background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:10px; padding:10px 12px; margin-bottom:10px;">
           Sipe99/asdfasdf · main · index.html
         </div>
+        <a href="https://Sipe99.github.io/asdfasdf/" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:6px; font-size:11.5px; color:var(--baustellenorange); font-weight:600; text-decoration:none; margin-bottom:20px;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><path d="M15 3h6v6"></path><path d="M10 14L21 3"></path></svg>
+          Live-Seite öffnen (Sipe99.github.io/asdfasdf)
+        </a>
 
         <label class="field-label">1 · Token besorgen</label>
         
@@ -2795,6 +2806,10 @@ function json(obj, status) {
 
   function catDot(cat){ return `<span class="dot" style="background:${catColor(cat)}"></span>`; }
 
+  function isLiveSite(){
+    try{ return window.location.hostname.toLowerCase() === (DEPLOY_OWNER + ".github.io").toLowerCase(); }
+    catch(e){ return false; }
+  }
   function renderDashboard(){
     headerTitle.textContent = "Startseite";
     const today = todayStr();
@@ -2823,6 +2838,13 @@ function json(obj, status) {
           </div>
         </div>
       </div>
+
+      ${!isLiveSite() ? `
+      <div style="text-align:center; padding:11px 16px; margin-bottom:16px; background:var(--glass-bg); border:1px dashed var(--glass-border); border-radius:14px; -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);">
+        <div style="font-size:12px; font-weight:700; color:var(--text-soft);">Stundennachweis – Demo-Ansicht</div>
+        <div style="font-size:10.5px; color:var(--text-soft); margin-top:2px;">Das ist die lokale Vorschau, keine veröffentlichte Version</div>
+      </div>
+      ` : ""}
 
       <button class="ai-fill-btn" id="dash-ai-fill-btn" type="button">
         <span class="ai-fill-icon">
@@ -5658,6 +5680,7 @@ function json(obj, status) {
     ]},
     { id:"deploy", icon:"upload", title:"App-Update", items:[
         { id:"dep-open", label:"Update hochladen", type:"action", action:"openDeployPanel" },
+        { id:"dep-live", label:"Live-Seite öffnen", type:"action", action:"openLiveSite" },
         { id:"dep-status", label:"Letztes Update", type:"info", compute:"deployStatus" },
     ]},
     { id:"erinnerungen", icon:"erinnerungen", title:"Erinnerungen", items:[
@@ -5996,6 +6019,9 @@ function json(obj, status) {
       renderKvList("");
       searchInput.oninput = ()=> renderKvList(searchInput.value);
     },
+    openLiveSite: ()=>{
+      window.open(`https://${DEPLOY_OWNER}.github.io/${DEPLOY_REPO}/`, "_blank", "noopener");
+    },
     openYearOverviewPanel: ()=>{
       openMenuSub("Jahresübersicht", "");
       renderYearOverviewBody();
@@ -6100,9 +6126,13 @@ function json(obj, status) {
         <div style="font-size:12px; color:var(--text-soft); margin-bottom:14px; line-height:1.5;">
           Lädt genau die Version, die du gerade in diesem Browser-Tab siehst, direkt in dein GitHub-Repo hoch. GitHub Pages baut die Seite danach automatisch neu (meist unter einer Minute).
         </div>
-        <div style="font-family:'IBM Plex Mono', monospace; font-size:12px; font-weight:600; color:var(--text); background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:10px; padding:10px 12px; margin-bottom:20px;">
+        <div style="font-family:'IBM Plex Mono', monospace; font-size:12px; font-weight:600; color:var(--text); background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:10px; padding:10px 12px; margin-bottom:10px;">
           ${escapeHtml(DEPLOY_OWNER)}/${escapeHtml(DEPLOY_REPO)} · ${escapeHtml(DEPLOY_BRANCH)} · ${escapeHtml(DEPLOY_PATH)}
         </div>
+        <a href="https://${DEPLOY_OWNER}.github.io/${DEPLOY_REPO}/" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:6px; font-size:11.5px; color:var(--baustellenorange); font-weight:600; text-decoration:none; margin-bottom:20px;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg>
+          Live-Seite öffnen (${DEPLOY_OWNER}.github.io/${DEPLOY_REPO})
+        </a>
 
         <label class="field-label">1 · Token besorgen</label>
         ${APP_SETTINGS.deployTokenUrl ? `
