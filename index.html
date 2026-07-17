@@ -6514,6 +6514,10 @@ function json(obj, status) {
     if(splash){
       splash.classList.add("hidden");
     }
+    if(window.location.hash === "#deploy"){
+      openMenu();
+      MENU_ACTIONS.openDeployPanel();
+    }
   })();
 })();
 
