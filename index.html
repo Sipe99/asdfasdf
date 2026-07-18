@@ -819,7 +819,7 @@
   <header class="appbar">
     <div class="brand">
       <span class="eyebrow">Stundennachweis</span>
-      <h1 id="header-title">Startseite</h1>
+      <h1 id="header-title">Start</h1>
     </div>
     <div style="display:flex; align-items:center; gap:8px;">
       <div id="header-sync-status" style="text-align:right; line-height:1.2; cursor:pointer;">
@@ -844,7 +844,7 @@
       <div class="card hero">
         <div class="perforation"></div>
         <div class="card-body">
-          <div class="hero-label">Heute · Freitag, 17. Juli</div>
+          <div class="hero-label">Heute · Samstag, 18. Juli</div>
           <div class="hero-number">0<span class="unit">Std.</span></div>
           <div class="hero-grid">
             <div class="stat-mini"><div class="n">0</div><div class="l">Std. diese Woche</div></div>
@@ -954,10 +954,10 @@
             </div><div class="mini-day   " data-open-day="2026-07-16" title="16.07.2026">
               16
               
-            </div><div class="mini-day  today " data-open-day="2026-07-17" title="17.07.2026">
+            </div><div class="mini-day   " data-open-day="2026-07-17" title="17.07.2026">
               17
               
-            </div><div class="mini-day   " data-open-day="2026-07-18" title="18.07.2026">
+            </div><div class="mini-day  today " data-open-day="2026-07-18" title="18.07.2026">
               18
               
             </div><div class="mini-day   " data-open-day="2026-07-19" title="19.07.2026">
@@ -1042,10 +1042,46 @@
       </div>
     
 
+      <div class="section-title">Meine Baustellen</div>
+      <div class="card"><div class="card-body">
+        <div style="display:flex; gap:8px; margin-bottom:12px;">
+          <input type="text" id="dash-site-new-input" placeholder="Neue Baustelle / Adresse…" style="flex:1; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-size:16px;">
+          <button class="icon-btn" id="dash-site-new-add" style="width:42px; height:42px; flex-shrink:0;">+</button>
+        </div>
+        <div id="dash-sites-grid" class="city-box-grid">
+      <div class="city-box city-box-deletable">
+        <div class="city-box-name">Stockerau</div>
+        <div class="city-box-plz">2000</div>
+        <button class="city-box-delete" data-dashdelsite="stockerau" title="Löschen">✕</button>
+      </div>
+    
+      <div class="city-box city-box-deletable">
+        <div class="city-box-name">Haag</div>
+        <div class="city-box-plz">3350</div>
+        <button class="city-box-delete" data-dashdelsite="haag" title="Löschen">✕</button>
+      </div>
+    
+      <div class="city-box city-box-deletable">
+        <div class="city-box-name">Klagenfurt</div>
+        <div class="city-box-plz">9020</div>
+        <button class="city-box-delete" data-dashdelsite="klagenfurt" title="Löschen">✕</button>
+      </div>
+    
+      <div class="city-box city-box-deletable">
+        <div class="city-box-name">Villach</div>
+        <div class="city-box-plz">9500</div>
+        <button class="city-box-delete" data-dashdelsite="villach" title="Löschen">✕</button>
+      </div>
+    </div>
+        <div style="font-size:10.5px; color:var(--text-soft); margin-top:10px; line-height:1.5;">
+          Wird automatisch bei neuen Einträgen als Baustelle vorgeschlagen. Postleitzahl wird nach Möglichkeit automatisch erkannt.
+        </div>
+      </div></div>
+
       <div class="section-title">Letzte Einträge</div>
       <div class="empty-state">
       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18"></path></svg>
-      <div>Noch keine Einträge – tippe auf ＋</div>
+      <div>Noch keine Einträge vorhanden.</div>
     </div>
     </main>
 
@@ -1098,10 +1134,10 @@
       <div class="menu-cat " data-cat="sprache">
         <button class="menu-cat-head" data-cattoggle="sprache">
           <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z"></path><path d="M19 11a7 7 0 0 1-14 0M12 18v3"></path></svg></span>
-          <span class="menu-cat-title">Sprache</span>
+          <span class="menu-cat-title">Sprache &amp; Eingabe</span>
           <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
         </button>
-        <div class="menu-cat-items"><button class="menu-item" data-item="s-aktiv"><span class="menu-item-label">Spracheingabe aktivieren</span><span class="menu-switch on" data-toggle-key="voiceEnabled"></span></button><button class="menu-item" data-item="s-zeichen"><span class="menu-item-label">Automatische Zeichensetzung</span><span class="menu-switch " data-toggle-key="autoPunctuation"></span></button><div class="menu-item" style="cursor:default; flex-wrap:wrap;"><span class="menu-item-label">Sprache</span><div class="menu-choice-row" data-choice-key="voiceLang"><button class="menu-choice-pill selected" data-choice-value="Deutsch (AT)">Deutsch (AT)</button><button class="menu-choice-pill " data-choice-value="Deutsch (DE)">Deutsch (DE)</button><button class="menu-choice-pill " data-choice-value="Englisch">Englisch</button></div></div><button class="menu-item " data-action="testMicrophone"><span class="menu-item-label">Mikrofon testen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button></div>
+        <div class="menu-cat-items"><div class="menu-item" style="cursor:default; flex-wrap:wrap;"><span class="menu-item-label">App-Sprache</span><div class="menu-choice-row" data-choice-key="uiLanguage"><button class="menu-choice-pill selected" data-choice-value="de">de</button><button class="menu-choice-pill " data-choice-value="en">en</button></div></div><button class="menu-item" data-item="s-aktiv"><span class="menu-item-label">Spracheingabe aktivieren</span><span class="menu-switch on" data-toggle-key="voiceEnabled"></span></button><button class="menu-item" data-item="s-zeichen"><span class="menu-item-label">Automatische Zeichensetzung</span><span class="menu-switch " data-toggle-key="autoPunctuation"></span></button><div class="menu-item" style="cursor:default; flex-wrap:wrap;"><span class="menu-item-label">Spracheingabe-Sprache</span><div class="menu-choice-row" data-choice-key="voiceLang"><button class="menu-choice-pill selected" data-choice-value="Deutsch (AT)">Deutsch (AT)</button><button class="menu-choice-pill " data-choice-value="Deutsch (DE)">Deutsch (DE)</button><button class="menu-choice-pill " data-choice-value="Englisch">Englisch</button></div></div><button class="menu-item " data-action="testMicrophone"><span class="menu-item-label">Mikrofon testen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button></div>
       </div>
     
       <div class="menu-cat " data-cat="ki">
@@ -1489,6 +1525,32 @@ function json(obj, status) {
   });
 }
 `;
+  const I18N = {
+    de: {
+      tabStart:"Start", tabWoche:"Woche", tabMonat:"Monat", tabKalender:"Kalender", tabSuche:"Suche",
+      heute:"Heute", stundenMonat:"Std. diesen Monat", letzteTaetigkeit:"Letzte Tätigkeit",
+      keineEintraege:"Noch keine Einträge vorhanden.", kalender:"Kalender", fahrtstrecke:"Fahrtstrecke",
+      letzteEintraege:"Letzte Einträge", neuerEintrag:"Neuer Eintrag", eintragBearbeiten:"Eintrag bearbeiten",
+      datum:"Datum", arbeitsbloecke:"Arbeitsblöcke", kategorie:"Kategorie", baustelle:"Baustelle",
+      taetigkeit:"Was hast du heute gemacht? Eintippen oder Mikrofon antippen…",
+      fotos:"Fotos", dateien:"Dateien", speichern:"Speichern", eintragLoeschen:"Eintrag löschen",
+      perSprache:"Per Sprache ausfüllen (KI)"
+    },
+    en: {
+      tabStart:"Home", tabWoche:"Week", tabMonat:"Month", tabKalender:"Calendar", tabSuche:"Search",
+      heute:"Today", stundenMonat:"hrs. this month", letzteTaetigkeit:"Last activity",
+      keineEintraege:"No entries yet.", kalender:"Calendar", fahrtstrecke:"Route",
+      letzteEintraege:"Recent entries", neuerEintrag:"New entry", eintragBearbeiten:"Edit entry",
+      datum:"Date", arbeitsbloecke:"Work blocks", kategorie:"Category", baustelle:"Site",
+      taetigkeit:"What did you do today? Type or tap the microphone…",
+      fotos:"Photos", dateien:"Files", speichern:"Save", eintragLoeschen:"Delete entry",
+      perSprache:"Fill in by voice (AI)"
+    }
+  };
+  function tr(key){
+    const lang = (APP_SETTINGS && APP_SETTINGS.uiLanguage) || "de";
+    return (I18N[lang] && I18N[lang][key]) || I18N.de[key] || key;
+  }
   let CATS = {
     montage:   { label:"Montage",     color:"#3E5C76" },
     anfahrt:   { label:"Anfahrt",     color:"#A9A29B" },
@@ -2763,11 +2825,11 @@ function json(obj, status) {
 
   function renderTabbar(){
     const allTabs = [
-      {id:"dashboard", label:"Start", icon:`<path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/>`},
-      {id:"woche", label:"Woche", icon:`<path d="M4 19V9M10 19V5M16 19v-7M4 19h16"/>`, settingKey:"showWeekView"},
-      {id:"monat", label:"Monat", icon:`<path d="M4 19V13M9 19V6M14 19v-9M19 19V9"/>`, settingKey:"showMonthView"},
-      {id:"kalender", label:"Kalender", icon:`<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>`, settingKey:"showCalendarView"},
-      {id:"suche", label:"Suche", icon:`<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>`}
+      {id:"dashboard", label:tr("tabStart"), icon:`<path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/>`},
+      {id:"woche", label:tr("tabWoche"), icon:`<path d="M4 19V9M10 19V5M16 19v-7M4 19h16"/>`, settingKey:"showWeekView"},
+      {id:"monat", label:tr("tabMonat"), icon:`<path d="M4 19V13M9 19V6M14 19v-9M19 19V9"/>`, settingKey:"showMonthView"},
+      {id:"kalender", label:tr("tabKalender"), icon:`<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>`, settingKey:"showCalendarView"},
+      {id:"suche", label:tr("tabSuche"), icon:`<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>`}
     ];
     const tabs = allTabs.filter(t=> !t.settingKey || APP_SETTINGS[t.settingKey] !== false);
     if(tabs.every(t=>t.id!==activeTab)){ activeTab = "dashboard"; }
@@ -2811,7 +2873,7 @@ function json(obj, status) {
     catch(e){ return false; }
   }
   function renderDashboard(){
-    headerTitle.textContent = "Startseite";
+    headerTitle.textContent = tr("tabStart");
     const today = todayStr();
     const todayHours = dayHours(entries[today]);
     const week = weekRange(new Date());
@@ -2831,10 +2893,10 @@ function json(obj, status) {
           <div class="hero-number">${fmtH(todayHours)}<span class="unit">Std.</span></div>
           <div class="hero-grid">
             <div class="stat-mini"><div class="n">${fmtH(weekHours)}</div><div class="l">Std. diese Woche</div></div>
-            <div class="stat-mini"><div class="n">${fmtH(monthHours)}</div><div class="l">Std. diesen Monat</div></div>
+            <div class="stat-mini"><div class="n">${fmtH(monthHours)}</div><div class="l">${tr("stundenMonat")}</div></div>
           </div>
           <div class="last-activity">
-            ${lastEntry ? `Letzte Tätigkeit (${lastDate.split('-').reverse().join('.')}): <b>${escapeHtml((lastEntry.note||'').slice(0,80))}${(lastEntry.note||'').length>80?'…':''}</b>` : 'Noch keine Einträge vorhanden.'}
+            ${lastEntry ? `${tr("letzteTaetigkeit")} (${lastDate.split('-').reverse().join('.')}): <b>${escapeHtml((lastEntry.note||'').slice(0,80))}${(lastEntry.note||'').length>80?'…':''}</b>` : tr("keineEintraege")}
           </div>
         </div>
       </div>
@@ -2850,17 +2912,29 @@ function json(obj, status) {
         <span class="ai-fill-icon">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z"/><path d="M19 11a7 7 0 0 1-14 0M12 18v3"/></svg>
         </span>
-        <span data-ai-label>Per Sprache ausfüllen (KI)</span>
+        <span data-ai-label>${tr("perSprache")}</span>
       </button>
 
-      <div class="section-title">Kalender</div>
+      <div class="section-title">${tr("kalender")}</div>
       ${renderDashboardCalendarCard()}
 
-      <div class="section-title">Fahrtstrecke</div>
+      <div class="section-title">${tr("fahrtstrecke")}</div>
       ${renderDashboardRouteCard()}
 
-      <div class="section-title">Letzte Einträge</div>
-      ${sortedDates.slice(0,4).map(dt=>renderMiniRow(dt)).join("") || emptyState("Noch keine Einträge – tippe auf ＋")}
+      <div class="section-title">Meine Baustellen</div>
+      <div class="card"><div class="card-body">
+        <div style="display:flex; gap:8px; margin-bottom:12px;">
+          <input type="text" id="dash-site-new-input" placeholder="Neue Baustelle / Adresse…" style="flex:1; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-size:16px;" />
+          <button class="icon-btn" id="dash-site-new-add" style="width:42px; height:42px; flex-shrink:0;">+</button>
+        </div>
+        <div id="dash-sites-grid" class="city-box-grid"></div>
+        <div style="font-size:10.5px; color:var(--text-soft); margin-top:10px; line-height:1.5;">
+          Wird automatisch bei neuen Einträgen als Baustelle vorgeschlagen. Postleitzahl wird nach Möglichkeit automatisch erkannt.
+        </div>
+      </div></div>
+
+      <div class="section-title">${tr("letzteEintraege")}</div>
+      ${sortedDates.slice(0,4).map(dt=>renderMiniRow(dt)).join("") || emptyState(tr("keineEintraege"))}
     `;
     view.querySelectorAll("[data-open-day]").forEach(el=>{
       el.onclick = ()=>openEntrySheet(el.dataset.openDay, el);
@@ -2870,6 +2944,7 @@ function json(obj, status) {
     if(prevBtn) prevBtn.onclick = ()=>{ calCursor = new Date(calCursor.getFullYear(), calCursor.getMonth()-1, 1); renderDashboard(); };
     if(nextBtn) nextBtn.onclick = ()=>{ calCursor = new Date(calCursor.getFullYear(), calCursor.getMonth()+1, 1); renderDashboard(); };
     bindDashboardRouteCard();
+    bindDashboardSitesCard();
     document.getElementById("dash-ai-fill-btn").onclick = startDashAiFill;
   }
 
@@ -2950,6 +3025,55 @@ function json(obj, status) {
   function bindDashboardRouteCard(){
     const btn = document.getElementById("open-route-planner-btn");
     if(btn) btn.onclick = ()=>openRoutePlanner(btn);
+  }
+  function bindDashboardSitesCard(){
+    renderDashboardSitesGrid();
+    const input = document.getElementById("dash-site-new-input");
+    const addBtn = document.getElementById("dash-site-new-add");
+    const confirmAdd = async ()=>{
+      const name = input.value.trim();
+      if(!name){ showToast("Bitte einen Namen eingeben"); return; }
+      let key = Object.keys(SITES).find(k=>SITES[k].label.toLowerCase()===name.toLowerCase());
+      if(!key){
+        key = slugify(name);
+        while(SITES[key]) key += "-2";
+        let plz = lookupAustrianPlz(name);
+        if(!plz){ try{ plz = await lookupPlzByCityOnline(name); }catch(e){ plz = ""; } }
+        SITES[key] = { label:name, plz };
+        await saveSites();
+      }
+      input.value = "";
+      renderDashboardSitesGrid();
+      showToast(SITES[key].plz ? `Hinzugefügt – PLZ ${SITES[key].plz} erkannt` : "Hinzugefügt");
+    };
+    addBtn.onclick = confirmAdd;
+    input.onkeydown = (e)=>{ if(e.key==="Enter") confirmAdd(); };
+  }
+  function renderDashboardSitesGrid(){
+    const grid = document.getElementById("dash-sites-grid");
+    if(!grid) return;
+    const keys = getOrderedSiteKeys();
+    grid.innerHTML = keys.length ? keys.map(k=>`
+      <div class="city-box city-box-deletable">
+        <div class="city-box-name">${escapeHtml(SITES[k].label)}</div>
+        <div class="city-box-plz">${escapeHtml(SITES[k].plz || "–")}</div>
+        <button class="city-box-delete" data-dashdelsite="${k}" title="Löschen">✕</button>
+      </div>
+    `).join("") : `<div style="color:var(--text-soft); font-size:12.5px; padding:8px 0;">Noch keine Baustellen – oben hinzufügen.</div>`;
+    grid.querySelectorAll("[data-dashdelsite]").forEach(btn=>{
+      btn.onclick = (e)=>{
+        e.stopPropagation();
+        const key = btn.dataset.dashdelsite;
+        const label = SITES[key] ? SITES[key].label : "diese Baustelle";
+        showConfirmPopup(`„${label}" wirklich löschen?`, async ()=>{
+          delete SITES[key];
+          SITE_ORDER = SITE_ORDER.filter(k=>k!==key);
+          await saveSites();
+          await saveSiteOrder();
+          renderDashboardSitesGrid();
+        });
+      };
+    });
   }
 
   /* ================= Routenplaner ================= */
@@ -3576,7 +3700,7 @@ function json(obj, status) {
     draftSiteText = hasReal ? (existing.site || "") : (APP_SETTINGS.defaultSite || "");
     draftPhotos = hasReal && Array.isArray(existing.photos) ? JSON.parse(JSON.stringify(existing.photos)) : [];
     draftFiles = hasReal && Array.isArray(existing.files) ? JSON.parse(JSON.stringify(existing.files)) : [];
-    sheetTitle.textContent = hasReal ? "Eintrag bearbeiten" : "Neuer Eintrag";
+    sheetTitle.textContent = hasReal ? tr("eintragBearbeiten") : tr("neuerEintrag");
     renderSheetBody(hasReal ? existing.note : "");
     setSheetZoomOrigin(originEl);
     overlay.classList.add("open");
@@ -3629,11 +3753,11 @@ function json(obj, status) {
         <span id="ai-fill-label" data-ai-label>Per Sprache ausfüllen (KI)</span>
       </button>
 
-      <label class="field-label">Datum</label>
+      <label class="field-label">${tr("datum")}</label>
       <input type="date" id="date-input" value="${editingDate}" style="width:100%; padding:9px 10px; border-radius:10px; border:1px solid var(--line); background:var(--bg); color:var(--text); font-family:'IBM Plex Mono'; font-weight:600; margin-bottom:14px;" />
 
       <div class="row-between" style="margin-bottom:6px;">
-        <label class="field-label" style="margin-bottom:0;">Arbeitsblöcke</label>
+        <label class="field-label" style="margin-bottom:0;">${tr("arbeitsbloecke")}</label>
         <div style="display:flex; gap:6px;">
           <button class="icon-btn" id="hand-snap-toggle" style="width:auto; padding:0 10px; font-size:10.5px; font-weight:700;" title="Schrittweite für den Ziffernblatt-Zeiger">${handSnapMode === "30" ? "30 Min" : "1 Std"}</button>
           <button class="icon-btn" id="clock-toggle-btn" style="width:30px; height:30px;" title="Uhr ein-/ausblenden">
@@ -3680,7 +3804,7 @@ function json(obj, status) {
         </button>
       </div>
 
-      <label class="field-label">Fotos</label>
+      <label class="field-label">${tr("fotos")}</label>
       <div id="photos-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:10px;"></div>
       <input type="file" id="photo-camera-input" accept="image/*" capture="environment" multiple style="display:none;" />
       <input type="file" id="photo-gallery-input" accept="image/*" multiple style="display:none;" />
@@ -3689,13 +3813,13 @@ function json(obj, status) {
         <button class="add-block-btn" id="add-photo-gallery-btn" style="margin-bottom:0;">${svgIcon("docexport",14)} Aus Galerie wählen</button>
       </div>
 
-      <label class="field-label" style="margin-top:16px;">Dateien</label>
+      <label class="field-label" style="margin-top:16px;">${tr("dateien")}</label>
       <div id="files-list" style="margin-bottom:8px;"></div>
       <input type="file" id="file-attach-input" multiple style="display:none;" />
       <button class="add-block-btn" id="add-file-btn">${svgIcon("docexport",14)} Datei hinzufügen</button>
 
-      <button class="primary-btn" id="save-entry" style="margin-top:16px;">Speichern</button>
-      ${entryHasContent(entries[editingDate]) ? `<button class="danger-link" id="delete-entry" style="width:100%; margin-top:6px;">Eintrag löschen</button>` : ""}
+      <button class="primary-btn" id="save-entry" style="margin-top:16px;">${tr("speichern")}</button>
+      ${entryHasContent(entries[editingDate]) ? `<button class="danger-link" id="delete-entry" style="width:100%; margin-top:6px;">${tr("eintragLoeschen")}</button>` : ""}
     `;
     sheetBody.scrollTop = 0;
     renderBlocks();
@@ -5520,7 +5644,8 @@ function json(obj, status) {
     showCalendarView: true, showWeekView: true, showMonthView: true,
     icloudSync: false, remindEntry: false, remindBreak: false, remindStart: false, remindEnd: false,
     workModel: "Vollzeit", homeLabel: "Zuhause", aiWorkerUrl: "",
-    vacationHoursPerDay: 8, vacationPayPercent: 100, aiWorkerRepoUrl: "", deployTokenUrl: "https://github.com/settings/personal-access-tokens/16947491"
+    vacationHoursPerDay: 8, vacationPayPercent: 100, aiWorkerRepoUrl: "", deployTokenUrl: "https://github.com/settings/personal-access-tokens/16947491",
+    uiLanguage: "de"
   };
   async function loadAppSettings(){ /* siehe syncNow */ }
   async function saveAppSettings(){ await persistData(); }
@@ -5668,10 +5793,11 @@ function json(obj, status) {
         { id:"d-grossbtn", label:"Große Buttons für Baustelle", type:"toggle", key:"bigSiteButtons" },
         { id:"d-anim", label:"Animationen", type:"toggle", key:"animationsEnabled" },
     ]},
-    { id:"sprache", icon:"sprache", title:"Sprache", items:[
+    { id:"sprache", icon:"sprache", title:"Sprache & Eingabe", items:[
+        { id:"s-ui", label:"App-Sprache", type:"choice", key:"uiLanguage", options:["de","en"] },
         { id:"s-aktiv", label:"Spracheingabe aktivieren", type:"toggle", key:"voiceEnabled" },
         { id:"s-zeichen", label:"Automatische Zeichensetzung", type:"toggle", key:"autoPunctuation" },
-        { id:"s-wahl", label:"Sprache", type:"choice", key:"voiceLang", options:["Deutsch (AT)","Deutsch (DE)","Englisch"] },
+        { id:"s-wahl", label:"Spracheingabe-Sprache", type:"choice", key:"voiceLang", options:["Deutsch (AT)","Deutsch (DE)","Englisch"] },
         { id:"s-test", label:"Mikrofon testen", type:"action", action:"testMicrophone" },
     ]},
     { id:"ki", icon:"ki", title:"KI-Kopplung", items:[
@@ -5809,6 +5935,7 @@ function json(obj, status) {
         await saveAppSettings();
         applyAppSettings();
         row.querySelectorAll(".menu-choice-pill").forEach(p=>p.classList.toggle("selected", p===pill));
+        if(key==="uiLanguage") render();
       };
     });
     body.querySelectorAll("[data-input-key]").forEach(inp=>{
@@ -5898,6 +6025,7 @@ function json(obj, status) {
       return fmtH(list.reduce((a,[,e])=>a+dayHours(e),0)/list.length) + " Std.";
     }
   };
+
 
   const MENU_ACTIONS = {
     defaultHours: ()=>openManagerFromMenu(openDefaultHoursManager),
@@ -6489,7 +6617,9 @@ function json(obj, status) {
     document.getElementById("menu-sub-body").scrollTop = 0;
     document.getElementById("menu-sub-overlay").classList.add("open");
   }
-  function closeMenuSub(){ document.getElementById("menu-sub-overlay").classList.remove("open"); }
+  function closeMenuSub(){
+    document.getElementById("menu-sub-overlay").classList.remove("open");
+  }
   function openStaticPage(page){
     const p = STATIC_PAGES[page];
     if(!p) return;
