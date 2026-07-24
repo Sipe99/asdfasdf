@@ -1,8 +1,7 @@
-<!doctype html>
-<html lang="de">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+<!DOCTYPE html>
+<html lang="de"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%20%22Stundennachweis%22%2C%20%22short_name%22%3A%20%22Stunden%22%2C%20%22start_url%22%3A%20%22.%22%2C%20%22display%22%3A%20%22standalone%22%2C%20%22background_color%22%3A%20%22%23F3F1EA%22%2C%20%22theme_color%22%3A%20%22%23E8622C%22%2C%20%22orientation%22%3A%20%22portrait%22%2C%20%22icons%22%3A%20%5B%7B%22src%22%3A%20%22data%3Aimage/svg%2Bxml%2C%3Csvg%20xmlns%3D%5C%22http%3A//www.w3.org/2000/svg%5C%22%20viewBox%3D%5C%220%200%20512%20512%5C%22%3E%3Crect%20width%3D%5C%22512%5C%22%20height%3D%5C%22512%5C%22%20rx%3D%5C%22112%5C%22%20fill%3D%5C%22%2523E8622C%5C%22/%3E%3Ccircle%20cx%3D%5C%22256%5C%22%20cy%3D%5C%22256%5C%22%20r%3D%5C%22152%5C%22%20fill%3D%5C%22none%5C%22%20stroke%3D%5C%22%2523fff%5C%22%20stroke-width%3D%5C%2224%5C%22/%3E%3Cpath%20d%3D%5C%22M256%20158v100l70%2070%5C%22%20fill%3D%5C%22none%5C%22%20stroke%3D%5C%22%2523fff%5C%22%20stroke-width%3D%5C%2224%5C%22%20stroke-linecap%3D%5C%22round%5C%22%20stroke-linejoin%3D%5C%22round%5C%22/%3E%3C/svg%3E%22%2C%20%22sizes%22%3A%20%22512x512%22%2C%20%22type%22%3A%20%22image/svg%2Bxml%22%2C%20%22purpose%22%3A%20%22any%22%7D%2C%20%7B%22src%22%3A%20%22data%3Aimage/svg%2Bxml%2C%3Csvg%20xmlns%3D%5C%22http%3A//www.w3.org/2000/svg%5C%22%20viewBox%3D%5C%220%200%20512%20512%5C%22%3E%3Crect%20width%3D%5C%22512%5C%22%20height%3D%5C%22512%5C%22%20rx%3D%5C%22112%5C%22%20fill%3D%5C%22%2523E8622C%5C%22/%3E%3Ccircle%20cx%3D%5C%22256%5C%22%20cy%3D%5C%22256%5C%22%20r%3D%5C%22152%5C%22%20fill%3D%5C%22none%5C%22%20stroke%3D%5C%22%2523fff%5C%22%20stroke-width%3D%5C%2224%5C%22/%3E%3Cpath%20d%3D%5C%22M256%20158v100l70%2070%5C%22%20fill%3D%5C%22none%5C%22%20stroke%3D%5C%22%2523fff%5C%22%20stroke-width%3D%5C%2224%5C%22%20stroke-linecap%3D%5C%22round%5C%22%20stroke-linejoin%3D%5C%22round%5C%22/%3E%3C/svg%3E%22%2C%20%22sizes%22%3A%20%22512x512%22%2C%20%22type%22%3A%20%22image/svg%2Bxml%22%2C%20%22purpose%22%3A%20%22maskable%22%7D%5D%7D">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3Crect%20width%3D%22512%22%20height%3D%22512%22%20rx%3D%22112%22%20fill%3D%22%23E8622C%22/%3E%3Ccircle%20cx%3D%22256%22%20cy%3D%22256%22%20r%3D%22152%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%2224%22/%3E%3Cpath%20d%3D%22M256%20158v100l70%2070%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%2224%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3Crect%20width%3D%22512%22%20height%3D%22512%22%20rx%3D%22112%22%20fill%3D%22%23E8622C%22/%3E%3Ccircle%20cx%3D%22256%22%20cy%3D%22256%22%20r%3D%22152%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%2224%22/%3E%3Cpath%20d%3D%22M256%20158v100l70%2070%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%2224%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E">
@@ -13,7 +12,7 @@
 <meta name="theme-color" content="#E8622C">
 <title>Stundennachweis – Prototyp</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
 <style>
   :root{
     --kalkweiss:#F5F3EE;
@@ -110,14 +109,6 @@
   .splash-mark{ color:var(--baustellenorange); margin-bottom:6px; animation:splashPulse 1.6s ease-in-out infinite; }
   @keyframes splashPulse{ 0%,100%{ transform:scale(1); opacity:1; } 50%{ transform:scale(1.08); opacity:.75; } }
   .splash-title{ font-family:'Bebas Neue', sans-serif; font-size:26px; letter-spacing:.03em; color:var(--text); }
-  .splash-status{ font-size:12px; color:var(--text-soft); margin-bottom:14px; }
-  .splash-spinner{
-    width:26px; height:26px; border-radius:50%;
-    border:2.5px solid color-mix(in srgb, var(--baustellenorange) 25%, transparent);
-    border-top-color:var(--baustellenorange);
-    animation:splashSpin .8s linear infinite;
-  }
-  @keyframes splashSpin{ to{ transform:rotate(360deg); } }
   header.appbar{
     padding:20px 18px 12px 18px;
     display:flex; align-items:center; justify-content:space-between;
@@ -191,8 +182,12 @@
   .dash-cal-slide{
     flex:0 0 100%; width:100%; box-sizing:border-box;
     padding:16px 18px; margin-bottom:-2px;
-    transform-origin:center center; will-change:transform, opacity, filter;
+    transform-origin:center center; will-change:transform, opacity; position:relative;
     backface-visibility:hidden; -webkit-backface-visibility:hidden;
+  }
+  .slide-veil{
+    position:absolute; inset:16px 18px; border-radius:26px;
+    background:var(--bg); opacity:0; pointer-events:none;
   }
   .dash-cal-slide .dash-cal-card{
     margin-bottom:0; height:100%;
@@ -277,7 +272,7 @@
     border-radius:26px;
     box-shadow:0 10px 34px rgba(43,47,54,.16), inset 0 1px 1px rgba(255,255,255,.55);
     display:flex; padding:7px 6px; flex-shrink:0; z-index:10;
-    touch-action:none; overflow:hidden; overscroll-behavior:none;
+    touch-action:none; overflow:visible; overscroll-behavior:none;
   }
   .tab{
     flex:1; display:flex; flex-direction:column; align-items:center; gap:3px;
@@ -286,6 +281,53 @@
     transition:transform .18s cubic-bezier(.22,1,.36,1), background .25s ease, color .25s ease;
   }
   .tab:active{ transform:scale(.9); }
+  .tab-lens{
+    position:absolute; top:-9px; bottom:-9px; left:0; width:0;
+    border-radius:26px; pointer-events:none; opacity:0; z-index:2;
+    background:radial-gradient(ellipse at 50% 28%, rgba(255,255,255,.5), rgba(255,255,255,.14) 55%, rgba(255,255,255,.04) 80%);
+    border:1px solid rgba(255,255,255,.65);
+    -webkit-backdrop-filter:blur(3px) saturate(200%) contrast(1.12) brightness(1.06);
+    backdrop-filter:blur(3px) saturate(200%) contrast(1.12) brightness(1.06);
+    box-shadow:
+      0 10px 28px rgba(43,47,54,.28),
+      inset 0 2px 3px rgba(255,255,255,.75),
+      inset 0 -3px 6px rgba(43,47,54,.12),
+      inset 2px 0 3px rgba(255,255,255,.25),
+      inset -2px 0 3px rgba(255,255,255,.25);
+    transition:transform .28s cubic-bezier(.34,1.45,.55,1), width .28s cubic-bezier(.34,1.45,.55,1), opacity .22s ease;
+    will-change:transform, width, scale;
+  }
+  .tab-lens::before{
+    content:''; position:absolute; top:7%; left:14%; right:14%; height:34%;
+    border-radius:50%;
+    background:linear-gradient(180deg, rgba(255,255,255,.7), rgba(255,255,255,0));
+    filter:blur(1px);
+  }
+  .tab-lens::after{
+    content:''; position:absolute; bottom:5%; left:22%; right:22%; height:22%;
+    border-radius:50%;
+    background:radial-gradient(ellipse, color-mix(in srgb, var(--baustellenorange) 30%, transparent), transparent 70%);
+    filter:blur(2px);
+  }
+  .tab-lens.visible{
+    opacity:1;
+    animation:lensPop .5s cubic-bezier(.34,1.65,.5,1), lensBreath 2.4s ease-in-out .5s infinite;
+  }
+  @keyframes lensPop{
+    0%{ scale:.45; opacity:0; }
+    55%{ scale:1.12; opacity:1; }
+    78%{ scale:.96; }
+    100%{ scale:1; }
+  }
+  @keyframes lensBreath{
+    0%,100%{ scale:1; }
+    50%{ scale:1.045; }
+  }
+  .tab{ z-index:1; transition:transform .3s cubic-bezier(.34,1.56,.64,1), background .25s ease, color .25s ease; }
+  .tab.lens-hover{
+    transform:scale(1.18) translateY(-3px);
+    color:var(--baustellenorange);
+  }
   .tab.active{
     color:var(--baustellenorange);
     background:color-mix(in srgb, var(--baustellenorange) 14%, transparent);
@@ -642,8 +684,80 @@
     padding:10px 12px; border-radius:14px; border:1px solid var(--glass-border);
     background:var(--glass-bg); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
     cursor:pointer; transition:transform .15s cubic-bezier(.22,1,.36,1), background .2s ease;
+    position:relative; overflow:hidden;
   }
-  .city-box:active, .city-box.tapped{ transform:scale(.94); background:color-mix(in srgb, var(--baustellenorange) 18%, var(--glass-bg)); }
+  .city-box:active{ transform:scale(.94); }
+  .city-box::before{
+    content:''; position:absolute; left:50%; bottom:-20%; width:0; height:0;
+    border-radius:50%; transform:translateX(-50%);
+    background:radial-gradient(circle, color-mix(in srgb, var(--baustellenorange) 45%, transparent) 0%, color-mix(in srgb, var(--baustellenorange) 22%, transparent) 55%, transparent 75%);
+    pointer-events:none; opacity:0;
+  }
+  .city-box::after{
+    content:''; position:absolute; top:0; left:-80%; width:60%; height:100%;
+    background:linear-gradient(105deg, transparent, rgba(255,255,255,.55), transparent);
+    transform:skewX(-18deg); pointer-events:none; opacity:0;
+  }
+  .city-box > *{ position:relative; z-index:1; }
+  .city-box.liquid-tap{ animation:liquidSquash .65s cubic-bezier(.34,1.56,.64,1); }
+  .city-box.liquid-tap::before{ animation:liquidFlood .65s cubic-bezier(.22,1,.36,1); }
+  .city-box.liquid-tap::after{ animation:liquidShine .65s ease-out; }
+  @keyframes liquidSquash{
+    0%{ transform:scale(1); }
+    22%{ transform:scale(.93, .95); }
+    55%{ transform:scale(1.045, 1.03); }
+    78%{ transform:scale(.985, .99); }
+    100%{ transform:scale(1); }
+  }
+  @keyframes liquidFlood{
+    0%{ width:0; height:0; opacity:.9; }
+    60%{ width:240%; height:240%; opacity:.55; }
+    100%{ width:300%; height:300%; opacity:0; }
+  }
+  @keyframes liquidShine{
+    0%{ left:-80%; opacity:0; }
+    25%{ opacity:1; }
+    100%{ left:130%; opacity:0; }
+  }
+  .liquid-fx{ position:relative; overflow:hidden; }
+  .fab.liquid-fx{ position:absolute; }
+  .pdf-strip{
+    display:flex; gap:8px; overflow-x:auto; padding:2px 2px 8px 2px; margin-bottom:10px;
+    -ms-overflow-style:none; scrollbar-width:none; -webkit-overflow-scrolling:touch;
+  }
+  .pdf-strip::-webkit-scrollbar{ display:none; }
+  .pdf-strip-hint{ font-size:11.5px; color:var(--text-soft); padding:6px 2px; line-height:1.5; }
+  .pdf-chip{
+    display:flex; align-items:center; gap:7px; flex-shrink:0; cursor:pointer;
+    padding:9px 11px; border-radius:14px;
+    background:var(--glass-bg); border:1px solid var(--glass-border);
+    -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+    box-shadow:inset 0 1px 1px rgba(255,255,255,.4);
+    transition:transform .15s cubic-bezier(.22,1,.36,1);
+  }
+  .pdf-chip:active{ transform:scale(.95); }
+  .pdf-chip-icon{ color:var(--baustellenorange); display:flex; }
+  .pdf-chip-label{ font-size:12px; font-weight:700; color:var(--text); white-space:nowrap; }
+  .pdf-chip-delete{
+    width:18px; height:18px; border:none; background:none; cursor:pointer;
+    color:var(--text-soft); font-size:12px; display:flex; align-items:center; justify-content:center;
+    border-radius:50%; flex-shrink:0;
+  }
+  .pdf-chip-delete:active{ transform:scale(.85); color:var(--cat-krank); }
+  .liquid-fx::before{
+    content:''; position:absolute; left:50%; bottom:-20%; width:0; height:0;
+    border-radius:50%; transform:translateX(-50%);
+    background:radial-gradient(circle, color-mix(in srgb, var(--baustellenorange) 45%, transparent) 0%, color-mix(in srgb, var(--baustellenorange) 22%, transparent) 55%, transparent 75%);
+    pointer-events:none; opacity:0;
+  }
+  .liquid-fx::after{
+    content:''; position:absolute; top:0; left:-80%; width:60%; height:100%;
+    background:linear-gradient(105deg, transparent, rgba(255,255,255,.55), transparent);
+    transform:skewX(-18deg); pointer-events:none; opacity:0;
+  }
+  .liquid-fx.liquid-tap{ animation:liquidSquash .65s cubic-bezier(.34,1.56,.64,1); }
+  .liquid-fx.liquid-tap::before{ animation:liquidFlood .65s cubic-bezier(.22,1,.36,1); }
+  .liquid-fx.liquid-tap::after{ animation:liquidShine .65s ease-out; }
   .city-box-name{ font-size:13px; font-weight:700; color:var(--text); }
   .city-box-plz{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--text-soft); margin-top:2px; }
   .city-box-add{ cursor:default; border-style:dashed; display:flex; align-items:center; gap:6px; }
@@ -723,6 +837,15 @@
     background:var(--baustellenorange); color:#fff; cursor:pointer;
     display:flex; align-items:center; justify-content:center;
   }
+  .route-mini-btn{
+    display:flex; align-items:center; gap:4px; padding:6px 10px; border-radius:12px;
+    border:1px solid var(--glass-border); background:var(--glass-bg);
+    color:var(--text-soft); font-size:10.5px; font-weight:700; cursor:pointer;
+    transition:transform .15s cubic-bezier(.22,1,.36,1), opacity .2s ease;
+  }
+  .route-mini-btn:active{ transform:scale(.93); }
+  .route-mini-btn:disabled{ opacity:.4; cursor:default; }
+  .route-mini-btn-danger{ color:var(--cat-krank); border-color:color-mix(in srgb, var(--cat-krank) 35%, transparent); }
   .route-strip{
     display:flex; align-items:center; flex-wrap:wrap; gap:10px 6px; padding:4px 2px 10px 2px;
   }
@@ -788,15 +911,52 @@
     transition:background .18s ease;
   }
   .menu-cat-head:active{ background:color-mix(in srgb, var(--baustellenorange) 8%, transparent); }
-  .menu-cat-icon{ flex-shrink:0; width:26px; display:flex; align-items:center; justify-content:center; color:var(--baustellenorange); }
+  .menu-cat-icon{ flex-shrink:0; width:26px; display:flex; align-items:center; justify-content:center; color:var(--baustellenorange); transition:transform .45s cubic-bezier(.34,1.56,.64,1); }
+  .menu-cat.open .menu-cat-icon{ transform:scale(1.15); }
   .menu-cat-title{ flex:1; font-size:14.5px; font-weight:700; color:var(--text); }
-  .menu-cat-chevron{ color:var(--text-soft); transition:transform .28s cubic-bezier(.22,1,.36,1); flex-shrink:0; }
-  .menu-cat.open .menu-cat-chevron{ transform:rotate(180deg); }
+  .menu-cat-chevron{ color:var(--text-soft); transition:transform .45s cubic-bezier(.34,1.56,.64,1); flex-shrink:0; }
+  .menu-cat.open .menu-cat-chevron{ transform:rotate(180deg) scale(1.1); color:var(--baustellenorange); }
   .menu-cat-items{
-    max-height:0; overflow:hidden; transition:max-height .35s cubic-bezier(.22,1,.36,1);
-    background:color-mix(in srgb, var(--bg-2) 55%, transparent);
+    display:grid; grid-template-rows:0fr;
+    transition:grid-template-rows .5s cubic-bezier(.34,1.3,.5,1);
+    background:color-mix(in srgb, var(--bg-2) 45%, transparent);
   }
-  .menu-cat.open .menu-cat-items{ max-height:1000px; }
+  .menu-cat-items > div{
+    overflow:hidden; min-height:0;
+  }
+  .menu-cat.open .menu-cat-items{
+    grid-template-rows:1fr;
+  }
+  /* Inhalt tropft herein: von oben, leicht gestaucht -> setzt sich weich */
+  .menu-cat-items .menu-cat-inner{
+    transform:translateY(-14px) scale(.97);
+    opacity:0;
+    transition:transform .5s cubic-bezier(.34,1.45,.55,1), opacity .4s ease;
+    transform-origin:top center;
+  }
+  .menu-cat.open .menu-cat-items .menu-cat-inner{
+    transform:translateY(0) scale(1);
+    opacity:1;
+    transition-delay:.05s;
+  }
+  /* Im aufklappbaren Bereich: Milchglas-Effekt durch gleichwertigen festen Ton ersetzen,
+     da Browser backdrop-filter während der Aufklapp-Animation nicht darstellen können
+     (Elemente würden sonst verspätet "aufploppen"). */
+  .menu-cat-inner .secondary-btn,
+  .menu-cat-inner .primary-btn,
+  .menu-cat-inner input[type="text"],
+  .menu-cat-inner input[type="password"],
+  .menu-cat-inner input[type="date"],
+  .menu-cat-inner input[type="number"]{
+    -webkit-backdrop-filter:none !important; backdrop-filter:none !important;
+  }
+  .menu-cat-inner .secondary-btn,
+  .menu-cat-inner input[type="text"],
+  .menu-cat-inner input[type="password"],
+  .menu-cat-inner input[type="date"],
+  .menu-cat-inner input[type="number"]{
+    background:color-mix(in srgb, var(--bg) 82%, var(--text) 3%);
+  }
 
   .menu-item{
     display:flex; align-items:center; justify-content:space-between; gap:10px;
@@ -864,20 +1024,18 @@
   body.big-site-buttons #site-grid .cat-chip{ padding:16px 10px; font-size:14px; font-weight:700; }
 </style>
 </head>
-<body>
+<body style="--baustellenorange: #E8622C; --baustellenorange-dark: #bf3903;" class="font-standard">
 <div class="device">
   <div id="splash-screen" class="splash-screen">
     <div class="splash-mark">
-      <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>
     </div>
     <div class="splash-title">Stundennachweis</div>
-    <div class="splash-status" id="splash-status">Wird geladen…</div>
-    <div class="splash-spinner"></div>
   </div>
   <header class="appbar">
     <div class="brand">
       <span class="eyebrow">Stundennachweis</span>
-      <h1 id="header-title">Heute</h1>
+      <h1 id="header-title">Start</h1>
     </div>
     <div style="display:flex; align-items:center; gap:8px;">
       <div id="header-sync-status" style="text-align:right; line-height:1.2; cursor:pointer;">
@@ -885,20 +1043,672 @@
         <div id="header-sync-time" style="font-size:9px; color:var(--text-soft);">Noch nie synchronisiert</div>
       </div>
       <button id="header-logout-btn" title="Abmelden" class="header-logout-pill" style="display:none;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><path d="M16 17l5-5-5-5"></path><path d="M21 12H9"></path></svg>
         <span>Logout</span>
       </button>
       <button class="icon-btn" id="sync-btn" title="Synchronisieren" style="position:relative;">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1l4 4-4 4"/><path d="M3 12.1a9 9 0 0 1 15-6.7l3-.3"/><path d="M7 21.9l-4-4 4-4"/><path d="M21 11.9a9 9 0 0 1-15 6.7l-3 .3"/></svg>
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1l4 4-4 4"></path><path d="M3 12.1a9 9 0 0 1 15-6.7l3-.3"></path><path d="M7 21.9l-4-4 4-4"></path><path d="M21 11.9a9 9 0 0 1-15 6.7l-3 .3"></path></svg>
         <span id="sync-dot" class="sync-dot"></span>
       </button>
-      <button class="icon-btn" id="hamburger-btn" title="Menü">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <button class="icon-btn liquid-fx" id="hamburger-btn" title="Menü">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
       </button>
     </div>
   </header>
 
-  <main id="view-container"></main>
+  <main id="view-container" style="">
+      <div class="card hero">
+        <div class="perforation"></div>
+        <div class="card-body">
+          <div class="hero-label">Heute · Freitag, 24. Juli</div>
+          <div class="hero-number">0<span class="unit">Std.</span></div>
+          <div class="hero-grid">
+            <div class="stat-mini"><div class="n">0</div><div class="l">Std. diese Woche</div></div>
+            <div class="stat-mini"><div class="n">0</div><div class="l">Std. diesen Monat</div></div>
+          </div>
+          <div class="last-activity">
+            Noch keine Einträge vorhanden.
+          </div>
+        </div>
+      </div>
+
+      
+      <div style="text-align:center; padding:11px 16px; margin-bottom:16px; background:var(--glass-bg); border:1px dashed var(--glass-border); border-radius:14px; -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);">
+        <div style="font-size:12px; font-weight:700; color:var(--text-soft);">Stundennachweis – Demo-Ansicht</div>
+        <div style="font-size:10.5px; color:var(--text-soft); margin-top:2px;">Das ist die lokale Vorschau, keine veröffentlichte Version</div>
+      </div>
+      
+
+      <button class="ai-fill-btn" id="dash-ai-fill-btn" type="button">
+        <span class="ai-fill-icon">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z"></path><path d="M19 11a7 7 0 0 1-14 0M12 18v3"></path></svg>
+        </span>
+        <span data-ai-label="">Per Sprache ausfüllen (KI)</span>
+      </button>
+
+      <div class="section-title">Kalender</div>
+      
+      <div class="dash-cal-viewport" id="dash-cal-viewport">
+        <div class="dash-cal-track" id="dash-cal-track" style="transition: none; transform: translateX(-560px);">
+          <div class="dash-cal-slide" style="transform: scale(0.86); opacity: 0.65;"><div class="card dash-cal-card">
+      <div class="card-body">
+        <div class="row-between" style="margin-bottom:10px;">
+          <button class="icon-btn dash-cal-prev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M15 18l-6-6 6-6"></path></svg></button>
+          <div style="font-family:'Bebas Neue'; font-size:17px;">Juni 2026</div>
+          <button class="icon-btn dash-cal-next"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M9 18l6-6-6-6"></path></svg></button>
+        </div>
+        
+      <div class="mini-cal-dow-row">
+        <div></div>
+        <div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">Mo</div><div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">Di</div><div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">Mi</div><div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">Do</div><div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">Fr</div><div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">Sa</div><div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">So</div>
+        <div style="text-align:right;font-size:9px;color:var(--text-soft);font-weight:700;">Std.</div>
+      </div>
+      
+        <div class="mini-cal-week ">
+          <div class="kw-badge">KW 23</div>
+          <div class="mini-day   " data-open-day="2026-06-01" title="01.06.2026">
+              1
+              
+            </div><div class="mini-day   " data-open-day="2026-06-02" title="02.06.2026">
+              2
+              
+            </div><div class="mini-day   " data-open-day="2026-06-03" title="03.06.2026">
+              3
+              
+            </div><div class="mini-day   " data-open-day="2026-06-04" title="04.06.2026">
+              4
+              
+            </div><div class="mini-day   " data-open-day="2026-06-05" title="05.06.2026">
+              5
+              
+            </div><div class="mini-day   " data-open-day="2026-06-06" title="06.06.2026">
+              6
+              
+            </div><div class="mini-day   " data-open-day="2026-06-07" title="07.06.2026">
+              7
+              
+            </div>
+          <div class="mini-week-total ">–</div>
+        </div>
+      
+        <div class="mini-cal-week ">
+          <div class="kw-badge">KW 24</div>
+          <div class="mini-day   " data-open-day="2026-06-08" title="08.06.2026">
+              8
+              
+            </div><div class="mini-day   " data-open-day="2026-06-09" title="09.06.2026">
+              9
+              
+            </div><div class="mini-day   " data-open-day="2026-06-10" title="10.06.2026">
+              10
+              
+            </div><div class="mini-day   " data-open-day="2026-06-11" title="11.06.2026">
+              11
+              
+            </div><div class="mini-day   " data-open-day="2026-06-12" title="12.06.2026">
+              12
+              
+            </div><div class="mini-day   " data-open-day="2026-06-13" title="13.06.2026">
+              13
+              
+            </div><div class="mini-day   " data-open-day="2026-06-14" title="14.06.2026">
+              14
+              
+            </div>
+          <div class="mini-week-total ">–</div>
+        </div>
+      
+        <div class="mini-cal-week ">
+          <div class="kw-badge">KW 25</div>
+          <div class="mini-day   " data-open-day="2026-06-15" title="15.06.2026">
+              15
+              
+            </div><div class="mini-day   " data-open-day="2026-06-16" title="16.06.2026">
+              16
+              
+            </div><div class="mini-day   " data-open-day="2026-06-17" title="17.06.2026">
+              17
+              
+            </div><div class="mini-day   " data-open-day="2026-06-18" title="18.06.2026">
+              18
+              
+            </div><div class="mini-day   " data-open-day="2026-06-19" title="19.06.2026">
+              19
+              
+            </div><div class="mini-day   " data-open-day="2026-06-20" title="20.06.2026">
+              20
+              
+            </div><div class="mini-day   " data-open-day="2026-06-21" title="21.06.2026">
+              21
+              
+            </div>
+          <div class="mini-week-total ">–</div>
+        </div>
+      
+        <div class="mini-cal-week ">
+          <div class="kw-badge">KW 26</div>
+          <div class="mini-day   " data-open-day="2026-06-22" title="22.06.2026">
+              22
+              
+            </div><div class="mini-day   " data-open-day="2026-06-23" title="23.06.2026">
+              23
+              
+            </div><div class="mini-day   " data-open-day="2026-06-24" title="24.06.2026">
+              24
+              
+            </div><div class="mini-day   " data-open-day="2026-06-25" title="25.06.2026">
+              25
+              
+            </div><div class="mini-day   " data-open-day="2026-06-26" title="26.06.2026">
+              26
+              
+            </div><div class="mini-day   " data-open-day="2026-06-27" title="27.06.2026">
+              27
+              
+            </div><div class="mini-day   " data-open-day="2026-06-28" title="28.06.2026">
+              28
+              
+            </div>
+          <div class="mini-week-total ">–</div>
+        </div>
+      
+        <div class="mini-cal-week ">
+          <div class="kw-badge">KW 27</div>
+          <div class="mini-day   " data-open-day="2026-06-29" title="29.06.2026">
+              29
+              
+            </div><div class="mini-day   " data-open-day="2026-06-30" title="30.06.2026">
+              30
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-07-01" title="01.07.2026">
+              1
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-07-02" title="02.07.2026">
+              2
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-07-03" title="03.07.2026">
+              3
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-07-04" title="04.07.2026">
+              4
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-07-05" title="05.07.2026">
+              5
+              
+            </div>
+          <div class="mini-week-total ">–</div>
+        </div>
+      
+        <div class="mini-cal-week ">
+          <div class="kw-badge">KW 28</div>
+          <div class="mini-day other-month  " data-open-day="2026-07-06" title="06.07.2026">
+              6
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-07-07" title="07.07.2026">
+              7
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-07-08" title="08.07.2026">
+              8
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-07-09" title="09.07.2026">
+              9
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-07-10" title="10.07.2026">
+              10
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-07-11" title="11.07.2026">
+              11
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-07-12" title="12.07.2026">
+              12
+              
+            </div>
+          <div class="mini-week-total ">–</div>
+        </div>
+      
+    
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px; padding-top:10px; border-top:1px dashed var(--line);">
+          <span style="font-size:12px; color:var(--text-soft); font-weight:600;">Gesamtstunden Juni 2026</span>
+          <span style="font-family:'Bebas Neue'; font-size:21px; color:var(--baustellenorange);">0 Std.</span>
+        </div>
+      </div>
+    </div><div class="slide-veil" style="opacity: 0.85;"></div></div>
+          <div class="dash-cal-slide" style="transform: scale(1); opacity: 1;"><div class="card dash-cal-card">
+      <div class="card-body">
+        <div class="row-between" style="margin-bottom:10px;">
+          <button class="icon-btn dash-cal-prev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M15 18l-6-6 6-6"></path></svg></button>
+          <div style="font-family:'Bebas Neue'; font-size:17px;">Juli 2026</div>
+          <button class="icon-btn dash-cal-next"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M9 18l6-6-6-6"></path></svg></button>
+        </div>
+        
+      <div class="mini-cal-dow-row">
+        <div></div>
+        <div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">Mo</div><div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">Di</div><div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">Mi</div><div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">Do</div><div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">Fr</div><div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">Sa</div><div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">So</div>
+        <div style="text-align:right;font-size:9px;color:var(--text-soft);font-weight:700;">Std.</div>
+      </div>
+      
+        <div class="mini-cal-week ">
+          <div class="kw-badge">KW 27</div>
+          <div class="mini-day other-month  " data-open-day="2026-06-29" title="29.06.2026">
+              29
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-06-30" title="30.06.2026">
+              30
+              
+            </div><div class="mini-day   " data-open-day="2026-07-01" title="01.07.2026">
+              1
+              
+            </div><div class="mini-day   " data-open-day="2026-07-02" title="02.07.2026">
+              2
+              
+            </div><div class="mini-day   " data-open-day="2026-07-03" title="03.07.2026">
+              3
+              
+            </div><div class="mini-day   " data-open-day="2026-07-04" title="04.07.2026">
+              4
+              
+            </div><div class="mini-day   " data-open-day="2026-07-05" title="05.07.2026">
+              5
+              
+            </div>
+          <div class="mini-week-total ">–</div>
+        </div>
+      
+        <div class="mini-cal-week ">
+          <div class="kw-badge">KW 28</div>
+          <div class="mini-day   " data-open-day="2026-07-06" title="06.07.2026">
+              6
+              
+            </div><div class="mini-day   " data-open-day="2026-07-07" title="07.07.2026">
+              7
+              
+            </div><div class="mini-day   " data-open-day="2026-07-08" title="08.07.2026">
+              8
+              
+            </div><div class="mini-day   " data-open-day="2026-07-09" title="09.07.2026">
+              9
+              
+            </div><div class="mini-day   " data-open-day="2026-07-10" title="10.07.2026">
+              10
+              
+            </div><div class="mini-day   " data-open-day="2026-07-11" title="11.07.2026">
+              11
+              
+            </div><div class="mini-day   " data-open-day="2026-07-12" title="12.07.2026">
+              12
+              
+            </div>
+          <div class="mini-week-total ">–</div>
+        </div>
+      
+        <div class="mini-cal-week ">
+          <div class="kw-badge">KW 29</div>
+          <div class="mini-day   " data-open-day="2026-07-13" title="13.07.2026">
+              13
+              
+            </div><div class="mini-day   " data-open-day="2026-07-14" title="14.07.2026">
+              14
+              
+            </div><div class="mini-day   " data-open-day="2026-07-15" title="15.07.2026">
+              15
+              
+            </div><div class="mini-day   " data-open-day="2026-07-16" title="16.07.2026">
+              16
+              
+            </div><div class="mini-day   " data-open-day="2026-07-17" title="17.07.2026">
+              17
+              
+            </div><div class="mini-day   " data-open-day="2026-07-18" title="18.07.2026">
+              18
+              
+            </div><div class="mini-day   " data-open-day="2026-07-19" title="19.07.2026">
+              19
+              
+            </div>
+          <div class="mini-week-total ">–</div>
+        </div>
+      
+        <div class="mini-cal-week current-week">
+          <div class="kw-badge">KW 30</div>
+          <div class="mini-day   " data-open-day="2026-07-20" title="20.07.2026">
+              20
+              
+            </div><div class="mini-day   " data-open-day="2026-07-21" title="21.07.2026">
+              21
+              
+            </div><div class="mini-day   " data-open-day="2026-07-22" title="22.07.2026">
+              22
+              
+            </div><div class="mini-day   " data-open-day="2026-07-23" title="23.07.2026">
+              23
+              
+            </div><div class="mini-day  today " data-open-day="2026-07-24" title="24.07.2026">
+              24
+              
+            </div><div class="mini-day   " data-open-day="2026-07-25" title="25.07.2026">
+              25
+              
+            </div><div class="mini-day   " data-open-day="2026-07-26" title="26.07.2026">
+              26
+              
+            </div>
+          <div class="mini-week-total current">–</div>
+        </div>
+      
+        <div class="mini-cal-week ">
+          <div class="kw-badge">KW 31</div>
+          <div class="mini-day   " data-open-day="2026-07-27" title="27.07.2026">
+              27
+              
+            </div><div class="mini-day   " data-open-day="2026-07-28" title="28.07.2026">
+              28
+              
+            </div><div class="mini-day   " data-open-day="2026-07-29" title="29.07.2026">
+              29
+              
+            </div><div class="mini-day   " data-open-day="2026-07-30" title="30.07.2026">
+              30
+              
+            </div><div class="mini-day   " data-open-day="2026-07-31" title="31.07.2026">
+              31
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-08-01" title="01.08.2026">
+              1
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-08-02" title="02.08.2026">
+              2
+              
+            </div>
+          <div class="mini-week-total ">–</div>
+        </div>
+      
+        <div class="mini-cal-week ">
+          <div class="kw-badge">KW 32</div>
+          <div class="mini-day other-month  " data-open-day="2026-08-03" title="03.08.2026">
+              3
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-08-04" title="04.08.2026">
+              4
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-08-05" title="05.08.2026">
+              5
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-08-06" title="06.08.2026">
+              6
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-08-07" title="07.08.2026">
+              7
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-08-08" title="08.08.2026">
+              8
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-08-09" title="09.08.2026">
+              9
+              
+            </div>
+          <div class="mini-week-total ">–</div>
+        </div>
+      
+    
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px; padding-top:10px; border-top:1px dashed var(--line);">
+          <span style="font-size:12px; color:var(--text-soft); font-weight:600;">Gesamtstunden Juli 2026</span>
+          <span style="font-family:'Bebas Neue'; font-size:21px; color:var(--baustellenorange);">0 Std.</span>
+        </div>
+      </div>
+    </div><div class="slide-veil" style="opacity: 0;"></div></div>
+          <div class="dash-cal-slide" style="transform: scale(0.86); opacity: 0.65;"><div class="card dash-cal-card">
+      <div class="card-body">
+        <div class="row-between" style="margin-bottom:10px;">
+          <button class="icon-btn dash-cal-prev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M15 18l-6-6 6-6"></path></svg></button>
+          <div style="font-family:'Bebas Neue'; font-size:17px;">August 2026</div>
+          <button class="icon-btn dash-cal-next"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M9 18l6-6-6-6"></path></svg></button>
+        </div>
+        
+      <div class="mini-cal-dow-row">
+        <div></div>
+        <div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">Mo</div><div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">Di</div><div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">Mi</div><div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">Do</div><div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">Fr</div><div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">Sa</div><div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">So</div>
+        <div style="text-align:right;font-size:9px;color:var(--text-soft);font-weight:700;">Std.</div>
+      </div>
+      
+        <div class="mini-cal-week ">
+          <div class="kw-badge">KW 31</div>
+          <div class="mini-day other-month  " data-open-day="2026-07-27" title="27.07.2026">
+              27
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-07-28" title="28.07.2026">
+              28
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-07-29" title="29.07.2026">
+              29
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-07-30" title="30.07.2026">
+              30
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-07-31" title="31.07.2026">
+              31
+              
+            </div><div class="mini-day   " data-open-day="2026-08-01" title="01.08.2026">
+              1
+              
+            </div><div class="mini-day   " data-open-day="2026-08-02" title="02.08.2026">
+              2
+              
+            </div>
+          <div class="mini-week-total ">–</div>
+        </div>
+      
+        <div class="mini-cal-week ">
+          <div class="kw-badge">KW 32</div>
+          <div class="mini-day   " data-open-day="2026-08-03" title="03.08.2026">
+              3
+              
+            </div><div class="mini-day   " data-open-day="2026-08-04" title="04.08.2026">
+              4
+              
+            </div><div class="mini-day   " data-open-day="2026-08-05" title="05.08.2026">
+              5
+              
+            </div><div class="mini-day   " data-open-day="2026-08-06" title="06.08.2026">
+              6
+              
+            </div><div class="mini-day   " data-open-day="2026-08-07" title="07.08.2026">
+              7
+              
+            </div><div class="mini-day   " data-open-day="2026-08-08" title="08.08.2026">
+              8
+              
+            </div><div class="mini-day   " data-open-day="2026-08-09" title="09.08.2026">
+              9
+              
+            </div>
+          <div class="mini-week-total ">–</div>
+        </div>
+      
+        <div class="mini-cal-week ">
+          <div class="kw-badge">KW 33</div>
+          <div class="mini-day   " data-open-day="2026-08-10" title="10.08.2026">
+              10
+              
+            </div><div class="mini-day   " data-open-day="2026-08-11" title="11.08.2026">
+              11
+              
+            </div><div class="mini-day   " data-open-day="2026-08-12" title="12.08.2026">
+              12
+              
+            </div><div class="mini-day   " data-open-day="2026-08-13" title="13.08.2026">
+              13
+              
+            </div><div class="mini-day   " data-open-day="2026-08-14" title="14.08.2026">
+              14
+              
+            </div><div class="mini-day   " data-open-day="2026-08-15" title="15.08.2026">
+              15
+              
+            </div><div class="mini-day   " data-open-day="2026-08-16" title="16.08.2026">
+              16
+              
+            </div>
+          <div class="mini-week-total ">–</div>
+        </div>
+      
+        <div class="mini-cal-week ">
+          <div class="kw-badge">KW 34</div>
+          <div class="mini-day   " data-open-day="2026-08-17" title="17.08.2026">
+              17
+              
+            </div><div class="mini-day   " data-open-day="2026-08-18" title="18.08.2026">
+              18
+              
+            </div><div class="mini-day   " data-open-day="2026-08-19" title="19.08.2026">
+              19
+              
+            </div><div class="mini-day   " data-open-day="2026-08-20" title="20.08.2026">
+              20
+              
+            </div><div class="mini-day   " data-open-day="2026-08-21" title="21.08.2026">
+              21
+              
+            </div><div class="mini-day   " data-open-day="2026-08-22" title="22.08.2026">
+              22
+              
+            </div><div class="mini-day   " data-open-day="2026-08-23" title="23.08.2026">
+              23
+              
+            </div>
+          <div class="mini-week-total ">–</div>
+        </div>
+      
+        <div class="mini-cal-week ">
+          <div class="kw-badge">KW 35</div>
+          <div class="mini-day   " data-open-day="2026-08-24" title="24.08.2026">
+              24
+              
+            </div><div class="mini-day   " data-open-day="2026-08-25" title="25.08.2026">
+              25
+              
+            </div><div class="mini-day   " data-open-day="2026-08-26" title="26.08.2026">
+              26
+              
+            </div><div class="mini-day   " data-open-day="2026-08-27" title="27.08.2026">
+              27
+              
+            </div><div class="mini-day   " data-open-day="2026-08-28" title="28.08.2026">
+              28
+              
+            </div><div class="mini-day   " data-open-day="2026-08-29" title="29.08.2026">
+              29
+              
+            </div><div class="mini-day   " data-open-day="2026-08-30" title="30.08.2026">
+              30
+              
+            </div>
+          <div class="mini-week-total ">–</div>
+        </div>
+      
+        <div class="mini-cal-week ">
+          <div class="kw-badge">KW 36</div>
+          <div class="mini-day   " data-open-day="2026-08-31" title="31.08.2026">
+              31
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-09-01" title="01.09.2026">
+              1
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-09-02" title="02.09.2026">
+              2
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-09-03" title="03.09.2026">
+              3
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-09-04" title="04.09.2026">
+              4
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-09-05" title="05.09.2026">
+              5
+              
+            </div><div class="mini-day other-month  " data-open-day="2026-09-06" title="06.09.2026">
+              6
+              
+            </div>
+          <div class="mini-week-total ">–</div>
+        </div>
+      
+    
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px; padding-top:10px; border-top:1px dashed var(--line);">
+          <span style="font-size:12px; color:var(--text-soft); font-weight:600;">Gesamtstunden August 2026</span>
+          <span style="font-family:'Bebas Neue'; font-size:21px; color:var(--baustellenorange);">0 Std.</span>
+        </div>
+      </div>
+    </div><div class="slide-veil" style="opacity: 0.85;"></div></div>
+        </div>
+      </div>
+    
+
+      <div class="section-title">Fahrtstrecke</div>
+      
+      <div class="card">
+        <div class="card-body">
+          <div style="font-size:12.5px; color:var(--text-soft); margin-bottom:4px;">Heutige Route</div>
+          <div style="font-size:14px; font-weight:600; color:var(--text); margin-bottom:10px; line-height:1.5;">Noch keine Stationen</div>
+          
+          <button class="secondary-btn" id="open-route-planner-btn" style="margin-top:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M12 21s7-7.5 7-12a7 7 0 0 0-14 0c0 4.5 7 12 7 12z"></path><circle cx="12" cy="9" r="2.5"></circle></svg> Routenplaner öffnen</button>
+        </div>
+      </div>
+    
+
+      <div class="section-title">Meine Baustellen</div>
+      <div class="card"><div class="card-body">
+        <div style="display:flex; gap:8px; margin-bottom:12px;">
+          <input type="text" id="dash-site-new-input" placeholder="Neue Baustelle / Adresse…" style="flex:1; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-size:16px;">
+          <button class="icon-btn" id="dash-site-new-add" style="width:42px; height:42px; flex-shrink:0;">+</button>
+        </div>
+        <div id="dash-sites-grid" class="city-box-grid">
+      <div class="city-box city-box-deletable">
+        <div class="city-box-name">Stockerau</div>
+        <div class="city-box-plz">2000</div>
+        <button class="city-box-delete" data-dashdelsite="stockerau" title="Löschen">✕</button>
+      </div>
+    
+      <div class="city-box city-box-deletable">
+        <div class="city-box-name">Haag</div>
+        <div class="city-box-plz">3350</div>
+        <button class="city-box-delete" data-dashdelsite="haag" title="Löschen">✕</button>
+      </div>
+    
+      <div class="city-box city-box-deletable">
+        <div class="city-box-name">Klagenfurt</div>
+        <div class="city-box-plz">9020</div>
+        <button class="city-box-delete" data-dashdelsite="klagenfurt" title="Löschen">✕</button>
+      </div>
+    
+      <div class="city-box city-box-deletable">
+        <div class="city-box-name">Villach</div>
+        <div class="city-box-plz">9500</div>
+        <button class="city-box-delete" data-dashdelsite="villach" title="Löschen">✕</button>
+      </div>
+    </div>
+        <div style="font-size:10.5px; color:var(--text-soft); margin-top:10px; line-height:1.5;">
+          Wird automatisch bei neuen Einträgen als Baustelle vorgeschlagen. Postleitzahl wird nach Möglichkeit automatisch erkannt.
+        </div>
+      </div></div>
+
+      <div class="section-title">Meine Liste</div>
+      <div class="card"><div class="card-body">
+        <div style="display:flex; gap:8px; margin-bottom:12px;">
+          <input type="text" id="dash-list-new-input" placeholder="Neuer Punkt, z.B. Abendspaziergang…" style="flex:1; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-size:16px;">
+          <button class="icon-btn" id="dash-list-new-add" style="width:42px; height:42px; flex-shrink:0;">+</button>
+        </div>
+        <div id="dash-list-grid" class="check-list"><div style="color:var(--text-soft); font-size:12.5px; padding:8px 0;">Noch keine Punkte – oben hinzufügen.</div></div>
+        <div style="font-size:10.5px; color:var(--text-soft); margin-top:10px; line-height:1.5;">
+          Freie Liste für alles Mögliche – z.B. Fitness-Vorhaben, Besorgungen, Erinnerungen. Antippen des ✕ entfernt den Punkt.
+        </div>
+      </div></div>
+
+      <div class="section-title">Letzte Einträge</div>
+      <div class="empty-state">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18"></path></svg>
+      <div>Noch keine Einträge vorhanden.</div>
+    </div>
+    </main>
 
   <div class="menu-overlay" id="menu-overlay">
     <div class="menu-drawer" id="menu-drawer">
@@ -909,25 +1719,237 @@
         </div>
         <button class="close-x" id="menu-close">✕</button>
       </div>
-      <div class="menu-drawer-body" id="menu-drawer-body"></div>
+      <div class="menu-drawer-body" id="menu-drawer-body">
+      <div class="menu-cat " data-cat="profil">
+        <button class="menu-cat-head" data-cattoggle="profil">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.5 19a6 6 0 0 1 11 0"></path></svg></span>
+          <span class="menu-cat-title">Profil</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Name</span><input type="text" data-input-key="profileName" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Firma</span><input type="text" data-input-key="profileCompany" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Personalnummer</span><input type="text" data-input-key="profilePersonalNr" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Arbeitsbeginn</span><input type="time" data-input-key="profileWorkStart" value=""></div><button class="menu-item " data-action="defaultHours"><span class="menu-item-label">Standard-Arbeitszeiten</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="pickDefaultSite"><span class="menu-item-label">Standard-Baustelle</span><span class="menu-item-value" data-compute="defaultSiteLabel">Keine ausgewählt</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Zuhause – Ort</span><input type="text" data-input-key="homeLabel" value="Zuhause"></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Zuhause – Postleitzahl</span><input type="text" data-input-key="homePlz" value=""></div></div></div>
+      </div>
+    
+      <div class="menu-cat " data-cat="arbeit">
+        <button class="menu-cat-head" data-cattoggle="arbeit">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><rect x="3" y="7" width="18" height="13" rx="2.5"></rect><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path><line x1="3" y1="12.5" x2="21" y2="12.5"></line></svg></span>
+          <span class="menu-cat-title">Arbeit &amp; Kollektivvertrag</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><button class="menu-item " data-action="tradeManager"><span class="menu-item-label">Gewerbe / Kollektivvertrag wählen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="openKvLinksPanel"><span class="menu-item-label">Aktuelle Kollektivverträge (WKO)</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Normalarbeitszeit</span><span class="menu-item-value" data-compute="kvNormal">39 Std./Woche</span></div><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Sollstunden pro Monat</span><span class="menu-item-value" data-compute="sollMonat">172,7 Std.</span></div><button class="menu-item " data-action="wageManager"><span class="menu-item-label">Stundenlohn</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="dietManager"><span class="menu-item-label">Taggeld / Diäten</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Kilometergeld <span style="color:var(--text-soft); font-weight:400;">(€/km)</span></span><input type="number" data-input-key="kmRate" value="" step="0.01"></div><div class="menu-item" style="cursor:default; flex-wrap:wrap;"><span class="menu-item-label">Arbeitszeitmodell</span><div class="menu-choice-row" data-choice-key="workModel"><button class="menu-choice-pill selected" data-choice-value="Vollzeit">Vollzeit</button><button class="menu-choice-pill " data-choice-value="Teilzeit">Teilzeit</button></div></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Urlaubstage <span style="color:var(--text-soft); font-weight:400;">(Tage/Jahr)</span></span><input type="number" data-input-key="kvVacationDays" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Urlaubsstunden pro Tag <span style="color:var(--text-soft); font-weight:400;">(Std./Tag)</span></span><input type="number" data-input-key="vacationHoursPerDay" value="8"></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Urlaubsentgelt (% vom Lohn) <span style="color:var(--text-soft); font-weight:400;">(%)</span></span><input type="number" data-input-key="vacationPayPercent" value="100"></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Feiertagsregelung</span><input type="text" data-input-key="kvHolidayRule" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Überstundenregelung</span><input type="text" data-input-key="kvOvertimeRule" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Überstundenzuschlag <span style="color:var(--text-soft); font-weight:400;">(%)</span></span><input type="number" data-input-key="surchargeOvertime" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Nachtzuschlag <span style="color:var(--text-soft); font-weight:400;">(%)</span></span><input type="number" data-input-key="surchargeNight" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Sonntagszuschlag <span style="color:var(--text-soft); font-weight:400;">(%)</span></span><input type="number" data-input-key="surchargeSunday" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Feiertagszuschlag <span style="color:var(--text-soft); font-weight:400;">(%)</span></span><input type="number" data-input-key="surchargeHoliday" value=""></div></div></div>
+      </div>
+    
+      <div class="menu-cat " data-cat="statistiken">
+        <button class="menu-cat-head" data-cattoggle="statistiken">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M3 17l6-6 4 4 8-8"></path><path d="M17 7h4v4"></path></svg></span>
+          <span class="menu-cat-title">Statistiken</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Monatsstunden</span><span class="menu-item-value" data-compute="statMonth">0 Std.</span></div><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Jahresstunden</span><span class="menu-item-value" data-compute="statYear">0 Std.</span></div><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Überstunden (Monat)</span><span class="menu-item-value" data-compute="statOvertime">-172,7 Std.</span></div><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Urlaub (Tage, Jahr)</span><span class="menu-item-value" data-compute="statVacation">0 Tage</span></div><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Krankenstand (Tage, Jahr)</span><span class="menu-item-value" data-compute="statSick">0 Tage</span></div><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Ø Arbeitszeit/Tag</span><span class="menu-item-value" data-compute="statAvg">0,0 Std.</span></div><button class="menu-item " data-action="openYearOverviewPanel"><span class="menu-item-label">Jahresübersicht &amp; Diagramme</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button></div></div>
+      </div>
+    
+      <div class="menu-cat " data-cat="darstellung">
+        <button class="menu-cat-head" data-cattoggle="darstellung">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><line x1="4" y1="6" x2="20" y2="6"></line><circle cx="9" cy="6" r="2" fill="currentColor" stroke="none"></circle><line x1="4" y1="12" x2="20" y2="12"></line><circle cx="15" cy="12" r="2" fill="currentColor" stroke="none"></circle><line x1="4" y1="18" x2="20" y2="18"></line><circle cx="7" cy="18" r="2" fill="currentColor" stroke="none"></circle></svg></span>
+          <span class="menu-cat-title">Darstellung</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><div class="menu-item" style="cursor:default; flex-wrap:wrap;"><span class="menu-item-label">Hell / Dunkel / System</span><div class="menu-choice-row" data-choice-key="themeMode"><button class="menu-choice-pill selected" data-choice-value="Hell">Hell</button><button class="menu-choice-pill " data-choice-value="Dunkel">Dunkel</button><button class="menu-choice-pill " data-choice-value="System">System</button></div></div><div class="menu-item" style="cursor:default; flex-wrap:wrap;"><span class="menu-item-label">Schriftgröße</span><div class="menu-choice-row" data-choice-key="fontSize"><button class="menu-choice-pill " data-choice-value="Klein">Klein</button><button class="menu-choice-pill selected" data-choice-value="Standard">Standard</button><button class="menu-choice-pill " data-choice-value="Groß">Groß</button></div></div><button class="menu-item " data-action="pickAccentColor"><span class="menu-item-label">Akzentfarbe</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="categoryManager"><span class="menu-item-label">Kategorie-Farben ändern</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><div class="menu-item" style="cursor:default; flex-wrap:wrap;"><span class="menu-item-label">Startbildschirm</span><div class="menu-choice-row" data-choice-key="defaultTab"><button class="menu-choice-pill selected" data-choice-value="Start">Start</button><button class="menu-choice-pill " data-choice-value="Woche">Woche</button><button class="menu-choice-pill " data-choice-value="Monat">Monat</button><button class="menu-choice-pill " data-choice-value="Kalender">Kalender</button><button class="menu-choice-pill " data-choice-value="Suche">Suche</button></div></div><button class="menu-item" data-item="d-kalender"><span class="menu-item-label">Kalenderansicht anzeigen</span><span class="menu-switch on" data-toggle-key="showCalendarView"></span></button><button class="menu-item" data-item="d-woche"><span class="menu-item-label">Wochenansicht anzeigen</span><span class="menu-switch on" data-toggle-key="showWeekView"></span></button><button class="menu-item" data-item="d-monat"><span class="menu-item-label">Monatsansicht anzeigen</span><span class="menu-switch on" data-toggle-key="showMonthView"></span></button><button class="menu-item" data-item="d-kompakt"><span class="menu-item-label">Kompakte Ansicht</span><span class="menu-switch " data-toggle-key="compactView"></span></button><button class="menu-item" data-item="d-grossbtn"><span class="menu-item-label">Große Buttons für Baustelle</span><span class="menu-switch " data-toggle-key="bigSiteButtons"></span></button><button class="menu-item" data-item="d-anim"><span class="menu-item-label">Animationen</span><span class="menu-switch on" data-toggle-key="animationsEnabled"></span></button></div></div>
+      </div>
+    
+      <div class="menu-cat " data-cat="sprache">
+        <button class="menu-cat-head" data-cattoggle="sprache">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z"></path><path d="M19 11a7 7 0 0 1-14 0M12 18v3"></path></svg></span>
+          <span class="menu-cat-title">Sprache &amp; Eingabe</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><div class="menu-item" style="cursor:default; flex-wrap:wrap;"><span class="menu-item-label">App-Sprache</span><div class="menu-choice-row" data-choice-key="uiLanguage"><button class="menu-choice-pill selected" data-choice-value="de">de</button><button class="menu-choice-pill " data-choice-value="en">en</button></div></div><button class="menu-item" data-item="s-aktiv"><span class="menu-item-label">Spracheingabe aktivieren</span><span class="menu-switch on" data-toggle-key="voiceEnabled"></span></button><button class="menu-item" data-item="s-zeichen"><span class="menu-item-label">Automatische Zeichensetzung</span><span class="menu-switch " data-toggle-key="autoPunctuation"></span></button><div class="menu-item" style="cursor:default; flex-wrap:wrap;"><span class="menu-item-label">Spracheingabe-Sprache</span><div class="menu-choice-row" data-choice-key="voiceLang"><button class="menu-choice-pill selected" data-choice-value="Deutsch (AT)">Deutsch (AT)</button><button class="menu-choice-pill " data-choice-value="Deutsch (DE)">Deutsch (DE)</button><button class="menu-choice-pill " data-choice-value="Englisch">Englisch</button></div></div><button class="menu-item " data-action="testMicrophone"><span class="menu-item-label">Mikrofon testen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button></div></div>
+      </div>
+    
+      <div class="menu-cat " data-cat="ki">
+        <button class="menu-cat-head" data-cattoggle="ki">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"></path><circle cx="12" cy="12" r="3"></circle></svg></span>
+          <span class="menu-cat-title">KI-Kopplung</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><button class="menu-item " data-action="openAiPanel"><span class="menu-item-label">Einrichten / testen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Status</span><span class="menu-item-value" data-compute="aiWorkerStatus">Noch nicht eingerichtet</span></div></div></div>
+      </div>
+    
+      <div class="menu-cat open" data-cat="deploy">
+        <button class="menu-cat-head" data-cattoggle="deploy">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M17 8l-5-5-5 5"></path><path d="M12 3v12"></path></svg></span>
+          <span class="menu-cat-title">App-Update</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><button class="menu-item liquid-fx" data-action="openDeployPanel"><span class="menu-item-label">Update hochladen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="openLiveSite"><span class="menu-item-label">Live-Seite öffnen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Letztes Update</span><span class="menu-item-value" data-compute="deployStatus">Noch kein Update hochgeladen</span></div></div></div>
+      </div>
+    
+      <div class="menu-cat " data-cat="erinnerungen">
+        <button class="menu-cat-head" data-cattoggle="erinnerungen">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg></span>
+          <span class="menu-cat-title">Erinnerungen</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><button class="menu-item" data-item="e-eintragen"><span class="menu-item-label">Erinnerung zum Eintragen</span><span class="menu-switch " data-toggle-key="remindEntry"></span></button><button class="menu-item" data-item="e-pause"><span class="menu-item-label">Erinnerung für Pausen</span><span class="menu-switch " data-toggle-key="remindBreak"></span></button><button class="menu-item" data-item="e-beginn"><span class="menu-item-label">Erinnerung für Arbeitsbeginn</span><span class="menu-switch " data-toggle-key="remindStart"></span></button><button class="menu-item" data-item="e-ende"><span class="menu-item-label">Erinnerung für Arbeitsende</span><span class="menu-switch " data-toggle-key="remindEnd"></span></button></div></div>
+      </div>
+    
+      <div class="menu-cat " data-cat="daten">
+        <button class="menu-cat-head" data-cattoggle="daten">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg></span>
+          <span class="menu-cat-title">Daten</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Status</span><span class="menu-item-value" data-compute="syncStatus">Noch nicht synchronisiert</span></div><button class="menu-item " data-action="syncNowAction"><span class="menu-item-label">Jetzt synchronisieren</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="logoutSync"><span class="menu-item-label">Abmelden (Cloud-Login vergessen)</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="createBackup"><span class="menu-item-label">Daten herunterladen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="restoreBackup"><span class="menu-item-label">Daten hochladen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="exportPdf"><span class="menu-item-label">Export als PDF</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="exportPhotoPdf"><span class="menu-item-label">Foto-Dokumentation als PDF</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="exportExcel"><span class="menu-item-label">Export als Excel</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="exportCsv"><span class="menu-item-label">Export als CSV</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item danger" data-action="deleteAllMenu"><span class="menu-item-label">Alle Daten löschen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button></div></div>
+      </div>
+    
+      <div class="menu-cat " data-cat="unterstuetzung">
+        <button class="menu-cat-head" data-cattoggle="unterstuetzung">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.6z"></path></svg></span>
+          <span class="menu-cat-title">Unterstützung</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><button class="menu-item " data-action="showPaypalInfo"><span class="menu-item-label">PayPal-Spende</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="unavailable"><span class="menu-item-label">Entwickler unterstützen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="unavailable"><span class="menu-item-label">Einmalige Unterstützung</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="unavailable"><span class="menu-item-label">Monatliche Unterstützung</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button></div></div>
+      </div>
+    
+      <div class="menu-cat " data-cat="bewertung">
+        <button class="menu-cat-head" data-cattoggle="bewertung">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></span>
+          <span class="menu-cat-title">Bewertung</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><button class="menu-item " data-action="unavailable"><span class="menu-item-label">App bewerten</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="shareApp"><span class="menu-item-label">App teilen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="shareApp"><span class="menu-item-label">Freund einladen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button></div></div>
+      </div>
+    
+      <div class="menu-cat " data-cat="feedback">
+        <button class="menu-cat-head" data-cattoggle="feedback">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></span>
+          <span class="menu-cat-title">Feedback</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><button class="menu-item " data-action="reportBug"><span class="menu-item-label">Fehler melden</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="sendSuggestion"><span class="menu-item-label">Verbesserungsvorschlag</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="openContactForm"><span class="menu-item-label">Kontaktformular</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="emailDeveloper"><span class="menu-item-label">E-Mail an Entwickler</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button></div></div>
+      </div>
+    
+      <div class="menu-cat " data-cat="hilfe">
+        <button class="menu-cat-head" data-cattoggle="hilfe">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>
+          <span class="menu-cat-title">Hilfe</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><button class="menu-item" data-page="faq"><span class="menu-item-label">Häufige Fragen (FAQ)</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item" data-page="anleitung"><span class="menu-item-label">Bedienungsanleitung</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item" data-page="erste"><span class="menu-item-label">Erste Schritte</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="unavailable"><span class="menu-item-label">Video-Tutorials</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button></div></div>
+      </div>
+    
+      <div class="menu-cat " data-cat="rechtliches">
+        <button class="menu-cat-head" data-cattoggle="rechtliches">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M12 3v18"></path><path d="M5 8h14"></path><path d="M5 8l-3 6a3 3 0 0 0 6 0z"></path><path d="M19 8l-3 6a3 3 0 0 0 6 0z"></path><path d="M8 21h8"></path></svg></span>
+          <span class="menu-cat-title">Rechtliches</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><button class="menu-item" data-page="impressum"><span class="menu-item-label">Impressum</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item" data-page="datenschutz"><span class="menu-item-label">Datenschutz</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item" data-page="agb"><span class="menu-item-label">AGB</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item" data-page="lizenz"><span class="menu-item-label">Lizenzinformationen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item" data-page="oss"><span class="menu-item-label">Open-Source-Lizenzen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button></div></div>
+      </div>
+    
+      <div class="menu-cat " data-cat="ueber">
+        <button class="menu-cat-head" data-cattoggle="ueber">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><circle cx="12" cy="12" r="9"></circle><line x1="12" y1="11" x2="12" y2="16"></line><circle cx="12" cy="7.7" r=".6" fill="currentColor" stroke="none"></circle></svg></span>
+          <span class="menu-cat-title">Über die App</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Versionsnummer</span><span class="menu-item-value" data-compute="appVersionInfo">v0.1</span></div><button class="menu-item" data-page="changelog"><span class="menu-item-label">Changelog</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Entwickler</span><span class="menu-item-value">Erstellt mit Claude</span></div><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Verwendete Technologien</span><span class="menu-item-value">HTML · CSS · JavaScript</span></div></div></div>
+      </div>
+    </div>
     </div>
   </div>
 
   <div class="menu-overlay" id="menu-sub-overlay">
     <div class="menu-drawer" id="menu-sub-drawer">
       <div class="menu-drawer-header">
-        <div class="menu-drawer-title" id="menu-sub-title" style="text-align:left;">Details</div>
+        <div class="menu-drawer-title" id="menu-sub-title" style="text-align:left;">Update hochladen</div>
         <button class="close-x" id="menu-sub-back" title="Schließen">✕</button>
       </div>
-      <div class="menu-drawer-body" id="menu-sub-body"></div>
+      <div class="menu-drawer-body" id="menu-sub-body"><div class="menu-static-page">
+        <div style="font-size:12px; color:var(--text-soft); margin-bottom:14px; line-height:1.5;">
+          Lädt genau die Version, die du gerade in diesem Browser-Tab siehst, direkt in dein GitHub-Repo hoch. GitHub Pages baut die Seite danach automatisch neu (meist unter einer Minute).
+        </div>
+        <div style="font-family:'IBM Plex Mono', monospace; font-size:12px; font-weight:600; color:var(--text); background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:10px; padding:10px 12px; margin-bottom:10px;">
+          Sipe99/asdfasdf · main · index.html
+        </div>
+        <a href="https://Sipe99.github.io/asdfasdf/" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:6px; font-size:11.5px; color:var(--baustellenorange); font-weight:600; text-decoration:none; margin-bottom:20px;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><path d="M15 3h6v6"></path><path d="M10 14L21 3"></path></svg>
+          Live-Seite öffnen (Sipe99.github.io/asdfasdf)
+        </a>
+
+        <label class="field-label">1 · Token besorgen</label>
+        
+          <a href="https://github.com/settings/personal-access-tokens/16947491" target="_blank" rel="noopener" class="primary-btn liquid-fx" style="display:block; text-align:center; text-decoration:none; margin-top:0; margin-bottom:8px;">
+            Bestehendes Token erneuern
+          </a>
+          <div style="font-size:11px; color:var(--text-soft); margin-bottom:10px; line-height:1.6;">
+            Öffnet deine gemerkte Token-Seite – dort auf <b style="color:var(--text);">„Regenerate token"</b> klicken, den neuen Wert kopieren und unten einfügen. Schneller als ein komplett neues Token zu erstellen.
+          </div>
+          <button type="button" id="deploy-token-url-forget-btn" style="background:none; border:none; color:var(--text-soft); font-size:10.5px; text-decoration:underline; cursor:pointer; padding:0; margin-bottom:16px;">Andere Token-Seite verwenden</button>
+        
+
+        <label class="field-label">2 · Token einfügen</label>
+        <input type="password" id="deploy-token-input" placeholder="github_pat_…" value="" style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-size:16px; margin-bottom:8px;">
+        <div class="row-between" style="margin-bottom:20px;">
+          <div id="deploy-token-status" style="font-size:10.5px; line-height:1.6;"><span style="color:var(--baustellenorange); font-weight:700;">✓ Token gespeichert</span> – du musst es hier nicht mehr eingeben.</div>
+          <button type="button" id="deploy-token-clear-btn" style="background: none; border: medium; color: var(--cat-krank); font-size: 10.5px; font-weight: 600; cursor: pointer; padding: 0px; display: inline;">Token löschen</button>
+        </div>
+
+        <label class="field-label">3 · Hochladen</label>
+        <button class="primary-btn liquid-fx liquid-tap" id="deploy-now-btn" style="margin-top:0;" disabled="">Update hochladen</button>
+        <div id="deploy-status-line" style="font-size:11.5px; color:var(--text-soft); margin-top:12px; margin-bottom:16px; line-height:1.6;">Aktuelle Version wird geprüft…</div>
+
+        <label class="field-label">4 · Andere Datei</label>
+        <div style="font-size:10.5px; color:var(--text-soft); margin-bottom:10px; line-height:1.5;">
+          Für alles, was nicht die App selbst ist – z. B. die <b style="color:var(--text);">sw.js</b> für die Installier-Funktion, oder ein anderes Bild/Dokument.
+        </div>
+        <button class="secondary-btn" id="deploy-other-toggle-btn" style="margin-top:0; margin-bottom:10px;">Andere Datei hochladen</button>
+        <div id="deploy-other-section" style="display:none;">
+          <input type="file" id="deploy-other-file-input" style="display:none;">
+          <button class="secondary-btn" id="deploy-other-pick-btn" style="margin-top:0; margin-bottom:8px;">Datei auswählen…</button>
+          <div id="deploy-other-filename-preview" style="font-size:10.5px; color:var(--text-soft); margin-bottom:8px;"></div>
+          <label class="field-label" style="margin-top:0;">Name/Pfad im Repo</label>
+          <input type="text" id="deploy-other-path-input" placeholder="z.B. sw.js" style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-size:16px; margin-bottom:10px;">
+          <button class="primary-btn" id="deploy-other-upload-btn" style="margin-top:0;">Diese Datei hochladen</button>
+          <div id="deploy-other-status" style="font-size:11.5px; color:var(--text-soft); margin-top:10px; margin-bottom:8px; line-height:1.6;"></div>
+        </div>
+
+        <div style="font-size:10.5px; color:var(--text-soft); padding:10px 12px; background:var(--glass-bg); border-radius:12px; border:1px dashed var(--glass-border); line-height:1.6; margin-top:8px;">
+          Offizielle GitHub-Doku: <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens" target="_blank" rel="noopener" style="color:var(--baustellenorange);">docs.github.com – Personal Access Tokens</a>
+        </div>
+      </div></div>
     </div>
   </div>
 
   <button class="fab" id="fab-add" title="Neuer Eintrag">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
   </button>
 
-  <nav class="tabbar" id="tabbar"></nav>
+  <nav class="tabbar" id="tabbar" data-lens-ready="1">
+      <button class="tab active" data-tab="dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"></path><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"></path></svg>
+        <span class="tlabel">Start</span>
+      </button>
+    
+      <button class="tab " data-tab="woche">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9M10 19V5M16 19v-7M4 19h16"></path></svg>
+        <span class="tlabel">Woche</span>
+      </button>
+    
+      <button class="tab " data-tab="monat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V13M9 19V6M14 19v-9M19 19V9"></path></svg>
+        <span class="tlabel">Monat</span>
+      </button>
+    
+      <button class="tab " data-tab="kalender">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>
+        <span class="tlabel">Kalender</span>
+      </button>
+    
+      <button class="tab " data-tab="suche">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path></svg>
+        <span class="tlabel">Suche</span>
+      </button>
+    <div class="tab-lens"></div></nav>
   <div class="sheet-overlay" id="sheet-overlay">
     <div class="sheet">
       <div class="sheet-handle"></div>
@@ -938,17 +1960,28 @@
       <div class="sheet-body" id="sheet-body"></div>
     </div>
   </div>
-  <div class="toast" id="toast"></div>
+  <div class="toast show" id="toast">Token gelöscht</div>
 
   <div class="warning-overlay" id="warning-overlay">
     <div class="warning-box">
       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#B84A3E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-        <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-        <line x1="12" y1="9" x2="12" y2="13"/>
-        <line x1="12" y1="17" x2="12.01" y2="17"/>
+        <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+        <line x1="12" y1="9" x2="12" y2="13"></line>
+        <line x1="12" y1="17" x2="12.01" y2="17"></line>
       </svg>
       <div class="warning-text" id="warning-text"></div>
       <button class="primary-btn" id="warning-ok" style="margin-top:16px;">Verstanden</button>
+    </div>
+  </div>
+
+  <div class="warning-overlay" id="home-setup-overlay">
+    <div class="warning-box">
+      <div class="warning-text" style="margin-bottom:6px;">Wo wohnst du?</div>
+      <div style="font-size:11.5px; color:var(--text-soft); margin-bottom:12px; line-height:1.5;">Wird als „Zuhause" für deine Routen verwendet – Postleitzahl wird automatisch erkannt.</div>
+      <input type="text" id="home-setup-input" value="Lienz" placeholder="z.B. Lienz" style="width:100%; padding:11px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-size:16px; margin-bottom:6px;">
+      <div class="city-box-plz" id="home-setup-preview" style="margin-bottom:12px;">–</div>
+      <button class="primary-btn" id="home-setup-save" style="margin-top:0;">Speichern</button>
+      <button class="secondary-btn" id="home-setup-cancel" style="margin-top:8px;">Abbrechen</button>
     </div>
   </div>
 
@@ -963,10 +1996,10 @@
   <div class="warning-overlay" id="vacation-range-overlay">
     <div class="warning-box">
       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3E7CBF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>
+        <rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path>
       </svg>
       <div class="warning-text">Bis wann hast du Urlaub?</div>
-      <input type="date" id="vacation-range-end" style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-family:'IBM Plex Mono'; font-weight:600; margin-top:12px;" />
+      <input type="date" id="vacation-range-end" style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-family:'IBM Plex Mono'; font-weight:600; margin-top:12px;">
       <div style="font-size:11px; color:var(--text-soft); margin-top:8px; line-height:1.5;">Samstag und Sonntag werden automatisch übersprungen.</div>
       <div style="display:flex; gap:10px; margin-top:16px;">
         <button class="secondary-btn" id="vacation-range-cancel" style="margin-top:0;">Abbrechen</button>
@@ -978,7 +2011,7 @@
   <div class="warning-overlay" id="confirm-overlay">
     <div class="warning-box">
       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#B84A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/>
+        <path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line>
       </svg>
       <div class="warning-text" id="confirm-text"></div>
       <div style="display:flex; gap:10px; margin-top:16px;">
@@ -2018,7 +3051,7 @@ function json(obj, status) {
           <span class="menu-cat-title">${s.title}</span>
           <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
         </button>
-        <div class="menu-cat-items"><div style="padding:4px 18px 20px 18px;">${s.content}</div></div>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><div style="padding:4px 18px 20px 18px;">${s.content}</div></div></div>
       </div>
     `).join("");
 
@@ -2026,7 +3059,10 @@ function json(obj, status) {
       btn.onclick = ()=>{
         const id = btn.dataset.synctoggle;
         openSyncSection = (openSyncSection===id) ? null : id;
-        renderSyncChooserBody();
+        // In-Place-Umschaltung, damit die Aufklapp-Animation sichtbar durchläuft
+        body.querySelectorAll("[data-syncsec]").forEach(sec=>{
+          sec.classList.toggle("open", sec.dataset.syncsec === openSyncSection);
+        });
       };
     });
 
@@ -2448,6 +3484,131 @@ function json(obj, status) {
     bar.querySelectorAll(".tab").forEach(btn=>{
       btn.onclick = ()=>{ activeTab = btn.dataset.tab; view.scrollTop = 0; render(); };
     });
+    initTabbarLens(bar);
+  }
+
+  /* ---------- Liquid-Glass-Lupe für die Tab-Leiste ---------- */
+  function initTabbarLens(bar){
+    let lens = bar.querySelector(".tab-lens");
+    if(!lens){
+      lens = document.createElement("div");
+      lens.className = "tab-lens";
+      bar.appendChild(lens);
+    }
+    if(bar.dataset.lensReady) return;
+    bar.dataset.lensReady = "1";
+
+    let active = false, hoveredTab = null, rafId = null, pendingX = null;
+
+    function tabs(){ return Array.from(bar.querySelectorAll(".tab")); }
+    function nearestTab(clientX){
+      let best = null, bestDist = Infinity;
+      tabs().forEach(t=>{
+        const r = t.getBoundingClientRect();
+        const center = r.left + r.width/2;
+        const dist = Math.abs(clientX - center);
+        if(dist < bestDist){ bestDist = dist; best = t; }
+      });
+      return best;
+    }
+    // Ansicht live wechseln, OHNE die Tab-Leiste neu aufzubauen (sonst würde die laufende Geste zerstört)
+    function renderViewOnly(){
+      updateHeaderTrade();
+      updateHeaderWage();
+      if(activeTab==="dashboard") renderDashboard();
+      else if(activeTab==="kalender") renderKalender();
+      else if(activeTab==="woche") renderWoche();
+      else if(activeTab==="monat") renderMonat();
+      else if(activeTab==="suche") renderSuche();
+      tabs().forEach(t=>t.classList.toggle("active", t.dataset.tab===activeTab));
+    }
+    function applyMove(){
+      rafId = null;
+      if(pendingX === null) return;
+      const barRect = bar.getBoundingClientRect();
+      const lensNow = bar.querySelector(".tab-lens");
+      const tab = nearestTab(pendingX);
+      if(tab && lensNow){
+        const r = tab.getBoundingClientRect();
+        const lw = r.width + 14; // Lupe steht seitlich etwas über den Tab hinaus
+        // Linse folgt stufenlos dem Finger (auf die Leiste begrenzt)
+        const clampedX = Math.min(Math.max(pendingX, barRect.left + lw/2 - 7), barRect.right - lw/2 + 7);
+        lensNow.style.width = lw + "px";
+        lensNow.style.transform = `translateX(${clampedX - barRect.left - lw/2}px)`;
+      }
+      if(tab && tab !== hoveredTab){
+        if(hoveredTab) hoveredTab.classList.remove("lens-hover");
+        hoveredTab = tab;
+        tab.classList.add("lens-hover");
+        // Live-Umschalten: Ansicht wechselt sofort, sobald der Finger über dem Tab liegt
+        if(tab.dataset.tab !== activeTab){
+          activeTab = tab.dataset.tab;
+          view.scrollTop = 0;
+          renderViewOnly();
+        }
+      }
+      pendingX = null;
+    }
+    bar.addEventListener("touchstart", (e)=>{
+      const t = e.touches[0];
+      const startTab = nearestTab(t.clientX);
+      if(!startTab) return;
+      active = true;
+      hoveredTab = null;
+      const lensStart = bar.querySelector(".tab-lens");
+      if(lensStart){
+        lensStart.style.transition = "opacity .2s ease"; // Erstpositionierung ohne Gleit-Animation
+        const barRect = bar.getBoundingClientRect();
+        const r = startTab.getBoundingClientRect();
+        const lw = r.width + 14;
+        lensStart.style.width = lw + "px";
+        lensStart.style.transform = `translateX(${r.left - barRect.left - 7}px)`;
+        lensStart.classList.add("visible");
+        requestAnimationFrame(()=>{ lensStart.style.transition = ""; }); // danach wieder weiches Gleiten
+      }
+    }, { passive:true });
+    bar.addEventListener("touchmove", (e)=>{
+      if(!active) return;
+      if(e.cancelable) e.preventDefault();
+      pendingX = e.touches[0].clientX;
+      if(rafId===null) rafId = requestAnimationFrame(applyMove);
+    }, { passive:false });
+    function finish(){
+      if(!active) return;
+      active = false;
+      if(rafId!==null){ cancelAnimationFrame(rafId); rafId = null; }
+      const lensEnd = bar.querySelector(".tab-lens");
+      if(lensEnd) lensEnd.classList.remove("visible");
+      if(hoveredTab){ hoveredTab.classList.remove("lens-hover"); hoveredTab = null; }
+    }
+    bar.addEventListener("touchend", finish, { passive:true });
+    bar.addEventListener("touchcancel", finish, { passive:true });
+
+    // Maus-Unterstützung (Desktop/Vorschau) – identisches Verhalten wie mit dem Finger
+    bar.addEventListener("mousedown", (e)=>{
+      const startTab = nearestTab(e.clientX);
+      if(!startTab) return;
+      e.preventDefault();
+      active = true;
+      hoveredTab = null;
+      const lensStart = bar.querySelector(".tab-lens");
+      if(lensStart){
+        lensStart.style.transition = "opacity .2s ease";
+        const barRect = bar.getBoundingClientRect();
+        const r = startTab.getBoundingClientRect();
+        const lw = r.width + 14;
+        lensStart.style.width = lw + "px";
+        lensStart.style.transform = `translateX(${r.left - barRect.left - 7}px)`;
+        lensStart.classList.add("visible");
+        requestAnimationFrame(()=>{ lensStart.style.transition = ""; });
+      }
+    });
+    window.addEventListener("mousemove", (e)=>{
+      if(!active) return;
+      pendingX = e.clientX;
+      if(rafId===null) rafId = requestAnimationFrame(applyMove);
+    });
+    window.addEventListener("mouseup", finish);
   }
 
   function normCat(s){ return (s||"").trim().toLowerCase(); }
@@ -2622,9 +3783,9 @@ function json(obj, status) {
     return `
       <div class="dash-cal-viewport" id="dash-cal-viewport">
         <div class="dash-cal-track" id="dash-cal-track">
-          <div class="dash-cal-slide"><div class="card dash-cal-card">${buildDashCalCardInner(prevMonth, false)}</div></div>
-          <div class="dash-cal-slide"><div class="card dash-cal-card">${buildDashCalCardInner(calCursor, true)}</div></div>
-          <div class="dash-cal-slide"><div class="card dash-cal-card">${buildDashCalCardInner(nextMonth, false)}</div></div>
+          <div class="dash-cal-slide"><div class="card dash-cal-card">${buildDashCalCardInner(prevMonth, false)}</div><div class="slide-veil"></div></div>
+          <div class="dash-cal-slide"><div class="card dash-cal-card">${buildDashCalCardInner(calCursor, true)}</div><div class="slide-veil"></div></div>
+          <div class="dash-cal-slide"><div class="card dash-cal-card">${buildDashCalCardInner(nextMonth, false)}</div><div class="slide-veil"></div></div>
         </div>
       </div>
     `;
@@ -2643,11 +3804,11 @@ function json(obj, status) {
     function refreshSlides(){
       const prevMonth = new Date(calCursor.getFullYear(), calCursor.getMonth()-1, 1);
       const nextMonth = new Date(calCursor.getFullYear(), calCursor.getMonth()+1, 1);
-      slides[0].innerHTML = `<div class="card dash-cal-card">${buildDashCalCardInner(prevMonth, false)}</div>`;
-      slides[1].innerHTML = `<div class="card dash-cal-card">${buildDashCalCardInner(calCursor, true)}</div>`;
-      slides[2].innerHTML = `<div class="card dash-cal-card">${buildDashCalCardInner(nextMonth, false)}</div>`;
+      slides[0].innerHTML = `<div class="card dash-cal-card">${buildDashCalCardInner(prevMonth, false)}</div><div class="slide-veil"></div>`;
+      slides[1].innerHTML = `<div class="card dash-cal-card">${buildDashCalCardInner(calCursor, true)}</div><div class="slide-veil"></div>`;
+      slides[2].innerHTML = `<div class="card dash-cal-card">${buildDashCalCardInner(nextMonth, false)}</div><div class="slide-veil"></div>`;
       track.style.transition = "none";
-      slides.forEach(s=>{ s.style.transition = "none"; });
+      slides.forEach(s=>{ s.style.transition = "none"; const v=s.querySelector(".slide-veil"); if(v) v.style.transition = "none"; });
       track.style.transform = `translateX(${-width}px)`;
       setDepth(slides[0], 1); setDepth(slides[1], 0); setDepth(slides[2], 1);
       bindArrowsAndDays();
@@ -2671,11 +3832,10 @@ function json(obj, status) {
     // Wird IDENTISCH beim Ziehen und beim Loslassen verwendet -> keinerlei Sprünge.
     function setDepth(slide, depth){
       const d = Math.max(0, Math.min(1, depth));
-      const scale = 1 - d*0.14;                          // groß -> mittel -> klein
-      const blur = Math.round(d*3);                      // 0 -> 3px, in ganzen Schritten (Text bleibt ruhig)
-      slide.style.transform = `scale(${scale})`;
-      slide.style.filter = blur > 0 ? `blur(${blur}px)` : "none";
-      slide.style.opacity = String(1 - d*0.45);
+      slide.style.transform = `scale(${1 - d*0.14})`;
+      slide.style.opacity = String(1 - d*0.35);
+      const veil = slide.querySelector(".slide-veil");
+      if(veil) veil.style.opacity = String(d*0.85);
     }
     function applyLiveTransform(){
       track.style.transform = `translateX(${-width + dx}px)`;
@@ -2692,7 +3852,7 @@ function json(obj, status) {
     function finishTransform(){
       const threshold = width * 0.18;
       track.style.transition = "transform .34s cubic-bezier(.22,1,.36,1)";
-      slides.forEach(s=>{ s.style.transition = "transform .34s cubic-bezier(.22,1,.36,1), filter .34s ease, opacity .34s ease"; });
+      slides.forEach(s=>{ s.style.transition = "transform .34s cubic-bezier(.22,1,.36,1), opacity .34s ease"; const v=s.querySelector(".slide-veil"); if(v) v.style.transition = "opacity .34s ease"; });
       if(dx < -threshold){
         track.style.transform = `translateX(${-width*2}px)`;
         setDepth(slides[1], 1); setDepth(slides[2], 0);
@@ -2718,7 +3878,7 @@ function json(obj, status) {
       if(target.closest(".icon-btn")) return;
       startX = x; startY = y; dx = 0; dragging = true; lockedDirection = null;
       track.style.transition = "none";
-      slides.forEach(s=>{ s.style.transition = "none"; });
+      slides.forEach(s=>{ s.style.transition = "none"; const v=s.querySelector(".slide-veil"); if(v) v.style.transition = "none"; });
     }
     function onMove(x, y, evt){
       if(!dragging) return;
@@ -2764,9 +3924,6 @@ function json(obj, status) {
     const dt = todayStr();
     if(!entries[dt]) entries[dt] = { blocks:[], category:"", site:"", note:"", photos:[], route:[] };
     if(!Array.isArray(entries[dt].route)) entries[dt].route = [];
-    if(!entries[dt].route.length){
-      entries[dt].route = [{ id: routeStopId(), ort: APP_SETTINGS.homeLabel || "Zuhause", plz: APP_SETTINGS.homePlz || "", note:"", km:null }];
-    }
     return entries[dt].route;
   }
   function routeStopId(){ return Date.now()+"-"+Math.random().toString(36).slice(2,7); }
@@ -2919,7 +4076,16 @@ function json(obj, status) {
       </div>
       <div class="city-box-grid" id="city-box-grid"></div>
 
-      <label class="field-label" style="margin-top:20px;">Aktuelle Route</label>
+      <div class="row-between" style="margin-top:20px; margin-bottom:2px;">
+        <label class="field-label" style="margin:0;">Aktuelle Route</label>
+        <div style="display:flex; gap:6px;">
+          <button class="route-mini-btn" id="route-undo-btn" title="Letzten Stopp entfernen">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></svg>
+            Zurück
+          </button>
+          <button class="route-mini-btn route-mini-btn-danger" id="route-clear-btn" title="Ganze Route löschen">✕ Alles löschen</button>
+        </div>
+      </div>
       <div class="route-strip" id="route-strip"></div>
 
       <div class="row-between" style="margin-top:22px; margin-bottom:8px;">
@@ -2966,6 +4132,47 @@ function json(obj, status) {
       APP_SETTINGS.standardRoute = route.map(s=>({ort:s.ort, plz:s.plz, note:s.note}));
       await saveAppSettings();
       showToast("Als Standardroute für „Arbeitswoche übernehmen“ festgelegt");
+    };
+  }
+  function showHomeSetupPopup(onDone){
+    const overlay = document.getElementById("home-setup-overlay");
+    const input = document.getElementById("home-setup-input");
+    const preview = document.getElementById("home-setup-preview");
+    overlay.classList.add("open");
+    let resolved = { ort:"", plz:"" };
+    const updatePreview = ()=>{ preview.textContent = `${resolved.ort || "?"} · ${resolved.plz || "?"}`; };
+    const resolveNow = async ()=>{
+      const val = input.value.trim();
+      if(!val){ resolved = { ort:"", plz:"" }; updatePreview(); return; }
+      if(/^\d{4}$/.test(val)){
+        resolved.plz = val;
+        resolved.ort = lookupAustrianCityLocal(val) || (await lookupCityByPlzOnline(val).catch(()=>"")) || "";
+      }else{
+        resolved.ort = val;
+        resolved.plz = lookupAustrianPlz(val) || (await lookupPlzByCityOnline(val).catch(()=>"")) || "";
+      }
+      if(input.value.trim() === val) updatePreview();
+    };
+    const debouncedResolve = debounce(resolveNow, 500);
+    input.oninput = ()=>{
+      const val = input.value.trim();
+      if(/^\d{4}$/.test(val)) resolved = { ort: lookupAustrianCityLocal(val) || "", plz: val };
+      else resolved = { ort: val, plz: lookupAustrianPlz(val) || "" };
+      updatePreview();
+      debouncedResolve();
+    };
+    resolveNow(); // Vorschlag (Lienz) direkt auflösen
+    const close = ()=>overlay.classList.remove("open");
+    document.getElementById("home-setup-cancel").onclick = close;
+    document.getElementById("home-setup-save").onclick = async ()=>{
+      const val = input.value.trim();
+      if(!val){ showToast("Bitte einen Ort eingeben"); return; }
+      APP_SETTINGS.homeLabel = resolved.ort || (/^\d{4}$/.test(val) ? "" : val) || "Zuhause";
+      APP_SETTINGS.homePlz = resolved.plz || (/^\d{4}$/.test(val) ? val : "");
+      await saveAppSettings();
+      close();
+      showToast("Zuhause gespeichert: " + APP_SETTINGS.homeLabel);
+      if(typeof onDone === "function") onDone();
     };
   }
   let homeBoxEditing = false;
@@ -3051,6 +4258,17 @@ function json(obj, status) {
     grid.querySelectorAll("[data-addstop]").forEach(tile=>{
       tile.onclick = async ()=>{
         const key = tile.dataset.addstop;
+        if(key==="home" && !APP_SETTINGS.homePlz && (!APP_SETTINGS.homeLabel || APP_SETTINGS.homeLabel==="Zuhause")){
+          // Wohnort noch nicht eingerichtet – zuerst nachfragen, danach direkt als Stopp übernehmen
+          showHomeSetupPopup(async ()=>{
+            const route = getTodayRoute();
+            route.push({ id: routeStopId(), ort: APP_SETTINGS.homeLabel || "Zuhause", plz: APP_SETTINGS.homePlz || "", note:"", km:null });
+            await saveEntries();
+            renderRouteStrip();
+            renderCityBoxGrid();
+          });
+          return;
+        }
         const info = key==="home"
           ? { ort: APP_SETTINGS.homeLabel || "Zuhause", plz: APP_SETTINGS.homePlz || "" }
           : { ort: SITES[key].label, plz: SITES[key].plz || "" };
@@ -3058,8 +4276,10 @@ function json(obj, status) {
         route.push({ id: routeStopId(), ort: info.ort, plz: info.plz, note:"", km:null });
         await saveEntries();
         renderRouteStrip();
-        tile.classList.add("tapped");
-        setTimeout(()=>tile.classList.remove("tapped"), 250);
+        tile.classList.remove("liquid-tap");
+        void tile.offsetWidth; // Animation auch bei schnellem Doppeltipp neu starten
+        tile.classList.add("liquid-tap");
+        tile.addEventListener("animationend", ()=>tile.classList.remove("liquid-tap"), { once:true });
       };
     });
     grid.querySelectorAll("[data-delsite]").forEach(btn=>{
@@ -3120,7 +4340,7 @@ function json(obj, status) {
       <div class="route-strip-chip" data-stripstopid="${stop.id}" title="${escapeHtml(stop.ort||'')}">
         <div class="route-strip-plz">${escapeHtml(stop.plz || "?")}</div>
         <div class="route-strip-name">${escapeHtml(stop.ort||"")}</div>
-        ${i>0 ? `<button class="route-strip-remove" data-stripremove="${stop.id}" title="Entfernen">✕</button>` : ""}
+        <button class="route-strip-remove" data-stripremove="${stop.id}" title="Entfernen">✕</button>
       </div>
     `).join("") || `<div style="color:var(--text-soft); font-size:12px; padding:6px 2px;">Noch keine Stationen – oben eine Box antippen.</div>`;
     strip.querySelectorAll("[data-stripremove]").forEach(btn=>{
@@ -3133,6 +4353,30 @@ function json(obj, status) {
         renderRouteStrip();
       };
     });
+    const undoBtn = document.getElementById("route-undo-btn");
+    const clearBtn = document.getElementById("route-clear-btn");
+    if(undoBtn){
+      undoBtn.disabled = !route.length;
+      undoBtn.onclick = async ()=>{
+        const r = getTodayRoute();
+        if(!r.length) return;
+        r.pop();
+        await saveEntries();
+        renderRouteStrip();
+      };
+    }
+    if(clearBtn){
+      clearBtn.disabled = !route.length;
+      clearBtn.onclick = ()=>{
+        if(!getTodayRoute().length) return;
+        showConfirmPopup("Ganze Route wirklich löschen und neu anfangen?", async ()=>{
+          const r = getTodayRoute();
+          r.length = 0;
+          await saveEntries();
+          renderRouteStrip();
+        });
+      };
+    }
   }
   function renderSavedRoutesList(){
     const list = document.getElementById("route-saved-list");
@@ -3196,14 +4440,12 @@ function json(obj, status) {
     </div>`;
   }
 
-  function renderKalender(){
-    headerTitle.textContent = "Kalender";
-    const y = calCursor.getFullYear(), m = calCursor.getMonth();
+  function buildKalMonthInner(monthDate){
+    const y = monthDate.getFullYear(), m = monthDate.getMonth();
     const first = new Date(y,m,1);
     const startOffset = (first.getDay()+6)%7;
     const daysInMonth = new Date(y,m+1,0).getDate();
-    const monthName = calCursor.toLocaleDateString('de-DE',{month:'long', year:'numeric'});
-
+    const monthName = monthDate.toLocaleDateString('de-DE',{month:'long', year:'numeric'});
     let cells = "";
     for(let i=0;i<startOffset;i++) cells += `<div class="cal-cell empty"></div>`;
     for(let day=1; day<=daysInMonth; day++){
@@ -3217,26 +4459,148 @@ function json(obj, status) {
           ${entryHasContent(e) ? `<div class="dot" style="background:${catColor(e.category)}"></div><div class="hrs">${fmtH(dayHours(e))}</div>` : ''}
         </div>`;
     }
-
-    view.innerHTML = `
+    // Auf konstant 42 Zellen (6 Wochen) auffüllen, damit alle Monate exakt gleich hoch sind
+    let cellCount = startOffset + daysInMonth;
+    while(cellCount < 42){ cells += `<div class="cal-cell empty"></div>`; cellCount++; }
+    return `
       <div class="cal-nav">
-        <button class="icon-btn" id="cal-prev">${svgIcon("chevronLeft",16)}</button>
+        <button class="icon-btn kal-prev">${svgIcon("chevronLeft",16)}</button>
         <div class="month-label">${monthName}</div>
-        <button class="icon-btn" id="cal-next">${svgIcon("chevronRight",16)}</button>
+        <button class="icon-btn kal-next">${svgIcon("chevronRight",16)}</button>
       </div>
       <div class="cal-grid">
         ${DOW.map(d=>`<div class="cal-dow">${d}</div>`).join("")}
         ${cells}
       </div>
+    `;
+  }
+  function renderKalender(){
+    headerTitle.textContent = "Kalender";
+    view.innerHTML = `
+      <div class="dash-cal-viewport" id="kal-viewport">
+        <div class="dash-cal-track" id="kal-track">
+          <div class="dash-cal-slide">${buildKalMonthInner(new Date(calCursor.getFullYear(), calCursor.getMonth()-1, 1))}<div class="slide-veil"></div></div>
+          <div class="dash-cal-slide">${buildKalMonthInner(calCursor)}<div class="slide-veil"></div></div>
+          <div class="dash-cal-slide">${buildKalMonthInner(new Date(calCursor.getFullYear(), calCursor.getMonth()+1, 1))}<div class="slide-veil"></div></div>
+        </div>
+      </div>
       <div class="legend">
         ${Object.entries(CATS).map(([k,v])=>`<div class="legend-item"><span class="legend-dot" style="background:${v.color}"></span>${v.label}</div>`).join("")}
       </div>
     `;
-    document.getElementById("cal-prev").onclick = ()=>{ calCursor = new Date(y,m-1,1); renderKalender(); };
-    document.getElementById("cal-next").onclick = ()=>{ calCursor = new Date(y,m+1,1); renderKalender(); };
-    view.querySelectorAll("[data-open-day]").forEach(el=>{
-      el.onclick = ()=>openEntrySheet(el.dataset.openDay, el);
-    });
+    initKalCarousel();
+  }
+  function initKalCarousel(){
+    const viewport = document.getElementById("kal-viewport");
+    const track = document.getElementById("kal-track");
+    if(!viewport || !track) return;
+    const slides = Array.from(track.children);
+    const width = viewport.clientWidth;
+    track.style.transition = "none";
+    track.style.transform = `translateX(${-width}px)`;
+
+    function setDepth(slide, depth){
+      const d = Math.max(0, Math.min(1, depth));
+      slide.style.transform = `scale(${1 - d*0.14})`;
+      slide.style.opacity = String(1 - d*0.35);
+      const veil = slide.querySelector(".slide-veil");
+      if(veil) veil.style.opacity = String(d*0.85);
+    }
+    setDepth(slides[0], 1); setDepth(slides[1], 0); setDepth(slides[2], 1);
+
+    function refreshSlides(){
+      slides[0].innerHTML = buildKalMonthInner(new Date(calCursor.getFullYear(), calCursor.getMonth()-1, 1)) + `<div class="slide-veil"></div>`;
+      slides[1].innerHTML = buildKalMonthInner(calCursor) + `<div class="slide-veil"></div>`;
+      slides[2].innerHTML = buildKalMonthInner(new Date(calCursor.getFullYear(), calCursor.getMonth()+1, 1)) + `<div class="slide-veil"></div>`;
+      track.style.transition = "none";
+      slides.forEach(s=>{ s.style.transition = "none"; const v=s.querySelector(".slide-veil"); if(v) v.style.transition = "none"; });
+      track.style.transform = `translateX(${-width}px)`;
+      setDepth(slides[0], 1); setDepth(slides[1], 0); setDepth(slides[2], 1);
+      bindKalContent();
+    }
+    function bindKalContent(){
+      viewport.querySelectorAll(".kal-prev").forEach(btn=>{
+        btn.onclick = ()=>{ calCursor = new Date(calCursor.getFullYear(), calCursor.getMonth()-1, 1); refreshSlides(); };
+      });
+      viewport.querySelectorAll(".kal-next").forEach(btn=>{
+        btn.onclick = ()=>{ calCursor = new Date(calCursor.getFullYear(), calCursor.getMonth()+1, 1); refreshSlides(); };
+      });
+      viewport.querySelectorAll("[data-open-day]").forEach(el=>{
+        el.onclick = ()=>openEntrySheet(el.dataset.openDay, el);
+      });
+    }
+    bindKalContent();
+
+    let startX=0, startY=0, dx=0, dragging=false, lockedDirection=null, rafId=null;
+    function applyLiveTransform(){
+      track.style.transform = `translateX(${-width + dx}px)`;
+      const progress = Math.max(-1, Math.min(1, dx/width));
+      const p = Math.abs(progress);
+      setDepth(slides[1], p);
+      setDepth(slides[0], progress > 0 ? 1-p : 1);
+      setDepth(slides[2], progress < 0 ? 1-p : 1);
+      rafId = null;
+    }
+    function finishTransform(){
+      const threshold = width * 0.18;
+      track.style.transition = "transform .34s cubic-bezier(.22,1,.36,1)";
+      slides.forEach(s=>{ s.style.transition = "transform .34s cubic-bezier(.22,1,.36,1), opacity .34s ease"; const v=s.querySelector(".slide-veil"); if(v) v.style.transition = "opacity .34s ease"; });
+      if(dx < -threshold){
+        track.style.transform = `translateX(${-width*2}px)`;
+        setDepth(slides[1], 1); setDepth(slides[2], 0);
+        track.addEventListener("transitionend", function done(){
+          track.removeEventListener("transitionend", done);
+          calCursor = new Date(calCursor.getFullYear(), calCursor.getMonth()+1, 1);
+          refreshSlides();
+        }, { once:true });
+      }else if(dx > threshold){
+        track.style.transform = `translateX(0px)`;
+        setDepth(slides[1], 1); setDepth(slides[0], 0);
+        track.addEventListener("transitionend", function done(){
+          track.removeEventListener("transitionend", done);
+          calCursor = new Date(calCursor.getFullYear(), calCursor.getMonth()-1, 1);
+          refreshSlides();
+        }, { once:true });
+      }else{
+        track.style.transform = `translateX(${-width}px)`;
+        setDepth(slides[0], 1); setDepth(slides[1], 0); setDepth(slides[2], 1);
+      }
+    }
+    function onStart(x, y, target){
+      if(target.closest(".icon-btn")) return;
+      startX = x; startY = y; dx = 0; dragging = true; lockedDirection = null;
+      track.style.transition = "none";
+      slides.forEach(s=>{ s.style.transition = "none"; const v=s.querySelector(".slide-veil"); if(v) v.style.transition = "none"; });
+    }
+    function onMove(x, y, evt){
+      if(!dragging) return;
+      const rawDx = x - startX;
+      const rawDy = y - startY;
+      if(lockedDirection===null){
+        if(Math.abs(rawDx) < 6 && Math.abs(rawDy) < 6) return;
+        lockedDirection = Math.abs(rawDx) > Math.abs(rawDy) ? "x" : "y";
+        if(lockedDirection==="y"){ dragging = false; return; }
+      }
+      if(lockedDirection==="x"){
+        if(evt && evt.cancelable) evt.preventDefault();
+        dx = rawDx;
+        if(rafId===null){ rafId = requestAnimationFrame(applyLiveTransform); }
+      }
+    }
+    function onEnd(){
+      if(!dragging) return;
+      dragging = false;
+      if(rafId!==null){ cancelAnimationFrame(rafId); rafId = null; }
+      if(lockedDirection==="x") finishTransform();
+      lockedDirection = null;
+    }
+    viewport.addEventListener("touchstart", (e)=>{ const t = e.touches[0]; onStart(t.clientX, t.clientY, e.target); }, { passive:true });
+    viewport.addEventListener("touchmove", (e)=>{ const t = e.touches[0]; onMove(t.clientX, t.clientY, e); }, { passive:false });
+    viewport.addEventListener("touchend", onEnd, { passive:true });
+    viewport.addEventListener("touchcancel", onEnd, { passive:true });
+    viewport.addEventListener("mousedown", (e)=>{ onStart(e.clientX, e.clientY, e.target); });
+    window.addEventListener("mousemove", (e)=>{ if(dragging) onMove(e.clientX, e.clientY, null); });
+    window.addEventListener("mouseup", onEnd);
   }
 
   let expandedWeekDays = new Set();
@@ -3372,12 +4736,17 @@ function json(obj, status) {
       </div></div>
 
       <button class="secondary-btn" id="export-btn">${svgIcon("docexport",15)} Monat als PDF exportieren</button>
+
+      <div class="section-title" style="margin-top:16px;">Exportierte Monate in der Cloud</div>
+      <div id="pdf-archive-strip" class="pdf-strip"><div class="pdf-strip-hint">Wird geladen…</div></div>
+
       <button class="secondary-btn" id="export-photos-btn">${svgIcon("camera",15)} Foto-Dokumentation als PDF</button>
       <button class="secondary-btn" id="delete-all-btn" style="color:var(--cat-krank); border-color:var(--cat-krank);">${svgIcon("trash",15)} Alle Einträge löschen</button>
     `;
     document.getElementById("monat-prev").onclick = ()=>{ monatCursor = new Date(monatCursor.getFullYear(), monatCursor.getMonth()-1, 1); renderMonat(); };
     document.getElementById("monat-next").onclick = ()=>{ monatCursor = new Date(monatCursor.getFullYear(), monatCursor.getMonth()+1, 1); renderMonat(); };
     document.getElementById("export-btn").onclick = ()=>exportMonthPdf(monatCursor);
+    loadPdfArchiveStrip();
     document.getElementById("export-photos-btn").onclick = ()=>exportPhotoDocumentationPdf(monatCursor);
     document.getElementById("delete-all-btn").onclick = ()=>{
       showConfirmPopup("Wirklich ALLE Einträge unwiderruflich löschen? Das kann nicht rückgängig gemacht werden.", deleteAllEntries);
@@ -5138,6 +6507,119 @@ function json(obj, status) {
     showToast("Alle Einträge gelöscht");
   }
 
+  /* ---------- Cloud-Archiv für Monats-Exporte (Dropbox /exports) ---------- */
+  const PDF_ARCHIVE_FOLDER = "/exports";
+  function ensureDropboxTokenQuiet(){
+    if(dropboxToken) return true;
+    try{
+      if(loadSyncCredentials() && syncMode==="dropbox" && dropboxToken) return true;
+    }catch(e){}
+    return false;
+  }
+  function pdfArchivePath(monthCursor){
+    const y = monthCursor.getFullYear();
+    const m = String(monthCursor.getMonth()+1).padStart(2,"0");
+    return `${PDF_ARCHIVE_FOLDER}/stundennachweis-${y}-${m}.html`;
+  }
+  function pdfArchiveLabel(filename){
+    const m = filename.match(/stundennachweis-(\d{4})-(\d{2})/);
+    if(!m) return filename;
+    const MONTH_NAMES_FULL = ["Jänner","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
+    return MONTH_NAMES_FULL[Number(m[2])-1] + " " + m[1];
+  }
+  async function pdfArchiveUpload(monthCursor, htmlContent){
+    if(!ensureDropboxTokenQuiet()) return false;
+    const res = await fetch("https://content.dropboxapi.com/2/files/upload", {
+      method:"POST",
+      headers:{
+        Authorization:`Bearer ${dropboxToken}`,
+        "Dropbox-API-Arg": JSON.stringify({ path: pdfArchivePath(monthCursor), mode:"overwrite", mute:true }),
+        "Content-Type":"application/octet-stream"
+      },
+      body: htmlContent
+    });
+    if(!res.ok){ const err = await res.text().catch(()=>""); console.error(err); throw new Error("Cloud-Speichern fehlgeschlagen (" + res.status + ")"); }
+    return true;
+  }
+  async function pdfArchiveList(){
+    if(!ensureDropboxTokenQuiet()) return null; // null = nicht verbunden
+    const res = await fetch("https://api.dropboxapi.com/2/files/list_folder", {
+      method:"POST",
+      headers:{ Authorization:`Bearer ${dropboxToken}`, "Content-Type":"application/json" },
+      body: JSON.stringify({ path: PDF_ARCHIVE_FOLDER })
+    });
+    if(res.status === 409) return []; // Ordner existiert noch nicht -> keine Exporte
+    if(!res.ok){ const err = await res.text().catch(()=>""); console.error(err); throw new Error("Cloud-Liste fehlgeschlagen (" + res.status + ")"); }
+    const data = await res.json();
+    return (data.entries || [])
+      .filter(e=>e[".tag"]==="file" && /stundennachweis-\d{4}-\d{2}/.test(e.name))
+      .sort((a,b)=>b.name.localeCompare(a.name));
+  }
+  async function pdfArchiveDelete(path){
+    const res = await fetch("https://api.dropboxapi.com/2/files/delete_v2", {
+      method:"POST",
+      headers:{ Authorization:`Bearer ${dropboxToken}`, "Content-Type":"application/json" },
+      body: JSON.stringify({ path })
+    });
+    if(!res.ok){ const err = await res.text().catch(()=>""); console.error(err); throw new Error("Cloud-Löschen fehlgeschlagen (" + res.status + ")"); }
+  }
+  async function pdfArchiveOpen(path){
+    const res = await fetch("https://content.dropboxapi.com/2/files/download", {
+      method:"POST",
+      headers:{ Authorization:`Bearer ${dropboxToken}`, "Dropbox-API-Arg": JSON.stringify({ path }) }
+    });
+    if(!res.ok) throw new Error("Öffnen fehlgeschlagen (" + res.status + ")");
+    const blob = await res.blob();
+    const url = URL.createObjectURL(new Blob([blob], { type:"text/html" }));
+    const a = document.createElement("a");
+    a.href = url; a.target = "_blank"; a.rel = "noopener";
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url), 30000);
+  }
+  async function loadPdfArchiveStrip(){
+    const strip = document.getElementById("pdf-archive-strip");
+    if(!strip) return;
+    try{
+      const files = await pdfArchiveList();
+      if(files === null){
+        strip.innerHTML = `<div class="pdf-strip-hint">Mit Dropbox verbinden (Aktualisieren-Button oben), um exportierte Monate hier zu sehen.</div>`;
+        return;
+      }
+      if(!files.length){
+        strip.innerHTML = `<div class="pdf-strip-hint">Noch keine Monate in der Cloud – beim PDF-Export wird automatisch eine Kopie gespeichert.</div>`;
+        return;
+      }
+      strip.innerHTML = files.map(f=>`
+        <div class="pdf-chip" data-openpdf="${escapeHtml(f.path_lower)}">
+          <span class="pdf-chip-icon">${svgIcon("docexport",13)}</span>
+          <span class="pdf-chip-label">${escapeHtml(pdfArchiveLabel(f.name))}</span>
+          <button class="pdf-chip-delete" data-delpdf="${escapeHtml(f.path_lower)}" data-delpdflabel="${escapeHtml(pdfArchiveLabel(f.name))}" title="Aus der Cloud löschen">✕</button>
+        </div>
+      `).join("");
+      strip.querySelectorAll("[data-openpdf]").forEach(chip=>{
+        chip.onclick = async ()=>{
+          try{ await pdfArchiveOpen(chip.dataset.openpdf); }
+          catch(e){ console.error(e); showToast("Öffnen fehlgeschlagen"); }
+        };
+      });
+      strip.querySelectorAll("[data-delpdf]").forEach(btn=>{
+        btn.onclick = (e)=>{
+          e.stopPropagation();
+          showConfirmPopup(`„${btn.dataset.delpdflabel}" wirklich löschen? Die Datei wird auch aus der Cloud (Dropbox) entfernt.`, async ()=>{
+            try{
+              await pdfArchiveDelete(btn.dataset.delpdf);
+              showToast("Aus der Cloud gelöscht");
+              loadPdfArchiveStrip();
+            }catch(err){ console.error(err); showToast("Löschen fehlgeschlagen"); }
+          });
+        };
+      });
+    }catch(e){
+      console.error(e);
+      strip.innerHTML = `<div class="pdf-strip-hint">Cloud-Liste konnte nicht geladen werden.</div>`;
+    }
+  }
+
   function exportMonthPdf(monthCursor){
     const now = monthCursor || new Date();
     const list = monthEntries(now.getFullYear(), now.getMonth()).sort((a,b)=>a[0].localeCompare(b[0]));
@@ -5310,6 +6792,13 @@ function json(obj, status) {
       console.error("PDF-Export fehlgeschlagen", err);
       showToast("Export konnte nicht geöffnet werden – Pop-ups erlauben und erneut versuchen");
     }
+    // Kopie still in der Cloud ablegen (unabhängig vom Öffnen – Fehler hier beeinträchtigen den Export nicht)
+    pdfArchiveUpload(now, html).then(saved=>{
+      if(saved){ showToast("In der Cloud gespeichert (" + monthLabel + ")"); loadPdfArchiveStrip(); }
+    }).catch(e=>{
+      console.warn("Cloud-Kopie fehlgeschlagen", e);
+      showToast("Cloud-Kopie fehlgeschlagen – Export selbst hat funktioniert");
+    });
   }
 
   function exportPhotoDocumentationPdf(monthCursor){
@@ -5714,7 +7203,7 @@ function json(obj, status) {
           <span class="menu-cat-title">${cat.title}</span>
           <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
         </button>
-        <div class="menu-cat-items">${cat.items.map(renderMenuItemRow).join("")}</div>
+        <div class="menu-cat-items"><div class="menu-cat-inner">${cat.items.map(renderMenuItemRow).join("")}</div></div>
       </div>
     `).join("");
     attachMenuHandlers();
@@ -5726,8 +7215,12 @@ function json(obj, status) {
     body.querySelectorAll("[data-cattoggle]").forEach(btn=>{
       btn.onclick = ()=>{
         const id = btn.dataset.cattoggle;
-        openMenuCat = (openMenuCat === id) ? null : id;
-        renderMenuDrawer();
+        const wasOpen = (openMenuCat === id);
+        openMenuCat = wasOpen ? null : id;
+        // In-Place-Umschaltung statt Neuaufbau, damit die Aufklapp-Animation sichtbar durchläuft
+        body.querySelectorAll(".menu-cat").forEach(cat=>{
+          cat.classList.toggle("open", cat.dataset.cat === openMenuCat);
+        });
       };
     });
     body.querySelectorAll("[data-toggle-key]").forEach(sw=>{
@@ -6215,12 +7708,19 @@ function json(obj, status) {
             throw new Error("Hochladen fehlgeschlagen (" + putRes.status + "): " + (errData.message || "unbekannter Fehler"));
           }
 
-          APP_SETTINGS.deployLastAt = new Date().toISOString();
-          await persistDataImmediate();
+          // Upload selbst ist ab hier ERFOLGREICH – Erfolgsmeldung sofort anzeigen.
           const pagesUrl = `https://${owner}.github.io/${repo}/`;
           statusLine.innerHTML = `✓ Update hochgeladen. In ca. 1 Minute live unter <a href="${pagesUrl}" target="_blank" rel="noopener" style="color:var(--baustellenorange);">${pagesUrl}</a>`;
           showToast("Update hochgeladen");
-          refreshMenuComputes();
+          // Zeitstempel-Speicherung ist nur Buchhaltung – darf die Erfolgsmeldung nie überschreiben
+          // (schlägt z.B. fehl, wenn gerade keine Cloud verbunden ist).
+          try{
+            APP_SETTINGS.deployLastAt = new Date().toISOString();
+            await persistDataImmediate();
+            refreshMenuComputes();
+          }catch(bookkeepingErr){
+            console.warn("Update-Zeitstempel konnte nicht in der Cloud gespeichert werden (Upload selbst war erfolgreich)", bookkeepingErr);
+          }
         }catch(e){
           console.error(e);
           if(String(e.message).includes("(401)")){
@@ -6444,49 +7944,37 @@ function json(obj, status) {
     openMenuSub(p.title, p.html);
   }
 
+  // Liquid-Glass-Tipp-Animation überall: ein zentraler Beobachter statt hunderter Einzelbindungen
+  document.addEventListener("click", (e)=>{
+    const el = e.target.closest(".menu-item, .primary-btn, .secondary-btn, .icon-btn, .tab, .cat-chip, .menu-choice-pill, .kv-link-row, .header-logout-pill, .mini-row, .saved-route-row, .block-row");
+    if(!el || el.classList.contains("city-box")) return;
+    el.classList.add("liquid-fx");
+    el.classList.remove("liquid-tap");
+    void el.offsetWidth; // Neustart auch bei schnellen Doppeltipps
+    el.classList.add("liquid-tap");
+    el.addEventListener("animationend", ()=>el.classList.remove("liquid-tap"), { once:true });
+  }, true);
+
   (async function init(){
     const splash = document.getElementById("splash-screen");
-    const splashStatus = document.getElementById("splash-status");
-    function setSplashStatus(text){ if(splashStatus) splashStatus.textContent = text; }
 
     applyAppSettings();
     restoreActiveReminders();
     const tabMap = { "Start":"dashboard", "Kalender":"kalender", "Woche":"woche", "Monat":"monat", "Suche":"suche" };
     activeTab = tabMap[APP_SETTINGS.defaultTab] || "dashboard";
     if(checkDropboxRedirect()){
-      setSplashStatus("Verbinde mit Dropbox…");
       await dropboxSyncNow();
       showToast("Mit Dropbox verbunden");
     }else if(await checkGoogleRedirect()){
-      setSplashStatus("Verbinde mit Google Drive…");
       await googleSyncNow();
       showToast("Mit Google Drive verbunden");
     }else if(checkOnedriveRedirect()){
-      setSplashStatus("Verbinde mit OneDrive…");
       await onedriveSyncNow();
       showToast("Mit OneDrive verbunden");
-    }else if(loadSyncCredentials()){
-      // Login aus vorheriger Sitzung übernommen – neuesten Stand automatisch nachladen, mit mehreren Versuchen
-      setSplashStatus("Verbinde mit " + syncSourceLabel() + "…");
-      let restored = false;
-      let lastErr = null;
-      for(let attempt=1; attempt<=3 && !restored; attempt++){
-        try{
-          if(syncMode==="dropbox" && dropboxToken){ await dropboxLoadLatest(); }
-          else if(syncMode==="google" && googleToken){ await googleLoadLatest(); }
-          else if(syncMode==="onedrive" && onedriveToken){ await onedriveLoadLatest(); }
-          restored = true;
-        }catch(e){
-          lastErr = e;
-          console.error("Verbindungsversuch " + attempt + " fehlgeschlagen", e);
-          if(attempt < 3){ setSplashStatus("Erneuter Versuch (" + (attempt+1) + "/3)…"); await new Promise(r=>setTimeout(r, 700 * attempt)); }
-        }
-      }
-      if(restored){ showToast("Angemeldet – Daten geladen (" + syncSourceLabel() + ")"); }
-      else{ console.error(lastErr); showToast("Automatische Verbindung fehlgeschlagen – bitte manuell synchronisieren"); }
     }
+    // Kein automatischer Login mehr beim Start – gespeicherte Zugangsdaten werden erst
+    // beim Tippen auf den Aktualisieren-Button verwendet (siehe syncNow).
     refreshMissingPlzCodes().catch(e=>console.error(e));
-    setSplashStatus("Bereit");
     updateSyncStatusUI();
     render();
     if(splash){
@@ -6505,5 +7993,6 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-</body>
-</html>
+
+
+</body></html>
