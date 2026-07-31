@@ -1,8 +1,7 @@
-<!doctype html>
-<html lang="de">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+<!DOCTYPE html>
+<html lang="de"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%20%22Stundennachweis%22%2C%20%22short_name%22%3A%20%22Stunden%22%2C%20%22start_url%22%3A%20%22.%22%2C%20%22display%22%3A%20%22standalone%22%2C%20%22background_color%22%3A%20%22%23F3F1EA%22%2C%20%22theme_color%22%3A%20%22%23E8622C%22%2C%20%22orientation%22%3A%20%22portrait%22%2C%20%22icons%22%3A%20%5B%7B%22src%22%3A%20%22data%3Aimage/svg%2Bxml%2C%3Csvg%20xmlns%3D%5C%22http%3A//www.w3.org/2000/svg%5C%22%20viewBox%3D%5C%220%200%20512%20512%5C%22%3E%3Crect%20width%3D%5C%22512%5C%22%20height%3D%5C%22512%5C%22%20rx%3D%5C%22112%5C%22%20fill%3D%5C%22%2523E8622C%5C%22/%3E%3Ccircle%20cx%3D%5C%22256%5C%22%20cy%3D%5C%22256%5C%22%20r%3D%5C%22152%5C%22%20fill%3D%5C%22none%5C%22%20stroke%3D%5C%22%2523fff%5C%22%20stroke-width%3D%5C%2224%5C%22/%3E%3Cpath%20d%3D%5C%22M256%20158v100l70%2070%5C%22%20fill%3D%5C%22none%5C%22%20stroke%3D%5C%22%2523fff%5C%22%20stroke-width%3D%5C%2224%5C%22%20stroke-linecap%3D%5C%22round%5C%22%20stroke-linejoin%3D%5C%22round%5C%22/%3E%3C/svg%3E%22%2C%20%22sizes%22%3A%20%22512x512%22%2C%20%22type%22%3A%20%22image/svg%2Bxml%22%2C%20%22purpose%22%3A%20%22any%22%7D%2C%20%7B%22src%22%3A%20%22data%3Aimage/svg%2Bxml%2C%3Csvg%20xmlns%3D%5C%22http%3A//www.w3.org/2000/svg%5C%22%20viewBox%3D%5C%220%200%20512%20512%5C%22%3E%3Crect%20width%3D%5C%22512%5C%22%20height%3D%5C%22512%5C%22%20rx%3D%5C%22112%5C%22%20fill%3D%5C%22%2523E8622C%5C%22/%3E%3Ccircle%20cx%3D%5C%22256%5C%22%20cy%3D%5C%22256%5C%22%20r%3D%5C%22152%5C%22%20fill%3D%5C%22none%5C%22%20stroke%3D%5C%22%2523fff%5C%22%20stroke-width%3D%5C%2224%5C%22/%3E%3Cpath%20d%3D%5C%22M256%20158v100l70%2070%5C%22%20fill%3D%5C%22none%5C%22%20stroke%3D%5C%22%2523fff%5C%22%20stroke-width%3D%5C%2224%5C%22%20stroke-linecap%3D%5C%22round%5C%22%20stroke-linejoin%3D%5C%22round%5C%22/%3E%3C/svg%3E%22%2C%20%22sizes%22%3A%20%22512x512%22%2C%20%22type%22%3A%20%22image/svg%2Bxml%22%2C%20%22purpose%22%3A%20%22maskable%22%7D%5D%7D">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3Crect%20width%3D%22512%22%20height%3D%22512%22%20rx%3D%22112%22%20fill%3D%22%23E8622C%22/%3E%3Ccircle%20cx%3D%22256%22%20cy%3D%22256%22%20r%3D%22152%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%2224%22/%3E%3Cpath%20d%3D%22M256%20158v100l70%2070%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%2224%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3Crect%20width%3D%22512%22%20height%3D%22512%22%20rx%3D%22112%22%20fill%3D%22%23E8622C%22/%3E%3Ccircle%20cx%3D%22256%22%20cy%3D%22256%22%20r%3D%22152%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%2224%22/%3E%3Cpath%20d%3D%22M256%20158v100l70%2070%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%2224%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E">
@@ -13,7 +12,7 @@
 <meta name="theme-color" content="#E8622C">
 <title>Stundennachweis – Prototyp</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
 <style>
   :root{
     --kalkweiss:#F5F3EE;
@@ -1382,19 +1381,19 @@
   .recipe-steps{ font-size:13.5px; color:var(--text); line-height:1.6; margin-top:6px; }
 </style>
 </head>
-<body>
+<body class="font-standard">
 <div class="device">
   <div id="bg-photo-layer"></div>
   <div id="splash-screen" class="splash-screen">
     <div class="splash-mark">
-      <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>
     </div>
     <div class="splash-title">Stundennachweis</div>
   </div>
   <header class="appbar">
     <div class="brand">
       <span class="eyebrow">Stundennachweis</span>
-      <h1 id="header-title">Heute</h1>
+      <h1 id="header-title">Ernährung &amp; Fitness</h1>
     </div>
     <div style="display:flex; align-items:center; gap:8px;">
       <div id="header-sync-status" style="text-align:right; line-height:1.2; cursor:pointer;">
@@ -1402,23 +1401,339 @@
         <div id="header-sync-time" style="font-size:9px; color:var(--text-soft);">Noch nie synchronisiert</div>
       </div>
       <button id="header-logout-btn" title="Abmelden" class="header-logout-pill" style="display:none;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><path d="M16 17l5-5-5-5"></path><path d="M21 12H9"></path></svg>
         <span>Logout</span>
       </button>
       <button class="icon-btn" id="desktop-toggle-btn" title="Desktop-Ansicht umschalten">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"></rect><path d="M8 21h8M12 17v4"></path></svg>
       </button>
       <button class="icon-btn" id="sync-btn" title="Synchronisieren" style="position:relative;">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1l4 4-4 4"/><path d="M3 12.1a9 9 0 0 1 15-6.7l3-.3"/><path d="M7 21.9l-4-4 4-4"/><path d="M21 11.9a9 9 0 0 1-15 6.7l-3 .3"/></svg>
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1l4 4-4 4"></path><path d="M3 12.1a9 9 0 0 1 15-6.7l3-.3"></path><path d="M7 21.9l-4-4 4-4"></path><path d="M21 11.9a9 9 0 0 1-15 6.7l-3 .3"></path></svg>
         <span id="sync-dot" class="sync-dot"></span>
       </button>
-      <button class="icon-btn" id="hamburger-btn" title="Menü">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <button class="icon-btn liquid-fx" id="hamburger-btn" title="Menü">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
       </button>
     </div>
   </header>
 
-  <main id="view-container"></main>
+  <main id="view-container" style="" class="view-in-right">
+      <div class="section-title">Essensideen</div>
+      <div class="card"><div class="card-body">
+        <button class="primary-btn" id="fit-add-meal" style="margin-top:0;">＋ Neue Idee</button>
+        <div style="font-size:10.5px; color:var(--text-soft); margin-top:8px; line-height:1.5;">
+          Speichere, was du kochen oder essen möchtest – mit Notizen, Link und Fotos. Bilder werden mit der Cloud synchronisiert.
+        </div>
+        <div id="fit-meal-list" style="margin-top:14px;"><div style="color:var(--text-soft); font-size:12.5px; padding:4px 0;">Noch keine Ideen – oben hinzufügen.</div></div>
+      </div></div>
+
+      <div class="section-title">Was esse ich heute?</div>
+      <div class="card"><div class="card-body">
+        <div style="font-size:11.5px; color:var(--text-soft); margin-bottom:10px; line-height:1.5;">Kein Plan? Lass dir eine deiner Ideen vorschlagen.</div>
+        <button class="secondary-btn" id="fit-suggest" style="margin-top:0;">🎲 Vorschlag anzeigen</button>
+        <div id="fit-suggestion" style="margin-top:12px;"></div>
+      </div></div>
+
+      <div class="section-title">Rezepte finden</div>
+      <div class="card"><div class="card-body">
+        <div class="search-box" style="margin-bottom:10px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path></svg>
+          <input type="text" id="recipe-search-input" placeholder="z. B. chicken, pasta, salmon…">
+        </div>
+        <div class="recipe-filter-row">
+          <div class="recipe-filter-chip" data-rcat="Chicken">🍗 Hähnchen</div>
+          <div class="recipe-filter-chip" data-rcat="Beef">🥩 Rind</div>
+          <div class="recipe-filter-chip" data-rcat="Seafood">🐟 Fisch</div>
+          <div class="recipe-filter-chip" data-rcat="Vegetarian">🥗 Vegetarisch</div>
+          <div class="recipe-filter-chip" data-rcat="Breakfast">🍳 Frühstück</div>
+          <div class="recipe-filter-chip" data-rrandom="1">🎲 Zufall</div>
+        </div>
+        <div style="font-size:10px; color:var(--text-soft); margin:8px 0 0 2px;">Rezepte &amp; Bilder von TheMealDB · mit Video, wo verfügbar</div>
+        <div id="recipe-results" style="margin-top:14px;"></div>
+      </div></div>
+
+      <div class="section-title">Trainingsplan</div>
+      <div class="card"><div class="card-body">
+        <div class="plan-switch" id="plan-switch">
+          <div class="plan-tab active" data-plan="ganzkoerper-a">Ganzkörper A</div><div class="plan-tab " data-plan="ganzkoerper-b">Ganzkörper B</div>
+        </div>
+        <div id="plan-body" style="margin-top:14px;">
+      <div style="font-size:11.5px; color:var(--text-soft); margin-bottom:4px;">Wochenende · zum eigenen Empfinden</div>
+      <div class="plan-progress"><div class="plan-progress-bar" style="width:0%;"></div></div>
+      <div style="font-size:11px; color:var(--text-soft); margin:6px 0 14px 0;">0 von 6 geschafft</div>
+      <div class="plan-ex-list">
+        
+          <div class="plan-ex-row " data-exid="exa1">
+            <div class="plan-ex-img"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Wide-stance-squat-1.gif" alt="Kniebeuge" loading="lazy" onerror="this.parentElement.classList.add('img-fail'); this.remove();"></div>
+            <div class="plan-ex-main">
+              <div class="plan-ex-name">Kniebeuge</div>
+              <div class="plan-ex-hint">Tief in die Hocke, Fersen bleiben am Boden. Bis du eine gute Spannung spürst.</div>
+            </div>
+            <button class="plan-ex-edit" data-editex="exa1" title="Bearbeiten">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
+            </button>
+            <div class="plan-ex-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 6"></path></svg>
+            </div>
+          </div>
+          <div class="plan-ex-row " data-exid="exa2">
+            <div class="plan-ex-img"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pushups.gif" alt="Liegestütz" loading="lazy" onerror="this.parentElement.classList.add('img-fail'); this.remove();"></div>
+            <div class="plan-ex-main">
+              <div class="plan-ex-name">Liegestütz</div>
+              <div class="plan-ex-hint">Körper gerade wie ein Brett. So viele, wie sauber gehen.</div>
+            </div>
+            <button class="plan-ex-edit" data-editex="exa2" title="Bearbeiten">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
+            </button>
+            <div class="plan-ex-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 6"></path></svg>
+            </div>
+          </div>
+          <div class="plan-ex-row " data-exid="exa3">
+            <div class="plan-ex-img img-fail"></div>
+            <div class="plan-ex-main">
+              <div class="plan-ex-name">Ausfallschritt</div>
+              <div class="plan-ex-hint">Großer Schritt nach vorn, hinteres Knie Richtung Boden. Im Wechsel.</div>
+            </div>
+            <button class="plan-ex-edit" data-editex="exa3" title="Bearbeiten">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
+            </button>
+            <div class="plan-ex-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 6"></path></svg>
+            </div>
+          </div>
+          <div class="plan-ex-row " data-exid="exa4">
+            <div class="plan-ex-img"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Situps.gif" alt="Sit-up" loading="lazy" onerror="this.parentElement.classList.add('img-fail'); this.remove();"></div>
+            <div class="plan-ex-main">
+              <div class="plan-ex-name">Sit-up</div>
+              <div class="plan-ex-hint">Oberkörper kontrolliert aufrichten und langsam ablassen.</div>
+            </div>
+            <button class="plan-ex-edit" data-editex="exa4" title="Bearbeiten">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
+            </button>
+            <div class="plan-ex-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 6"></path></svg>
+            </div>
+          </div>
+          <div class="plan-ex-row " data-exid="exa5">
+            <div class="plan-ex-img img-fail"></div>
+            <div class="plan-ex-main">
+              <div class="plan-ex-name">Wadenheben</div>
+              <div class="plan-ex-hint">Auf die Zehenspitzen, kurz halten, langsam ab. Fersen heben.</div>
+            </div>
+            <button class="plan-ex-edit" data-editex="exa5" title="Bearbeiten">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
+            </button>
+            <div class="plan-ex-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 6"></path></svg>
+            </div>
+          </div>
+          <div class="plan-ex-row " data-exid="exa6">
+            <div class="plan-ex-img"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Seated-ab-crunch-1.gif" alt="Crunch" loading="lazy" onerror="this.parentElement.classList.add('img-fail'); this.remove();"></div>
+            <div class="plan-ex-main">
+              <div class="plan-ex-name">Crunch</div>
+              <div class="plan-ex-hint">Bauch anspannen, Schultern leicht anheben, langsam zurück.</div>
+            </div>
+            <button class="plan-ex-edit" data-editex="exa6" title="Bearbeiten">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
+            </button>
+            <div class="plan-ex-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 6"></path></svg>
+            </div>
+          </div>
+      </div>
+      <button class="secondary-btn" id="plan-add-ex" style="margin-top:12px;">＋ Übung hinzufügen</button>
+      <button class="secondary-btn" id="plan-reset" style="margin-top:8px;">Alle Haken zurücksetzen</button>
+      <button class="secondary-btn" id="plan-log" style="margin-top:8px;">Als erledigtes Training speichern</button>
+    </div>
+      </div></div>
+
+      <div class="section-title">Trainingskalender</div>
+      <div class="card"><div class="card-body">
+        <div id="train-cal">
+      <div class="row-between" style="margin-bottom:10px;">
+        <button class="icon-btn" id="tcal-prev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M15 18l-6-6 6-6"></path></svg></button>
+        <div style="font-family:'Bebas Neue'; font-size:17px;">Juli 2026</div>
+        <button class="icon-btn" id="tcal-next"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M9 18l6-6-6-6"></path></svg></button>
+      </div>
+      <div class="mini-cal-dow-row">
+        <div></div>
+        <div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">Mo</div><div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">Di</div><div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">Mi</div><div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">Do</div><div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">Fr</div><div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">Sa</div><div style="text-align:center;font-size:9px;color:var(--text-soft);font-weight:700;">So</div>
+        <div style="text-align:right;font-size:9px;color:var(--text-soft);font-weight:700;">🏋️</div>
+      </div>
+      
+        <div class="mini-cal-week ">
+          <div class="kw-badge">KW 27</div>
+          <div class="mini-day other-month " data-trainday="2026-06-29" title="29.06.2026">
+              29
+              
+            </div><div class="mini-day other-month " data-trainday="2026-06-30" title="30.06.2026">
+              30
+              
+            </div><div class="mini-day  " data-trainday="2026-07-01" title="01.07.2026">
+              1
+              
+            </div><div class="mini-day  " data-trainday="2026-07-02" title="02.07.2026">
+              2
+              
+            </div><div class="mini-day  " data-trainday="2026-07-03" title="03.07.2026">
+              3
+              
+            </div><div class="mini-day  " data-trainday="2026-07-04" title="04.07.2026">
+              4
+              
+            </div><div class="mini-day  " data-trainday="2026-07-05" title="05.07.2026">
+              5
+              
+            </div>
+          <div class="mini-week-total ">–</div>
+        </div>
+        <div class="mini-cal-week ">
+          <div class="kw-badge">KW 28</div>
+          <div class="mini-day  " data-trainday="2026-07-06" title="06.07.2026">
+              6
+              
+            </div><div class="mini-day  " data-trainday="2026-07-07" title="07.07.2026">
+              7
+              
+            </div><div class="mini-day  " data-trainday="2026-07-08" title="08.07.2026">
+              8
+              
+            </div><div class="mini-day  " data-trainday="2026-07-09" title="09.07.2026">
+              9
+              
+            </div><div class="mini-day  " data-trainday="2026-07-10" title="10.07.2026">
+              10
+              
+            </div><div class="mini-day  " data-trainday="2026-07-11" title="11.07.2026">
+              11
+              
+            </div><div class="mini-day  " data-trainday="2026-07-12" title="12.07.2026">
+              12
+              
+            </div>
+          <div class="mini-week-total ">–</div>
+        </div>
+        <div class="mini-cal-week ">
+          <div class="kw-badge">KW 29</div>
+          <div class="mini-day  " data-trainday="2026-07-13" title="13.07.2026">
+              13
+              
+            </div><div class="mini-day  " data-trainday="2026-07-14" title="14.07.2026">
+              14
+              
+            </div><div class="mini-day  " data-trainday="2026-07-15" title="15.07.2026">
+              15
+              
+            </div><div class="mini-day  " data-trainday="2026-07-16" title="16.07.2026">
+              16
+              
+            </div><div class="mini-day  " data-trainday="2026-07-17" title="17.07.2026">
+              17
+              
+            </div><div class="mini-day  " data-trainday="2026-07-18" title="18.07.2026">
+              18
+              
+            </div><div class="mini-day  " data-trainday="2026-07-19" title="19.07.2026">
+              19
+              
+            </div>
+          <div class="mini-week-total ">–</div>
+        </div>
+        <div class="mini-cal-week ">
+          <div class="kw-badge">KW 30</div>
+          <div class="mini-day  " data-trainday="2026-07-20" title="20.07.2026">
+              20
+              
+            </div><div class="mini-day  " data-trainday="2026-07-21" title="21.07.2026">
+              21
+              
+            </div><div class="mini-day  " data-trainday="2026-07-22" title="22.07.2026">
+              22
+              
+            </div><div class="mini-day  " data-trainday="2026-07-23" title="23.07.2026">
+              23
+              
+            </div><div class="mini-day  " data-trainday="2026-07-24" title="24.07.2026">
+              24
+              
+            </div><div class="mini-day  " data-trainday="2026-07-25" title="25.07.2026">
+              25
+              
+            </div><div class="mini-day  " data-trainday="2026-07-26" title="26.07.2026">
+              26
+              
+            </div>
+          <div class="mini-week-total ">–</div>
+        </div>
+        <div class="mini-cal-week current-week">
+          <div class="kw-badge">KW 31</div>
+          <div class="mini-day  " data-trainday="2026-07-27" title="27.07.2026">
+              27
+              
+            </div><div class="mini-day  " data-trainday="2026-07-28" title="28.07.2026">
+              28
+              
+            </div><div class="mini-day  " data-trainday="2026-07-29" title="29.07.2026">
+              29
+              
+            </div><div class="mini-day  " data-trainday="2026-07-30" title="30.07.2026">
+              30
+              
+            </div><div class="mini-day  today" data-trainday="2026-07-31" title="31.07.2026">
+              31
+              
+            </div><div class="mini-day other-month " data-trainday="2026-08-01" title="01.08.2026">
+              1
+              
+            </div><div class="mini-day other-month " data-trainday="2026-08-02" title="02.08.2026">
+              2
+              
+            </div>
+          <div class="mini-week-total current">–</div>
+        </div>
+        <div class="mini-cal-week ">
+          <div class="kw-badge">KW 32</div>
+          <div class="mini-day other-month " data-trainday="2026-08-03" title="03.08.2026">
+              3
+              
+            </div><div class="mini-day other-month " data-trainday="2026-08-04" title="04.08.2026">
+              4
+              
+            </div><div class="mini-day other-month " data-trainday="2026-08-05" title="05.08.2026">
+              5
+              
+            </div><div class="mini-day other-month " data-trainday="2026-08-06" title="06.08.2026">
+              6
+              
+            </div><div class="mini-day other-month " data-trainday="2026-08-07" title="07.08.2026">
+              7
+              
+            </div><div class="mini-day other-month " data-trainday="2026-08-08" title="08.08.2026">
+              8
+              
+            </div><div class="mini-day other-month " data-trainday="2026-08-09" title="09.08.2026">
+              9
+              
+            </div>
+          <div class="mini-week-total ">–</div>
+        </div>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px; padding-top:10px; border-top:1px dashed var(--line);">
+        <span style="font-size:12px; color:var(--text-soft); font-weight:600;">Trainings Juli 2026</span>
+        <span style="font-family:'Bebas Neue'; font-size:21px; color:var(--baustellenorange);">0</span>
+      </div>
+    </div>
+      </div></div>
+
+      <div class="section-title">Trainings-Log</div>
+      <div class="card"><div class="card-body">
+        <button class="primary-btn" id="fit-add-workout" style="margin-top:0;">＋ Training eintragen</button>
+        <div style="font-size:10.5px; color:var(--text-soft); margin-top:8px; line-height:1.5;">
+          Halte fest, was du trainiert hast – ganz ohne Gewichts-Zwang, nur wie es sich angefühlt hat.
+        </div>
+        <div id="fit-workout-list" style="margin-top:14px;"><div style="color:var(--text-soft); font-size:12.5px; padding:4px 0;">Noch keine Trainings – oben eintragen.</div></div>
+      </div></div>
+    </main>
 
   <div class="menu-overlay" id="menu-overlay">
     <div class="menu-drawer" id="menu-drawer">
@@ -1429,25 +1744,242 @@
         </div>
         <button class="close-x" id="menu-close">✕</button>
       </div>
-      <div class="menu-drawer-body" id="menu-drawer-body"></div>
+      <div class="menu-drawer-body" id="menu-drawer-body">
+      <div class="menu-cat " data-cat="profil">
+        <button class="menu-cat-head" data-cattoggle="profil">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.5 19a6 6 0 0 1 11 0"></path></svg></span>
+          <span class="menu-cat-title">Profil</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Name</span><input type="text" data-input-key="profileName" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Firma</span><input type="text" data-input-key="profileCompany" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Personalnummer</span><input type="text" data-input-key="profilePersonalNr" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Arbeitsbeginn</span><input type="time" data-input-key="profileWorkStart" value=""></div><button class="menu-item " data-action="defaultHours"><span class="menu-item-label">Standard-Arbeitszeiten</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="pickDefaultSite"><span class="menu-item-label">Standard-Baustelle</span><span class="menu-item-value" data-compute="defaultSiteLabel">Keine ausgewählt</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Zuhause – Ort</span><input type="text" data-input-key="homeLabel" value="Zuhause"></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Zuhause – Postleitzahl</span><input type="text" data-input-key="homePlz" value=""></div></div></div>
+      </div>
+    
+      <div class="menu-cat " data-cat="arbeit">
+        <button class="menu-cat-head" data-cattoggle="arbeit">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><rect x="3" y="7" width="18" height="13" rx="2.5"></rect><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path><line x1="3" y1="12.5" x2="21" y2="12.5"></line></svg></span>
+          <span class="menu-cat-title">Arbeit &amp; Kollektivvertrag</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><button class="menu-item " data-action="tradeManager"><span class="menu-item-label">Gewerbe / Kollektivvertrag wählen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="openKvLinksPanel"><span class="menu-item-label">Aktuelle Kollektivverträge (WKO)</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Normalarbeitszeit</span><span class="menu-item-value" data-compute="kvNormal">39 Std./Woche</span></div><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Sollstunden pro Monat</span><span class="menu-item-value" data-compute="sollMonat">172,7 Std.</span></div><button class="menu-item " data-action="wageManager"><span class="menu-item-label">Stundenlohn</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="dietManager"><span class="menu-item-label">Taggeld / Diäten</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Kilometergeld <span style="color:var(--text-soft); font-weight:400;">(€/km)</span></span><input type="number" data-input-key="kmRate" value="" step="0.01"></div><div class="menu-item" style="cursor:default; flex-wrap:wrap;"><span class="menu-item-label">Arbeitszeitmodell</span><div class="menu-choice-row" data-choice-key="workModel"><button class="menu-choice-pill selected" data-choice-value="Vollzeit">Vollzeit</button><button class="menu-choice-pill " data-choice-value="Teilzeit">Teilzeit</button></div></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Urlaubstage <span style="color:var(--text-soft); font-weight:400;">(Tage/Jahr)</span></span><input type="number" data-input-key="kvVacationDays" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Urlaubsstunden pro Tag <span style="color:var(--text-soft); font-weight:400;">(Std./Tag)</span></span><input type="number" data-input-key="vacationHoursPerDay" value="8"></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Urlaubsentgelt (% vom Lohn) <span style="color:var(--text-soft); font-weight:400;">(%)</span></span><input type="number" data-input-key="vacationPayPercent" value="100"></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Feiertagsregelung</span><input type="text" data-input-key="kvHolidayRule" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Überstundenregelung</span><input type="text" data-input-key="kvOvertimeRule" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Überstundenzuschlag <span style="color:var(--text-soft); font-weight:400;">(%)</span></span><input type="number" data-input-key="surchargeOvertime" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Nachtzuschlag <span style="color:var(--text-soft); font-weight:400;">(%)</span></span><input type="number" data-input-key="surchargeNight" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Sonntagszuschlag <span style="color:var(--text-soft); font-weight:400;">(%)</span></span><input type="number" data-input-key="surchargeSunday" value=""></div><div class="menu-item menu-input-row" style="cursor:default;"><span class="menu-item-label">Feiertagszuschlag <span style="color:var(--text-soft); font-weight:400;">(%)</span></span><input type="number" data-input-key="surchargeHoliday" value=""></div></div></div>
+      </div>
+    
+      <div class="menu-cat " data-cat="statistiken">
+        <button class="menu-cat-head" data-cattoggle="statistiken">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M3 17l6-6 4 4 8-8"></path><path d="M17 7h4v4"></path></svg></span>
+          <span class="menu-cat-title">Statistiken</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Monatsstunden</span><span class="menu-item-value" data-compute="statMonth">0 Std.</span></div><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Jahresstunden</span><span class="menu-item-value" data-compute="statYear">0 Std.</span></div><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Überstunden (Monat)</span><span class="menu-item-value" data-compute="statOvertime">-172,7 Std.</span></div><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Urlaub (Tage, Jahr)</span><span class="menu-item-value" data-compute="statVacation">0 Tage</span></div><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Krankenstand (Tage, Jahr)</span><span class="menu-item-value" data-compute="statSick">0 Tage</span></div><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Ø Arbeitszeit/Tag</span><span class="menu-item-value" data-compute="statAvg">0,0 Std.</span></div><button class="menu-item " data-action="openYearOverviewPanel"><span class="menu-item-label">Jahresübersicht &amp; Diagramme</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button></div></div>
+      </div>
+    
+      <div class="menu-cat " data-cat="darstellung">
+        <button class="menu-cat-head" data-cattoggle="darstellung">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><line x1="4" y1="6" x2="20" y2="6"></line><circle cx="9" cy="6" r="2" fill="currentColor" stroke="none"></circle><line x1="4" y1="12" x2="20" y2="12"></line><circle cx="15" cy="12" r="2" fill="currentColor" stroke="none"></circle><line x1="4" y1="18" x2="20" y2="18"></line><circle cx="7" cy="18" r="2" fill="currentColor" stroke="none"></circle></svg></span>
+          <span class="menu-cat-title">Darstellung</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><div class="menu-item" style="cursor:default; flex-wrap:wrap;"><span class="menu-item-label">Hell / Dunkel / System</span><div class="menu-choice-row" data-choice-key="themeMode"><button class="menu-choice-pill selected" data-choice-value="Hell">Hell</button><button class="menu-choice-pill " data-choice-value="Dunkel">Dunkel</button><button class="menu-choice-pill " data-choice-value="System">System</button></div></div><div class="menu-item" style="cursor:default; flex-wrap:wrap;"><span class="menu-item-label">Schriftgröße</span><div class="menu-choice-row" data-choice-key="fontSize"><button class="menu-choice-pill " data-choice-value="Klein">Klein</button><button class="menu-choice-pill selected" data-choice-value="Standard">Standard</button><button class="menu-choice-pill " data-choice-value="Groß">Groß</button></div></div><div class="menu-item" style="cursor:default; flex-wrap:wrap;"><span class="menu-item-label">Animationen</span><div class="menu-choice-row" data-choice-key="animationStyle"><button class="menu-choice-pill selected" data-choice-value="Einfach">Einfach</button><button class="menu-choice-pill " data-choice-value="Stark">Stark</button></div></div><button class="menu-item " data-action="openGlassBgPanel"><span class="menu-item-label">Hintergrundbild &amp; Glas-Look</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="pickAccentColor"><span class="menu-item-label">Akzentfarbe</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="categoryManager"><span class="menu-item-label">Kategorie-Farben ändern</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><div class="menu-item" style="cursor:default; flex-wrap:wrap;"><span class="menu-item-label">Startbildschirm</span><div class="menu-choice-row" data-choice-key="defaultTab"><button class="menu-choice-pill selected" data-choice-value="Start">Start</button><button class="menu-choice-pill " data-choice-value="Woche">Woche</button><button class="menu-choice-pill " data-choice-value="Monat">Monat</button><button class="menu-choice-pill " data-choice-value="Kalender">Kalender</button><button class="menu-choice-pill " data-choice-value="Suche">Suche</button></div></div><button class="menu-item" data-item="d-kalender"><span class="menu-item-label">Kalenderansicht anzeigen</span><span class="menu-switch on" data-toggle-key="showCalendarView"></span></button><button class="menu-item" data-item="d-woche"><span class="menu-item-label">Wochenansicht anzeigen</span><span class="menu-switch on" data-toggle-key="showWeekView"></span></button><button class="menu-item" data-item="d-monat"><span class="menu-item-label">Monatsansicht anzeigen</span><span class="menu-switch on" data-toggle-key="showMonthView"></span></button><button class="menu-item" data-item="d-kompakt"><span class="menu-item-label">Kompakte Ansicht</span><span class="menu-switch " data-toggle-key="compactView"></span></button><button class="menu-item" data-item="d-grossbtn"><span class="menu-item-label">Große Buttons für Baustelle</span><span class="menu-switch " data-toggle-key="bigSiteButtons"></span></button><button class="menu-item" data-item="d-anim"><span class="menu-item-label">Animationen</span><span class="menu-switch on" data-toggle-key="animationsEnabled"></span></button></div></div>
+      </div>
+    
+      <div class="menu-cat " data-cat="sprache">
+        <button class="menu-cat-head" data-cattoggle="sprache">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z"></path><path d="M19 11a7 7 0 0 1-14 0M12 18v3"></path></svg></span>
+          <span class="menu-cat-title">Sprache &amp; Eingabe</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><div class="menu-item" style="cursor:default; flex-wrap:wrap;"><span class="menu-item-label">App-Sprache</span><div class="menu-choice-row" data-choice-key="uiLanguage"><button class="menu-choice-pill selected" data-choice-value="de">de</button><button class="menu-choice-pill " data-choice-value="en">en</button></div></div><button class="menu-item" data-item="s-aktiv"><span class="menu-item-label">Spracheingabe aktivieren</span><span class="menu-switch on" data-toggle-key="voiceEnabled"></span></button><button class="menu-item" data-item="s-zeichen"><span class="menu-item-label">Automatische Zeichensetzung</span><span class="menu-switch " data-toggle-key="autoPunctuation"></span></button><div class="menu-item" style="cursor:default; flex-wrap:wrap;"><span class="menu-item-label">Spracheingabe-Sprache</span><div class="menu-choice-row" data-choice-key="voiceLang"><button class="menu-choice-pill selected" data-choice-value="Deutsch (AT)">Deutsch (AT)</button><button class="menu-choice-pill " data-choice-value="Deutsch (DE)">Deutsch (DE)</button><button class="menu-choice-pill " data-choice-value="Englisch">Englisch</button></div></div><button class="menu-item " data-action="testMicrophone"><span class="menu-item-label">Mikrofon testen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button></div></div>
+      </div>
+    
+      <div class="menu-cat " data-cat="ki">
+        <button class="menu-cat-head" data-cattoggle="ki">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"></path><circle cx="12" cy="12" r="3"></circle></svg></span>
+          <span class="menu-cat-title">KI-Kopplung</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><button class="menu-item " data-action="openAiPanel"><span class="menu-item-label">Einrichten / testen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Status</span><span class="menu-item-value" data-compute="aiWorkerStatus">Noch nicht eingerichtet</span></div></div></div>
+      </div>
+    
+      <div class="menu-cat open" data-cat="deploy">
+        <button class="menu-cat-head" data-cattoggle="deploy">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M17 8l-5-5-5 5"></path><path d="M12 3v12"></path></svg></span>
+          <span class="menu-cat-title">App-Update</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><button class="menu-item liquid-fx" data-action="openDeployPanel"><span class="menu-item-label">Update hochladen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="openLiveSite"><span class="menu-item-label">Live-Seite öffnen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Letztes Update</span><span class="menu-item-value" data-compute="deployStatus">Noch kein Update hochgeladen</span></div></div></div>
+      </div>
+    
+      <div class="menu-cat " data-cat="erinnerungen">
+        <button class="menu-cat-head" data-cattoggle="erinnerungen">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg></span>
+          <span class="menu-cat-title">Erinnerungen</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><button class="menu-item" data-item="e-eintragen"><span class="menu-item-label">Erinnerung zum Eintragen</span><span class="menu-switch " data-toggle-key="remindEntry"></span></button><button class="menu-item" data-item="e-pause"><span class="menu-item-label">Erinnerung für Pausen</span><span class="menu-switch " data-toggle-key="remindBreak"></span></button><button class="menu-item" data-item="e-beginn"><span class="menu-item-label">Erinnerung für Arbeitsbeginn</span><span class="menu-switch " data-toggle-key="remindStart"></span></button><button class="menu-item" data-item="e-ende"><span class="menu-item-label">Erinnerung für Arbeitsende</span><span class="menu-switch " data-toggle-key="remindEnd"></span></button></div></div>
+      </div>
+    
+      <div class="menu-cat " data-cat="daten">
+        <button class="menu-cat-head" data-cattoggle="daten">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg></span>
+          <span class="menu-cat-title">Daten</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Status</span><span class="menu-item-value" data-compute="syncStatus">Noch nicht synchronisiert</span></div><button class="menu-item " data-action="syncNowAction"><span class="menu-item-label">Jetzt synchronisieren</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="logoutSync"><span class="menu-item-label">Abmelden (Cloud-Login vergessen)</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="createBackup"><span class="menu-item-label">Daten herunterladen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="restoreBackup"><span class="menu-item-label">Daten hochladen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="exportPdf"><span class="menu-item-label">Export als PDF</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="exportPhotoPdf"><span class="menu-item-label">Foto-Dokumentation als PDF</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="exportExcel"><span class="menu-item-label">Export als Excel</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="exportCsv"><span class="menu-item-label">Export als CSV</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item danger" data-action="deleteAllMenu"><span class="menu-item-label">Alle Daten löschen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button></div></div>
+      </div>
+    
+      <div class="menu-cat " data-cat="unterstuetzung">
+        <button class="menu-cat-head" data-cattoggle="unterstuetzung">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.6z"></path></svg></span>
+          <span class="menu-cat-title">Unterstützung</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><button class="menu-item " data-action="showPaypalInfo"><span class="menu-item-label">PayPal-Spende</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="unavailable"><span class="menu-item-label">Entwickler unterstützen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="unavailable"><span class="menu-item-label">Einmalige Unterstützung</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="unavailable"><span class="menu-item-label">Monatliche Unterstützung</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button></div></div>
+      </div>
+    
+      <div class="menu-cat " data-cat="bewertung">
+        <button class="menu-cat-head" data-cattoggle="bewertung">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></span>
+          <span class="menu-cat-title">Bewertung</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><button class="menu-item " data-action="unavailable"><span class="menu-item-label">App bewerten</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="shareApp"><span class="menu-item-label">App teilen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="shareApp"><span class="menu-item-label">Freund einladen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button></div></div>
+      </div>
+    
+      <div class="menu-cat " data-cat="feedback">
+        <button class="menu-cat-head" data-cattoggle="feedback">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></span>
+          <span class="menu-cat-title">Feedback</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><button class="menu-item " data-action="reportBug"><span class="menu-item-label">Fehler melden</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="sendSuggestion"><span class="menu-item-label">Verbesserungsvorschlag</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="openContactForm"><span class="menu-item-label">Kontaktformular</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="emailDeveloper"><span class="menu-item-label">E-Mail an Entwickler</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button></div></div>
+      </div>
+    
+      <div class="menu-cat " data-cat="hilfe">
+        <button class="menu-cat-head" data-cattoggle="hilfe">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>
+          <span class="menu-cat-title">Hilfe</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><button class="menu-item" data-page="faq"><span class="menu-item-label">Häufige Fragen (FAQ)</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item" data-page="anleitung"><span class="menu-item-label">Bedienungsanleitung</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item" data-page="erste"><span class="menu-item-label">Erste Schritte</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item " data-action="unavailable"><span class="menu-item-label">Video-Tutorials</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button></div></div>
+      </div>
+    
+      <div class="menu-cat " data-cat="rechtliches">
+        <button class="menu-cat-head" data-cattoggle="rechtliches">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><path d="M12 3v18"></path><path d="M5 8h14"></path><path d="M5 8l-3 6a3 3 0 0 0 6 0z"></path><path d="M19 8l-3 6a3 3 0 0 0 6 0z"></path><path d="M8 21h8"></path></svg></span>
+          <span class="menu-cat-title">Rechtliches</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><button class="menu-item" data-page="impressum"><span class="menu-item-label">Impressum</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item" data-page="datenschutz"><span class="menu-item-label">Datenschutz</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item" data-page="agb"><span class="menu-item-label">AGB</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item" data-page="lizenz"><span class="menu-item-label">Lizenzinformationen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><button class="menu-item" data-page="oss"><span class="menu-item-label">Open-Source-Lizenzen</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button></div></div>
+      </div>
+    
+      <div class="menu-cat " data-cat="ueber">
+        <button class="menu-cat-head" data-cattoggle="ueber">
+          <span class="menu-cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px; flex-shrink:0;"><circle cx="12" cy="12" r="9"></circle><line x1="12" y1="11" x2="12" y2="16"></line><circle cx="12" cy="7.7" r=".6" fill="currentColor" stroke="none"></circle></svg></span>
+          <span class="menu-cat-title">Über die App</span>
+          <svg class="menu-cat-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <div class="menu-cat-items"><div class="menu-cat-inner"><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Versionsnummer</span><span class="menu-item-value" data-compute="appVersionInfo">v0.1</span></div><button class="menu-item" data-page="changelog"><span class="menu-item-label">Changelog</span><svg class="menu-item-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"></path></svg></button><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Entwickler</span><span class="menu-item-value">Erstellt mit Claude</span></div><div class="menu-item" style="cursor:default;"><span class="menu-item-label">Verwendete Technologien</span><span class="menu-item-value">HTML · CSS · JavaScript</span></div></div></div>
+      </div>
+    </div>
     </div>
   </div>
 
   <div class="menu-overlay" id="menu-sub-overlay">
     <div class="menu-drawer" id="menu-sub-drawer">
       <div class="menu-drawer-header">
-        <div class="menu-drawer-title" id="menu-sub-title" style="text-align:left;">Details</div>
+        <div class="menu-drawer-title" id="menu-sub-title" style="text-align:left;">Update hochladen</div>
         <button class="close-x" id="menu-sub-back" title="Schließen">✕</button>
       </div>
-      <div class="menu-drawer-body" id="menu-sub-body"></div>
+      <div class="menu-drawer-body" id="menu-sub-body"><div class="menu-static-page">
+        <div style="font-size:12px; color:var(--text-soft); margin-bottom:14px; line-height:1.5;">
+          Lädt genau die Version, die du gerade in diesem Browser-Tab siehst, direkt in dein GitHub-Repo hoch. GitHub Pages baut die Seite danach automatisch neu (meist unter einer Minute).
+        </div>
+        <div style="font-family:'IBM Plex Mono', monospace; font-size:12px; font-weight:600; color:var(--text); background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:10px; padding:10px 12px; margin-bottom:10px;">
+          Sipe99/asdfasdf · main · index.html
+        </div>
+        <a href="https://Sipe99.github.io/asdfasdf/" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:6px; font-size:11.5px; color:var(--baustellenorange); font-weight:600; text-decoration:none; margin-bottom:20px;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><path d="M15 3h6v6"></path><path d="M10 14L21 3"></path></svg>
+          Live-Seite öffnen (Sipe99.github.io/asdfasdf)
+        </a>
+
+        <label class="field-label">1 · Token besorgen</label>
+        
+          <a href="https://github.com/settings/personal-access-tokens/16947491" target="_blank" rel="noopener" class="primary-btn liquid-fx" style="display:block; text-align:center; text-decoration:none; margin-top:0; margin-bottom:8px;">
+            Bestehendes Token erneuern
+          </a>
+          <div style="font-size:11px; color:var(--text-soft); margin-bottom:10px; line-height:1.6;">
+            Öffnet deine gemerkte Token-Seite – dort auf <b style="color:var(--text);">„Regenerate token"</b> klicken, den neuen Wert kopieren und unten einfügen. Schneller als ein komplett neues Token zu erstellen.
+          </div>
+          <button type="button" id="deploy-token-url-forget-btn" style="background:none; border:none; color:var(--text-soft); font-size:10.5px; text-decoration:underline; cursor:pointer; padding:0; margin-bottom:16px;">Andere Token-Seite verwenden</button>
+        
+
+        <label class="field-label">2 · Token einfügen</label>
+        <input type="password" id="deploy-token-input" placeholder="github_pat_…" value="" style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-size:16px; margin-bottom:8px;">
+        <div class="row-between" style="margin-bottom:20px;">
+          <div id="deploy-token-status" style="font-size:10.5px; line-height:1.6;"><span style="color:var(--baustellenorange); font-weight:700;">✓ Token gespeichert</span> – du musst es hier nicht mehr eingeben.</div>
+          <div style="display:flex; gap:12px; flex-shrink:0;">
+            <button type="button" id="deploy-token-paste-btn" style="background:none; border:none; color:var(--baustellenorange); font-size:10.5px; font-weight:600; cursor:pointer; padding:0;">Aus Zwischenablage einfügen</button>
+            <button type="button" id="deploy-token-clear-btn" style="background: none; border: medium; color: var(--cat-krank); font-size: 10.5px; font-weight: 600; cursor: pointer; padding: 0px; display: inline;">Token löschen</button>
+          </div>
+        </div>
+
+        <label class="field-label">3 · Hochladen</label>
+        <button class="primary-btn liquid-fx liquid-tap" id="deploy-now-btn" style="margin-top:0;" disabled="">Update hochladen</button>
+        <div id="deploy-status-line" style="font-size:11.5px; color:var(--text-soft); margin-top:12px; margin-bottom:16px; line-height:1.6;">Aktuelle Version wird geprüft…</div>
+
+        <label class="field-label">4 · Andere Datei</label>
+        <button class="secondary-btn" id="deploy-other-toggle-btn" style="margin-top:0; margin-bottom:10px;">Andere Datei hochladen</button>
+        <div id="deploy-other-section" style="display:none;">
+          <input type="file" id="deploy-other-file-input" style="display:none;">
+          <button class="secondary-btn" id="deploy-other-pick-btn" style="margin-top:0; margin-bottom:8px;">Datei auswählen…</button>
+          <div id="deploy-other-filename-preview" style="font-size:10.5px; color:var(--text-soft); margin-bottom:8px;"></div>
+          <label class="field-label" style="margin-top:0;">Name/Pfad im Repo</label>
+          <input type="text" id="deploy-other-path-input" placeholder="z.B. sw.js" style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-size:16px; margin-bottom:10px;">
+          <button class="primary-btn" id="deploy-other-upload-btn" style="margin-top:0;">Diese Datei hochladen</button>
+          <div id="deploy-other-status" style="font-size:11.5px; color:var(--text-soft); margin-top:10px; margin-bottom:8px; line-height:1.6;"></div>
+        </div>
+
+        <div style="font-size:10.5px; color:var(--text-soft); padding:10px 12px; background:var(--glass-bg); border-radius:12px; border:1px dashed var(--glass-border); line-height:1.6; margin-top:8px;">
+          Offizielle GitHub-Doku: <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens" target="_blank" rel="noopener" style="color:var(--baustellenorange);">docs.github.com – Personal Access Tokens</a>
+        </div>
+      </div></div>
     </div>
   </div>
 
   <button class="fab" id="fab-add" title="Neuer Eintrag">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
   </button>
 
-  <nav class="tabbar" id="tabbar"></nav>
+  <nav class="tabbar" id="tabbar" data-lens-ready="1"><div class="tab-active-pill" style="width: 86.3333px; transform: translateX(438.667px); opacity: 1; filter: blur(0px);"></div>
+      <button class="tab" data-tab="dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"></path><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"></path></svg>
+        <span class="tlabel">Start</span>
+      </button>
+    
+      <button class="tab " data-tab="woche">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9M10 19V5M16 19v-7M4 19h16"></path></svg>
+        <span class="tlabel">Woche</span>
+      </button>
+    
+      <button class="tab " data-tab="monat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V13M9 19V6M14 19v-9M19 19V9"></path></svg>
+        <span class="tlabel">Monat</span>
+      </button>
+    
+      <button class="tab " data-tab="kalender">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>
+        <span class="tlabel">Kalender</span>
+      </button>
+    
+      <button class="tab " data-tab="suche">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path></svg>
+        <span class="tlabel">Suche</span>
+      </button>
+    
+      <button class="tab liquid-fx active" data-tab="fitness">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5l11 11M4 9l-1.5-1.5M20 15l1.5 1.5M8 4L6 6M18 20l-2-2M4.5 12.5l-2 2a2 2 0 0 0 3 3l2-2M19.5 11.5l2-2a2 2 0 0 0-3-3l-2 2"></path></svg>
+        <span class="tlabel">Fitness</span>
+      </button>
+    <div class="tab-lens" style=""></div></nav>
   <div class="sheet-overlay" id="sheet-overlay">
     <div class="sheet">
       <div class="sheet-handle"></div>
@@ -1538,9 +2070,9 @@
   <div class="warning-overlay" id="warning-overlay">
     <div class="warning-box">
       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#B84A3E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-        <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-        <line x1="12" y1="9" x2="12" y2="13"/>
-        <line x1="12" y1="17" x2="12.01" y2="17"/>
+        <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+        <line x1="12" y1="9" x2="12" y2="13"></line>
+        <line x1="12" y1="17" x2="12.01" y2="17"></line>
       </svg>
       <div class="warning-text" id="warning-text"></div>
       <button class="primary-btn" id="warning-ok" style="margin-top:16px;">Verstanden</button>
@@ -1560,7 +2092,7 @@
     <div class="warning-box">
       <div class="warning-text" style="margin-bottom:6px;">Wo wohnst du?</div>
       <div style="font-size:11.5px; color:var(--text-soft); margin-bottom:12px; line-height:1.5;">Wird als „Zuhause" für deine Routen verwendet – Postleitzahl wird automatisch erkannt.</div>
-      <input type="text" id="home-setup-input" value="Lienz" placeholder="z.B. Lienz" style="width:100%; padding:11px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-size:16px; margin-bottom:6px;" />
+      <input type="text" id="home-setup-input" value="Lienz" placeholder="z.B. Lienz" style="width:100%; padding:11px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-size:16px; margin-bottom:6px;">
       <div class="city-box-plz" id="home-setup-preview" style="margin-bottom:12px;">–</div>
       <button class="primary-btn" id="home-setup-save" style="margin-top:0;">Speichern</button>
       <button class="secondary-btn" id="home-setup-cancel" style="margin-top:8px;">Abbrechen</button>
@@ -1578,10 +2110,10 @@
   <div class="warning-overlay" id="vacation-range-overlay">
     <div class="warning-box">
       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#3E7CBF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>
+        <rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path>
       </svg>
       <div class="warning-text">Bis wann hast du Urlaub?</div>
-      <input type="date" id="vacation-range-end" style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-family:'IBM Plex Mono'; font-weight:600; margin-top:12px;" />
+      <input type="date" id="vacation-range-end" style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-bg); color:var(--text); font-family:'IBM Plex Mono'; font-weight:600; margin-top:12px;">
       <div style="font-size:11px; color:var(--text-soft); margin-top:8px; line-height:1.5;">Samstag und Sonntag werden automatisch übersprungen.</div>
       <div style="display:flex; gap:10px; margin-top:16px;">
         <button class="secondary-btn" id="vacation-range-cancel" style="margin-top:0;">Abbrechen</button>
@@ -1593,7 +2125,7 @@
   <div class="warning-overlay" id="confirm-overlay">
     <div class="warning-box">
       <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#B84A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/>
+        <path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line>
       </svg>
       <div class="warning-text" id="confirm-text"></div>
       <div style="display:flex; gap:10px; margin-top:16px;">
@@ -1911,7 +2443,7 @@ function json(obj, status) {
   const SYNC_CREDENTIALS_KEY = "stundennachweis_sync_login"; // NUR Login-Infos, keine Arbeitsdaten
   function saveSyncCredentials(){
     try{
-      const data = { syncMode, dropboxToken, googleToken, googleRefreshToken, googleClientIdUsed, onedriveToken };
+      const data = { syncMode, dropboxToken, dropboxRefreshToken, googleToken, googleRefreshToken, googleClientIdUsed, onedriveToken };
       localStorage.setItem(SYNC_CREDENTIALS_KEY, JSON.stringify(data));
       if(syncMode && syncMode !== "local-fs"){ APP_SETTINGS.lastSyncProvider = syncMode; saveAppSettings(); }
     }catch(e){ console.error("Login konnte nicht gemerkt werden", e); }
@@ -1980,7 +2512,7 @@ function json(obj, status) {
       // Erst still mit gespeicherten Zugangsdaten versuchen (schnellster Weg)
       if(loadSyncCredentials() && syncMode===mode){
         try{
-          if(mode==="dropbox" && dropboxToken){ await dropboxSyncNow(); closePopup(); return; }
+          if(mode==="dropbox" && (dropboxToken || dropboxRefreshToken)){ await dropboxSyncNow(); closePopup(); return; }
           if(mode==="google" && googleToken){ await googleSyncNow(); closePopup(); return; }
           if(mode==="onedrive" && onedriveToken){ await onedriveSyncNow(); closePopup(); return; }
         }catch(e){ console.error("Stille Wiederverbindung fehlgeschlagen", e); }
@@ -2038,17 +2570,18 @@ function json(obj, status) {
       if(!raw) return false;
       const data = JSON.parse(raw);
       if(data.dropboxToken){ dropboxToken = data.dropboxToken; }
+      if(data.dropboxRefreshToken){ dropboxRefreshToken = data.dropboxRefreshToken; }
       if(data.googleToken){ googleToken = data.googleToken; }
       if(data.googleRefreshToken){ googleRefreshToken = data.googleRefreshToken; }
       if(data.googleClientIdUsed){ googleClientIdUsed = data.googleClientIdUsed; }
       if(data.onedriveToken){ onedriveToken = data.onedriveToken; }
       if(data.syncMode){ syncMode = data.syncMode; }
-      return !!(dropboxToken || googleToken || onedriveToken);
+      return !!(dropboxToken || dropboxRefreshToken || googleToken || onedriveToken);
     }catch(e){ return false; }
   }
   function clearSyncCredentials(){
     try{ localStorage.removeItem(SYNC_CREDENTIALS_KEY); }catch(e){}
-    dropboxToken = null; googleToken = null; googleRefreshToken = null; googleClientIdUsed = null; onedriveToken = null; syncMode = null; fileHandle = null;
+    dropboxToken = null; dropboxRefreshToken = null; googleToken = null; googleRefreshToken = null; googleClientIdUsed = null; onedriveToken = null; syncMode = null; fileHandle = null;
     updateSyncStatusUI();
   }
   // Trag hier EINMALIG deinen Dropbox "App key" ein (kein Geheimnis, darf öffentlich im Code stehen).
@@ -2061,7 +2594,8 @@ function json(obj, status) {
   const ONEDRIVE_CLIENT_ID_FIXED = "";
   let onedriveToken = null;
   let dropboxAppKey = null;    // Dropbox "App Key" – ist ein öffentlicher Client-Bezeichner, kein Geheimnis
-  let dropboxToken = null;     // nur im Arbeitsspeicher – wird nie gespeichert
+  let dropboxToken = null;     // kurzlebiger Access-Token (im Arbeitsspeicher)
+  let dropboxRefreshToken = null; // dauerhafter Refresh-Token – ermöglicht automatisches Wiederverbinden
   let lastSyncTime = null;     // ISO-Zeitstempel der letzten erfolgreichen Synchronisierung
   let hasUnsavedChanges = false;
   const FS_ACCESS_SUPPORTED = typeof window.showOpenFilePicker === "function";
@@ -2156,8 +2690,9 @@ function json(obj, status) {
     persistDebounceTimer = setTimeout(async ()=>{
       if(syncMode==="local-fs" && fileHandle){
         await writeDataToHandle();
-      }else if(syncMode==="dropbox" && dropboxToken){
-        try{ await dropboxSaveNew(); }catch(e){ console.error(e); }
+      }else if(syncMode==="dropbox" && (dropboxToken || dropboxRefreshToken)){
+        try{ if(!dropboxToken) await refreshDropboxToken(); await dropboxSaveNew(); }
+        catch(e){ if(String(e&&e.message).includes("401") && await refreshDropboxToken()){ try{ await dropboxSaveNew(); }catch(e2){ console.error(e2); } } else console.error(e); }
       }else if(syncMode==="google" && googleToken){
         try{ await googleSaveNew(); }catch(e){ console.error(e); }
       }else if(syncMode==="onedrive" && onedriveToken){
@@ -2238,7 +2773,7 @@ function json(obj, status) {
     if(loadSyncCredentials()){
       showToast("Prüfe Cloud-Verbindung…");
       try{
-        if(syncMode==="dropbox" && dropboxToken){ await dropboxSyncNow(); return; }
+        if(syncMode==="dropbox" && (dropboxToken || dropboxRefreshToken)){ await dropboxSyncNow(); return; }
         if(syncMode==="google" && googleToken){ await googleSyncNow(); return; }
         if(syncMode==="onedrive" && onedriveToken){ await onedriveSyncNow(); return; }
       }catch(e){ console.error("Stille Wiederverbindung fehlgeschlagen", e); }
@@ -2296,7 +2831,18 @@ function json(obj, status) {
       throw new Error("Hochladen fehlgeschlagen (" + putRes.status + "): " + (errData.message || "unbekannter Fehler"));
     }
   }
-  function dropboxAuthorize(appKey){
+  // PKCE-Hilfen für den dauerhaften Dropbox-Login (liefert einen Refresh-Token)
+  function b64url(buf){
+    return btoa(String.fromCharCode(...new Uint8Array(buf))).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
+  }
+  async function makePkcePair(){
+    const verifier = b64url(crypto.getRandomValues(new Uint8Array(48)));
+    const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(verifier));
+    return { verifier, challenge: b64url(digest) };
+  }
+  const DROPBOX_VERIFIER_KEY = "stundennachweis_dbx_verifier";
+
+  async function dropboxAuthorize(appKey){
     appKey = (appKey || "").trim();
     if(!appKey){ showToast("Bitte zuerst den Dropbox App-Key eingeben"); return; }
     if(appKey.length > 25 || /\s/.test(appKey)){
@@ -2305,20 +2851,86 @@ function json(obj, status) {
     }
     dropboxAppKey = appKey;
     const redirectUri = currentUrlWithoutHash();
-    const url = `https://www.dropbox.com/oauth2/authorize?client_id=${encodeURIComponent(appKey)}&response_type=token&redirect_uri=${encodeURIComponent(redirectUri)}`;
-    window.location.href = url; // Weiterleitung zu Dropbox-Login, kommt per Redirect zurück
+    const { verifier, challenge } = await makePkcePair();
+    try{
+      localStorage.setItem(DROPBOX_VERIFIER_KEY, verifier);
+      localStorage.setItem(DROPBOX_VERIFIER_KEY + "_uri", redirectUri); // exakte Redirect-URI merken
+    }catch(e){}
+    // token_access_type=offline -> wir bekommen zusätzlich einen Refresh-Token für dauerhaftes Anmelden
+    const url = `https://www.dropbox.com/oauth2/authorize?client_id=${encodeURIComponent(appKey)}`
+      + `&response_type=code&token_access_type=offline`
+      + `&code_challenge=${challenge}&code_challenge_method=S256`
+      + `&redirect_uri=${encodeURIComponent(redirectUri)}`;
+    window.location.href = url;
   }
-  function checkDropboxRedirect(){
-    if(!window.location.hash) return false;
-    const params = new URLSearchParams(window.location.hash.slice(1));
-    const token = params.get("access_token");
-    if(token){
-      dropboxToken = token;
-      syncMode = "dropbox";
-      saveSyncCredentials();
-      history.replaceState(null, "", currentUrlWithoutHash()); // Token aus der Adresszeile entfernen
-      return true;
+
+  async function checkDropboxRedirect(){
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+    if(!code) return false;
+    const verifier = (()=>{ try{ return localStorage.getItem(DROPBOX_VERIFIER_KEY) || ""; }catch(e){ return ""; } })();
+    if(!verifier){
+      showToast("Anmeldung unvollständig – bitte erneut auf „Mit Dropbox anmelden“ tippen.");
+      history.replaceState(null, "", currentUrlWithoutHash());
+      return false;
     }
+    const appKey = DROPBOX_APP_KEY_FIXED || dropboxAppKey;
+    const savedUri = (()=>{ try{ return localStorage.getItem(DROPBOX_VERIFIER_KEY + "_uri") || currentUrlWithoutHash(); }catch(e){ return currentUrlWithoutHash(); } })();
+    try{
+      const res = await fetch("https://api.dropboxapi.com/oauth2/token", {
+        method:"POST",
+        headers:{ "Content-Type":"application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          code, grant_type:"authorization_code", client_id:appKey,
+          code_verifier:verifier, redirect_uri: savedUri
+        })
+      });
+      const data = await res.json();
+      if(data.access_token){
+        dropboxToken = data.access_token;
+        syncMode = "dropbox";
+        if(data.refresh_token){
+          dropboxRefreshToken = data.refresh_token;
+        }else{
+          // Kein Refresh-Token -> dauerhaftes Anmelden nicht möglich (App-Berechtigung fehlt)
+          showToast("Angemeldet, aber ohne dauerhaften Zugang. Prüfe in den Dropbox-App-Einstellungen, dass „offline access“ erlaubt ist.");
+        }
+        saveSyncCredentials();
+        // Kontrolle: ist der Refresh-Token wirklich gespeichert?
+        try{
+          const raw = JSON.parse(localStorage.getItem(SYNC_CREDENTIALS_KEY)||"{}");
+          if(data.refresh_token && !raw.dropboxRefreshToken){
+            showToast("Achtung: dauerhafter Zugang konnte nicht gespeichert werden (Speicher blockiert?).");
+          }
+        }catch(e){}
+        try{ localStorage.removeItem(DROPBOX_VERIFIER_KEY); localStorage.removeItem(DROPBOX_VERIFIER_KEY + "_uri"); }catch(e){}
+        history.replaceState(null, "", currentUrlWithoutHash());
+        return true;
+      }
+      // Dropbox hat einen Fehler zurückgegeben -> sichtbar machen
+      const errTxt = data.error_description || data.error || "unbekannter Fehler";
+      showToast("Dropbox-Anmeldung fehlgeschlagen: " + errTxt);
+      history.replaceState(null, "", currentUrlWithoutHash());
+    }catch(e){
+      console.error("Dropbox-Token-Tausch fehlgeschlagen", e);
+      showToast("Anmeldung fehlgeschlagen (Netzwerk). Bitte erneut versuchen.");
+    }
+    return false;
+  }
+
+  // Access-Token mit dem Refresh-Token erneuern (macht das dauerhafte Anmelden möglich)
+  async function refreshDropboxToken(){
+    if(!dropboxRefreshToken) return false;
+    const appKey = DROPBOX_APP_KEY_FIXED || dropboxAppKey;
+    try{
+      const res = await fetch("https://api.dropboxapi.com/oauth2/token", {
+        method:"POST",
+        headers:{ "Content-Type":"application/x-www-form-urlencoded" },
+        body: new URLSearchParams({ grant_type:"refresh_token", refresh_token:dropboxRefreshToken, client_id:appKey })
+      });
+      const data = await res.json();
+      if(data.access_token){ dropboxToken = data.access_token; saveSyncCredentials(); return true; }
+    }catch(e){ console.error("Dropbox-Token-Erneuerung fehlgeschlagen", e); }
     return false;
   }
   async function dropboxListSaves(){
@@ -2367,6 +2979,8 @@ function json(obj, status) {
   }
   async function dropboxSyncNow(){
     try{
+      // Access-Token evtl. abgelaufen -> mit dem Refresh-Token still erneuern
+      if(!dropboxToken && dropboxRefreshToken){ await refreshDropboxToken(); }
       if(!lastSyncTime){ await dropboxLoadLatest(); } // nur beim allerersten Sync der Sitzung den bisherigen Online-Stand übernehmen
       await dropboxSaveNew();
       syncMode = "dropbox";
@@ -2375,6 +2989,15 @@ function json(obj, status) {
       render();
       showToast("Mit Dropbox synchronisiert");
     }catch(e){
+      // Bei abgelaufenem Token (401): einmal automatisch erneuern und erneut versuchen
+      if(String(e && e.message).includes("401") && dropboxRefreshToken && await refreshDropboxToken()){
+        try{
+          await dropboxSaveNew();
+          syncMode = "dropbox"; saveSyncCredentials(); updateSyncStatusUI(); render();
+          showToast("Mit Dropbox synchronisiert");
+          return;
+        }catch(e2){ console.error(e2); }
+      }
       console.error(e);
       const msg = (e && e.message) ? e.message : "Unbekannter Fehler";
       showToast("Dropbox-Sync fehlgeschlagen: " + msg);
@@ -2935,7 +3558,9 @@ function json(obj, status) {
     return !!(sched && sched.enabled && sched.days[weekdayIdx]);
   }
   async function toggleTheme(){
-    document.body.classList.toggle("dark");
+    const dark = document.body.classList.toggle("dark");
+    APP_SETTINGS.themeMode = dark ? "Dunkel" : "Hell";
+    await saveAppSettings();  // in die Cloud schreiben, damit der Modus geräteübergreifend erhalten bleibt
   }
 
   function seedDemoData(){
@@ -7333,7 +7958,7 @@ function json(obj, status) {
   function ensureDropboxTokenQuiet(){
     if(dropboxToken) return true;
     try{
-      if(loadSyncCredentials() && syncMode==="dropbox" && dropboxToken) return true;
+      if(loadSyncCredentials() && syncMode==="dropbox" && (dropboxToken || dropboxRefreshToken)) return true;
     }catch(e){}
     return false;
   }
@@ -9001,7 +9626,7 @@ function json(obj, status) {
     restoreActiveReminders();
     const tabMap = { "Start":"dashboard", "Kalender":"kalender", "Woche":"woche", "Monat":"monat", "Suche":"suche", "Fitness":"fitness" };
     activeTab = tabMap[APP_SETTINGS.defaultTab] || "dashboard";
-    if(checkDropboxRedirect()){
+    if(await checkDropboxRedirect()){
       await dropboxSyncNow();
       showToast("Mit Dropbox verbunden");
     }else if(await checkGoogleRedirect()){
@@ -9019,7 +9644,8 @@ function json(obj, status) {
       let ok = false;
       if(loadSyncCredentials()){
         try{
-          if(syncMode==="dropbox" && dropboxToken){ await dropboxSyncNow(); ok = true; }
+          // Dropbox: mit Refresh-Token automatisch verbinden (Access-Token ist evtl. abgelaufen)
+          if(syncMode==="dropbox" && (dropboxToken || dropboxRefreshToken)){ await dropboxSyncNow(); ok = true; }
           else if(syncMode==="google" && googleToken){ await googleSyncNow(); ok = true; }
           else if(syncMode==="onedrive" && onedriveToken){ await onedriveSyncNow(); ok = true; }
         }catch(e){ console.error("Automatische Wiederverbindung fehlgeschlagen", e); }
@@ -9048,5 +9674,6 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-</body>
-</html>
+
+
+</body></html>
